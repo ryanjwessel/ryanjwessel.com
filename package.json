@@ -1,0 +1,40 @@
+{
+  "name": "react-webpack-babel-scaffolding",
+  "version": "1.0.0",
+  "description": "Scaffolding for any project to pick up off of using React, Webpack, and Babel",
+  "dependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^3.11.0",
+    "webpack-merge": "^4.1.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rynjwssl/react-webpack-babel-scaffolding.git"
+  },
+  "author": "Ryan Wessel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rynjwssl/react-webpack-babel-scaffolding/issues"
+  },
+  "homepage": "https://github.com/rynjwssl/react-webpack-babel-scaffolding#readme"
+}
