@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 // Styles
 import './Nav.scss';
@@ -8,24 +8,24 @@ class Nav extends React.Component {
   render() {
     return (
 		<nav>
-			<div className="link-wrapper">
-				<a href="">HOME</a>
+			<div className={`link-wrapper ${this.props.location.pathname === '/' ? 'active-page' : ''}`}>
+				<Link to="/">HOME</Link>
 			</div>
-			<div className="link-wrapper">
-				<a href="">TECH</a>
+			<div className={`link-wrapper ${this.props.location.pathname === '/tech' ? 'active-page' : ''}`}>
+				<Link to="/tech">TECH</Link>
 			</div>
-			<div className="link-wrapper">
-				<a href="">WORK</a>
+			<div className={`link-wrapper ${this.props.location.pathname === '/work' ? 'active-page' : ''}`}>
+				<Link to="/work">WORK</Link>
 			</div>
-			<div className="link-wrapper">
-				<a href="">ABOUT</a>
+			<div className={`link-wrapper ${this.props.location.pathname === '/about' ? 'active-page' : ''}`}>
+				<Link to="/about">ABOUT</Link>
 			</div>
-			<div className="link-wrapper">
-				<a href="">CONTACT</a>
+			<div className={`link-wrapper ${this.props.location.pathname === '/contact' ? 'active-page' : ''}`}>
+				<Link to="/contact">CONTACT</Link>
 			</div>
 		</nav>
     );
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

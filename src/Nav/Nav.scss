@@ -27,6 +27,12 @@ nav {
 				color: #fff;
 			}
 		}
+
+		&.active-page {
+			a {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	@media only screen and (min-width: $tablet-min) {
@@ -47,6 +53,16 @@ nav {
 
 			a {
 				font-size: 2rem;
+				width: 100%;
+				text-align: right;
+			}
+
+			&.active-page {
+				background-color: $dk-grey;
+				
+				a {
+					text-decoration: none;
+				}
 			}
 		}
 	}

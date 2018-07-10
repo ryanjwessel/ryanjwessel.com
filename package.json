@@ -4,7 +4,8 @@
   "description": "Scaffolding for any project to pick up off of using React, Webpack, and Babel",
   "dependencies": {
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -24,7 +25,7 @@
     "webpack-merge": "^4.1.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack-dev-server --open --hot --config webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
   },
   "repository": {
