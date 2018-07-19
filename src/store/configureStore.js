@@ -7,10 +7,14 @@ import { loadState, saveState } from './localStorage';
 const configureStore = () => {
 	const persistedState = loadState();
 
+	const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 	const store = createStore(
 		rootReducer,
 		persistedState,
-		applyMiddleware(thunk)
+		composeEnhancers(
+			applyMiddleware(thunk)
+		)
 	);
 
 	store.subscribe(throttle(() => {
