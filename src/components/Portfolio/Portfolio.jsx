@@ -35,16 +35,12 @@ class Portfolio extends Component {
 		dispatch(fetchPortfolioItemsIfNeeded(location.pathname));
 	}
 
-	randomizeObjects() {
-		
-	}
-
 	render() {
-		const { items, selectedPortfolioType } = this.props;
+		const { items, location } = this.props;
 		return (
 			<div className="row">
 				<div className="col-xs-12 center-xs">
-					<h1>{selectedPortfolioType}</h1>
+					<h1>{location.pathname}</h1>
 				</div>
 				<div className="col-xs-12">
 					<PortfolioItems items={items} />
