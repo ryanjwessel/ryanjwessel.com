@@ -73,6 +73,7 @@ Portfolio.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	location: PropTypes.object.isRequired,
 	items: PropTypes.object.isRequired,
+	selectedPortfolioType: PropTypes.string.isRequired,
 };
 
 PortfolioItems.propTypes = {
