@@ -1,9 +1,9 @@
 {
-  "name": "react-webpack-babel-scaffolding",
+  "name": "ryan-wessel-dot-com",
   "version": "1.0.0",
-  "description": "Scaffolding for any project to pick up off of using React, Webpack, and Babel",
+  "description": "The personal website of Ryan Wessel found at ryanwessel.com",
   "dependencies": {
-    "hoek": "^5.0.3",
+    "firebase": "^5.2.0",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.2",
     "react": "^16.3.1",
@@ -41,12 +41,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rynjwssl/react-webpack-babel-scaffolding.git"
+    "url": "git+https://github.com/rynjwssl/ryan-wessel-dot-com.git"
   },
   "author": "Ryan Wessel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rynjwssl/react-webpack-babel-scaffolding/issues"
+    "url": "https://github.com/rynjwssl/ryan-wessel-dot-com/issues"
   },
-  "homepage": "https://github.com/rynjwssl/react-webpack-babel-scaffolding#readme"
+  "homepage": "https://github.com/rynjwssl/ryan-wessel-dot-com#readme"
 }
