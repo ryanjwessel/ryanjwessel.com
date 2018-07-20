@@ -27,9 +27,10 @@ render(
 					</div>
 				</div>
 				<Route exact path="/" render={() => <Profile page="home" /> } />
-				<Route path="/tech" render={() => <Portfolio page="tech" /> } />
-				<Route path="/work" component={Portfolio} />
 				<Route path="/about" render={() => <Profile page="about" /> } />
+				{["/tech", "/work"].map((path, index) => 
+					<Route path={path} component={Portfolio} key={index} />
+				)}
 				<Route path="/contact" component={Contact} />
 			</div>
 		</Provider>
