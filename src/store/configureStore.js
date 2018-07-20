@@ -19,7 +19,8 @@ const configureStore = () => {
 
 	store.subscribe(throttle(() => {
 		saveState({
-			state: store.getState(),
+			itemsByPortfolioType: store.getState().itemsByPortfolioType,
+			selectedPortfolioType: store.getState().selectedPortfolioType
 		});
 	}, 1000));
 
