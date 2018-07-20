@@ -1,53 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-	// selectPortfolioType,
 	fetchPortfolioItemsIfNeeded,
-	// invalidatePortfolioType
-  } from '../../actions'
-// import { VisibilityFilters } from '../actions';
+	selectPortfolioType
+} from '../../actions';
 
 // Styles
-// import './Portfolio.scss';
+import './Portfolio.scss';
 
-// function Portfolio(props) {
-// 	return (
-// 		<div className="row portfolio">
-// 			<div className="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 center-xs">
-// 				{ (props.page === 'tech') ? (
-// 					<p>coming soon...</p>
-// 				) : (
-// 					<p>coming soon...</p>
-// 				)}
-// 			</div>
-// 		</div>
-// 	);
-// }
-
-// export default Portfolio;
-
-
-
-// const getVisibleTodos = (todos, filter) => {
-//   switch (filter) {
-//     case VisibilityFilters.SHOW_ALL:
-//       return todos
-//     case VisibilityFilters.SHOW_COMPLETED:
-//       return todos.filter(t => t.completed)
-//     case VisibilityFilters.SHOW_ACTIVE:
-//       return todos.filter(t => !t.completed)
-//     default:
-//       throw new Error('Unknown filter: ' + filter)
-//   }
-// };
-
-// const mapStateToProps = state => ({
-// 	state
-// });
-
-// export default connect(
-// 	mapStateToProps
-// )(Portfolio);
+const PortfolioItems = props => {
+	return (
+		<div className="row portfolio-items">
+			{Object.keys(props.items).map(item => {
+				return (
+					<div key={item} className="col-xs-12 item-wrapper">
+						<img src={props.items[item].img} alt={`${item}`} />
+					</div>
+				);
+			})}
+		</div>
+	);
+};
 
 class Portfolio extends Component {
 	constructor(props) {
@@ -57,27 +31,43 @@ class Portfolio extends Component {
 	componentDidMount() {
 		const { dispatch, location } = this.props;
 
+		dispatch(selectPortfolioType(location.pathname));
 		dispatch(fetchPortfolioItemsIfNeeded(location.pathname));
 	}
 
+	randomizeObjects() {
+		
+	}
+
 	render() {
-		return (
-			<PortfolioItems />
-		);
+		const { items } = this.props;
+		return <PortfolioItems items={items} />;
 	}
 }
 
-const PortfolioItems = (items) => {
-	return (
-		<ul>1</ul>
-	)
+function mapStateToProps(state) {
+	const { selectedPortfolioType, itemsByPortfolioType } = state;
+	const { isFetching, lastUpdated, items } = itemsByPortfolioType[selectedPortfolioType] || {
+		isFetching: true,
+		items: []
+	};
+
+	return {
+		selectedPortfolioType,
+		items,
+		isFetching,
+		lastUpdated
+	};
+}
+
+Portfolio.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	location: PropTypes.object.isRequired,
+	items: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-	state
-});
+PortfolioItems.propTypes = {
+	items: PropTypes.object.isRequired,
+};
 
-export default connect(
-	mapStateToProps
-)(Portfolio);
-// export default Portfolio;
+export default connect(mapStateToProps)(Portfolio);
