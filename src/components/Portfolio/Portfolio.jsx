@@ -11,10 +11,10 @@ import './Portfolio.scss';
 
 const PortfolioItems = props => {
 	return (
-		<div className="row portfolio-items">
+		<div className="row center-xs portfolio-container">
 			{Object.keys(props.items).map(item => {
 				return (
-					<div key={item} className="col-xs-12 item-wrapper">
+					<div key={item} className="col-xs-12 col-sm-6 col-md-5 item-wrapper">
 						<img src={props.items[item].img} alt={`${item}`} />
 					</div>
 				);
@@ -40,8 +40,17 @@ class Portfolio extends Component {
 	}
 
 	render() {
-		const { items } = this.props;
-		return <PortfolioItems items={items} />;
+		const { items, selectedPortfolioType } = this.props;
+		return (
+			<div className="row">
+				<div className="col-xs-12 center-xs">
+					<h1>{selectedPortfolioType}</h1>
+				</div>
+				<div className="col-xs-12">
+					<PortfolioItems items={items} />
+				</div>
+			</div>
+		);
 	}
 }
 
