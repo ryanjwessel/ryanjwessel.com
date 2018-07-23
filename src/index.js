@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
 
@@ -43,16 +44,30 @@ class RootLogicWrapper extends Component {
 						<h1>ryan wessel</h1>
 					</div>
 				</div>
-				<Route exact path="/" render={() => <Profile page="home" /> } />
-				<Route path="/about" render={() => <Profile page="about" /> } />
-				{['/tech', '/work'].map((path, index) => 
-					<Route path={path} component={Portfolio} key={index} />
-				)}
-				<Route path="/contact" component={Contact} />
+				<Switch>
+					{['/', '/about'].map((path, index) => 
+						<Route exact path={path} component={Profile} key={index} />
+					)}
+					{['/tech', '/work'].map((path, index) => 
+						<Route exact path={path} component={Portfolio} key={index} />
+					)}
+					<Route exact path="/contact" component={Contact} />
+					<Route render={() => (
+						<div className="row">
+							<div className="col-xs-12 center-xs">
+								<h1>404 Error! Sorry, this page could not be found.</h1>
+							</div>
+						</div>
+					)}/>
+				</Switch>
 			</div>
 		);
 	}
 }
+
+RootLogicWrapper.propTypes = {
+	location: PropTypes.object.isRequired,
+};
 
 const RootWrapperWithRouter = withRouter(RootLogicWrapper);
 
