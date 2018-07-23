@@ -8,12 +8,8 @@ import {
 } from '../actions';
 
 const initialState = {
-	selected: {
-
-	},
-	items: {
-
-	}
+	selected: '',
+	items: {},
 };
 
 function selectedPortfolioType(state = initialState.selected, action) {
@@ -28,7 +24,7 @@ function selectedPortfolioType(state = initialState.selected, action) {
 function items(
 	state = {
 		isFetching: false,
-		items: []
+		items: {},
 	},
 	action
 ) {
