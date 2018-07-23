@@ -54,7 +54,7 @@ function mapStateToProps(state) {
 	const { selectedPortfolioType, itemsByPortfolioType } = state;
 	const { isFetching, lastUpdated, items } = itemsByPortfolioType[selectedPortfolioType] || {
 		isFetching: true,
-		items: []
+		items: {}
 	};
 
 	return {
