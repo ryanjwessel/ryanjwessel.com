@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import ReactGA from 'react-ga';
 
 // Components
 import Nav from './components/Nav/Nav';
@@ -16,9 +17,25 @@ import './styles/main.scss';
 import configureStore from './store/configureStore';
 const store = configureStore();
 
-render(
-	<BrowserRouter>
-		<Provider store={store}>
+class RootLogicWrapper extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	componentDidMount() {
+		ReactGA.initialize('UA-122512271-2');
+	}
+
+	componentDidUpdate(prevProps) {
+		const { pathname } = this.props.location;
+
+		if(prevProps.location.pathname !== pathname) {
+			ReactGA.pageview(pathname);
+		}
+	}
+
+	render() {
+		return(
 			<div className="container-fluid">
 				<Nav />
 				<div className="row">
@@ -28,12 +45,22 @@ render(
 				</div>
 				<Route exact path="/" render={() => <Profile page="home" /> } />
 				<Route path="/about" render={() => <Profile page="about" /> } />
-				{["/tech", "/work"].map((path, index) => 
+				{['/tech', '/work'].map((path, index) => 
 					<Route path={path} component={Portfolio} key={index} />
 				)}
 				<Route path="/contact" component={Contact} />
 			</div>
-		</Provider>
+		);
+	}
+}
+
+const RootWrapperWithRouter = withRouter(RootLogicWrapper);
+
+render(
+	<BrowserRouter>
+		<Provider store={store}>
+			<RootWrapperWithRouter />
+		</Provider>	
 	</BrowserRouter>,
-  	document.getElementById('root')
+	document.getElementById('root')
 );
