@@ -5,10 +5,14 @@ import {
 	itemsByPortfolioType,
 	selectedPortfolioType
 } from './portfolio';
+import {
+	userStatus
+} from './users';
 
 const rootReducer = combineReducers({
 	itemsByPortfolioType,
-	selectedPortfolioType
+	selectedPortfolioType,
+	userStatus
 });
 
 export default rootReducer;
