@@ -36,14 +36,20 @@ class Portfolio extends Component {
 	}
 
 	render() {
-		const { items, location } = this.props;
+		const { items, isFetching, location } = this.props;
 		return (
 			<div className="row">
 				<div className="col-xs-12 center-xs">
 					<h1>{location.pathname}</h1>
 				</div>
 				<div className="col-xs-12">
-					<PortfolioItems items={items} />
+					{ items.length === 0 && isFetching ? (
+						<p>Loading...</p>
+					) : (items.length === 0 && !isFetching) ? (
+						<p>Sorry, no items were available.</p>
+					) : (
+						<PortfolioItems items={items} />
+					)}
 				</div>
 			</div>
 		);
@@ -69,6 +75,7 @@ Portfolio.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	location: PropTypes.object.isRequired,
 	items: PropTypes.object.isRequired,
+	isFetching: PropTypes.bool.isRequired,
 	selectedPortfolioType: PropTypes.string.isRequired,
 };
 
