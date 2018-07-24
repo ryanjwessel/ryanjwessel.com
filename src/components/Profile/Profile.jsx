@@ -22,9 +22,10 @@ function Profile(props) {
 			</div>
 			{ props.location.pathname === '/' &&
 				<div className="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 center-xs">
-					<Link to="/tech"><button type="button">MY TECH</button></Link>
+					<p>check out my work</p>
+					<Link to="/tech"><button type="button">technologies</button></Link>
 					<br />
-					<Link to="/work"><button type="button">MY WORK</button></Link>
+					<Link to="/work"><button type="button">projects</button></Link>
 				</div>
 			}
 			{ props.location.pathname === '/about' &&
