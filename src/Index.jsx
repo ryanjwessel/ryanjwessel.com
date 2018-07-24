@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
+import { connect } from 'react-redux';
 
 // Components
 import Nav from './components/Nav/Nav.jsx';
@@ -41,6 +42,11 @@ class RootLogicWrapper extends Component {
 			<div className="container-fluid">
 				<Nav />
 				<div className="row">
+					{ this.props.state.user.loggedIn &&
+						<div className="col-xs-12 center-xs">
+							<Link to='/admin'></Link>
+						</div>
+					}
 					<div className="col-xs-12 center-xs">
 						<h1>ryan wessel</h1>
 					</div>
@@ -53,7 +59,7 @@ class RootLogicWrapper extends Component {
 						<Route exact path={path} component={Portfolio} key={index} />
 					)}
 					<Route exact path="/contact" component={Contact} />
-					<Route exact path="/admin" component={Login} />
+					<Route exact path="/access" component={Login} />
 					<Route component={Error}/>
 				</Switch>
 			</div>
@@ -63,9 +69,16 @@ class RootLogicWrapper extends Component {
 
 RootLogicWrapper.propTypes = {
 	location: PropTypes.object.isRequired,
+	state: PropTypes.object.isRequired,
 };
 
-const RootWrapperWithRouter = withRouter(RootLogicWrapper);
+function mapStateToProps(state) {
+	return {
+		state
+	};
+}
+
+const RootWrapperWithRouter = withRouter(connect(mapStateToProps)(RootLogicWrapper));
 
 const Error = () => {
 	return(
