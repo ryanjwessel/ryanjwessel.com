@@ -7,13 +7,24 @@
 
 	.field-wrapper {
 		margin-bottom: 2rem;
+		
+		input {
+			background: $med-grey;
+			border-color: transparent;
+			color: #FFF;
+			width: 100%;
+			padding: 1rem;
+		}
 	}
 
-	input {
-		background: $med-grey;
-		border-color: transparent;
-		color: #FFF;
-		width: 100%;
-		padding: 1rem;
+	.button-wrapper {
+		margin: 1rem 0;
+
+		button {
+			background-color: $blue;
+			border: none;
+			border-radius: 1rem;
+			padding: 1rem 3rem;
+		}
 	}
 }
