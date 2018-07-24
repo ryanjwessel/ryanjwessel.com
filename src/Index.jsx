@@ -6,11 +6,11 @@ import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
 
 // Components
-import Nav from './components/Nav/Nav';
+import Nav from './components/Nav/Nav.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Portfolio from './components/Portfolio/Portfolio.jsx';
-import Contact from './components/Contact/Contact';
-import Login from './components/Login/Login';
+import Contact from './components/Contact/Contact.jsx';
+import Login from './components/Login/Login.jsx';
 
 // Styles
 import './styles/main.scss';
