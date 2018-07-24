@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
+// This import loads the firebase namespace along with all its type information.
+import firebase from 'firebase/app';
+import config from './config';
 
 // Components
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile.jsx';
 import Portfolio from './components/Portfolio/Portfolio.jsx';
-import Contact from './components/Contact/Contact.jsx';
+import Contact from './components/Contact/Contact';
+import Login from './components/Login/Login';
 
 // Styles
 import './styles/main.scss';
@@ -25,6 +29,7 @@ class RootLogicWrapper extends Component {
 
 	componentDidMount() {
 		ReactGA.initialize('UA-122512271-2');
+		firebase.initializeApp(config);
 	}
 
 	componentDidUpdate(prevProps) {
@@ -52,13 +57,8 @@ class RootLogicWrapper extends Component {
 						<Route exact path={path} component={Portfolio} key={index} />
 					)}
 					<Route exact path="/contact" component={Contact} />
-					<Route render={() => (
-						<div className="row">
-							<div className="col-xs-12 center-xs">
-								<h1>404 Error! Sorry, this page could not be found.</h1>
-							</div>
-						</div>
-					)}/>
+					<Route exact path="/admin" component={Login} />
+					<Route component={Error}/>
 				</Switch>
 			</div>
 		);
@@ -70,6 +70,17 @@ RootLogicWrapper.propTypes = {
 };
 
 const RootWrapperWithRouter = withRouter(RootLogicWrapper);
+
+const Error = () => {
+	return(
+		<div className="row">
+			<div className="col-xs-12 center-xs">
+				<h1>404 Error!</h1>
+				<h1>Sorry, this page could not be found.</h1>
+			</div>
+		</div>
+	);
+};
 
 render(
 	<BrowserRouter>
