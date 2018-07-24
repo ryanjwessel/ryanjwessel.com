@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Styles
 import './Nav.scss';
@@ -25,5 +26,9 @@ function Nav(props) {
 		</nav>
 	);
 }
+
+Nav.propTypes = {
+	location: PropTypes.object.isRequired,
+};
 
 export default withRouter(Nav);
