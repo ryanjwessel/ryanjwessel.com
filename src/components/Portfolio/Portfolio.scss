@@ -1,7 +1,36 @@
+@import '../../styles/config.scss';
+
 .portfolio-container {
-	.item-wrapper img {
-		display: block;
-		width: 100%;
-		padding: 0.5rem 0;
+	.item-wrapper {
+		padding: 0.5rem;
+
+		button {
+			position: relative;
+			border: none;
+			background: transparent;
+			padding: 0;	
+			
+			img {
+				display: block;
+				width: 100%;
+				margin: 0 auto;
+			}
+
+			&:hover {
+				&::after {
+					position: absolute;
+					content: '';
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0, 0, 0, 0.1);
+				}
+			}
+		}
+
+		@media only screen and (min-width: $tablet-min) {
+			padding: 1.5rem;
+		}
 	}
 }
