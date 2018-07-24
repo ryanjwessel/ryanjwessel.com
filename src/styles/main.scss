@@ -16,16 +16,23 @@ body {
 	background-color: #383838;
 	color: #fff;
 }
-
 .container-fluid {
 	margin-bottom: 4.4rem;
 	font-size: 2rem;
 
 	@media only screen and (min-width: $tablet-min) {
-		margin: 0 250px 0 0;
+		margin: 0 25rem 0 0;
+	}
+
+	@media only screen and (min-width: $desktop-min) {
+		margin: 0 30rem 0 0;
 	}
 }
 
 button, a {
 	color: #fff;
+
+	&:hover {
+		cursor: pointer;
+	}
 }

@@ -1,6 +1,7 @@
 @import '../../styles/config.scss';
 
 nav {
+	z-index: 1;
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -17,21 +18,16 @@ nav {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
-		a {
-			font-size: 1.2rem;
-			color: $lt-grey;
-			text-decoration: none;
+		font-size: 1.2rem;
+		color: $lt-grey;
+		text-decoration: none;
 	
-			&:hover {
-				color: #fff;
-			}
+		&:hover {
+			color: #fff;
 		}
 
 		&.active-page {
-			a {
-				text-decoration: underline;
-			}
+			text-decoration: underline;
 		}
 	}
 
@@ -41,7 +37,7 @@ nav {
 		top: 0;
 		flex-flow: column wrap;
 		justify-content: center;
-		width: 250px;
+		width: 25rem;
 		height: 100%;
 		border-top: none;
 		border-left: 1px solid $dk-grey;
@@ -50,20 +46,19 @@ nav {
 			height: 10rem;
 			justify-content: flex-end;
 			padding-right: 50px;
-
-			a {
-				font-size: 2rem;
-				width: 100%;
-				text-align: right;
-			}
+			font-size: 2rem;
+			width: 100%;
+			text-align: right;
 
 			&.active-page {
 				background-color: $dk-grey;
-				
-				a {
-					text-decoration: none;
-				}
+				color: #FFF;
+				text-decoration: none;
 			}
 		}
+	}
+
+	@media only screen and (min-width: $desktop-min) {
+		width: 30rem;
 	}
 }

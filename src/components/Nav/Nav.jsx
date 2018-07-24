@@ -8,21 +8,21 @@ import './Nav.scss';
 function Nav(props) {
 	return (
 		<nav>
-			<div className={`link-wrapper ${props.location.pathname === '/' ? 'active-page' : ''}`}>
-				<Link to="/">HOME</Link>
-			</div>
-			<div className={`link-wrapper ${props.location.pathname === '/tech' ? 'active-page' : ''}`}>
-				<Link to="/tech">TECH</Link>
-			</div>
-			<div className={`link-wrapper ${props.location.pathname === '/work' ? 'active-page' : ''}`}>
-				<Link to="/work">WORK</Link>
-			</div>
-			<div className={`link-wrapper ${props.location.pathname === '/about' ? 'active-page' : ''}`}>
-				<Link to="/about">ABOUT</Link>
-			</div>
-			<div className={`link-wrapper ${props.location.pathname === '/contact' ? 'active-page' : ''}`}>
-				<Link to="/contact">CONTACT</Link>
-			</div>
+			<Link to="/" className={`link-wrapper ${props.location.pathname === '/' ? 'active-page' : ''}`}>
+				HOME
+			</Link>
+			<Link to="/tech" className={`link-wrapper ${props.location.pathname === '/tech' ? 'active-page' : ''}`}>
+				TECH
+			</Link>
+			<Link to="/work" className={`link-wrapper ${props.location.pathname === '/work' ? 'active-page' : ''}`}>
+				WORK
+			</Link>
+			<Link to="/about" className={`link-wrapper ${props.location.pathname === '/about' ? 'active-page' : ''}`}>
+				ABOUT
+			</Link>
+			<Link to="/contact" className={`link-wrapper ${props.location.pathname === '/contact' ? 'active-page' : ''}`}>
+				CONTACT
+			</Link>
 		</nav>
 	);
 }
