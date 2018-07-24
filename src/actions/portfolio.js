@@ -1,5 +1,5 @@
 // This import loads the firebase namespace along with all its type information.
-import firebase from 'firebase/app';
+import fire from '../firebase';
 
 // These imports load individual services into the firebase namespace.
 import 'firebase/database';
@@ -47,7 +47,7 @@ function randomizePortfolioItems(originalObject) {
 function fetchPortfolioItems(portfolioType) {
 	return dispatch => {
 		dispatch(requestPortfolioItems(portfolioType));
-		return firebase.database().ref(portfolioType).once('value').then((returnedItems) => {
+		return fire.database().ref(portfolioType).once('value').then((returnedItems) => {
 			dispatch(receivePortfolioItems(portfolioType, randomizePortfolioItems(returnedItems.val())));
 		});
 	};

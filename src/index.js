@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
-// This import loads the firebase namespace along with all its type information.
-import firebase from 'firebase/app';
-import config from './config';
 
 // Components
 import Nav from './components/Nav/Nav';
@@ -29,7 +26,6 @@ class RootLogicWrapper extends Component {
 
 	componentDidMount() {
 		ReactGA.initialize('UA-122512271-2');
-		firebase.initializeApp(config);
 	}
 
 	componentDidUpdate(prevProps) {
@@ -39,7 +35,7 @@ class RootLogicWrapper extends Component {
 			ReactGA.pageview(pathname);
 		}
 	}
-
+	
 	render() {
 		return(
 			<div className="container-fluid">
