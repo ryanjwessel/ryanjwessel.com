@@ -17,7 +17,10 @@
     },
     "plugins": [
         "react"
-    ],
+	],
+	"globals": {
+		"__dirname": false
+	},
     "rules": {
         "indent": [
             "error",
