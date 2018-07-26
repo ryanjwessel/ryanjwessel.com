@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import {
 	attemptLogin
 } from '../../actions';
@@ -40,42 +41,52 @@ class Login extends Component {
 	}
 
 	render() {
-		return (
-			<div className="row">
-				<div className="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 center-xs" id="login-box">
-					<div className="row field-wrapper">
-						<div className="col-xs-12">
-							<label htmlFor="username">username</label>
-							<input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+		const { user } = this.props;
+		if(!user.loggedIn) {
+			return (
+				<div className="row">
+					<div className="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 center-xs" id="login-box">
+						<div className="row field-wrapper">
+							<div className="col-xs-12">
+								<label htmlFor="username">username</label>
+								<input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+							</div>
 						</div>
-					</div>
-					<div className="row field-wrapper">
-						<div className="col-xs-12">
-							<label htmlFor="password">password</label>
-							<input type="password" name="password" value={this.state.password} onChange={this.handleChange} data-lpignore="true" />
+						<div className="row field-wrapper">
+							<div className="col-xs-12">
+								<label htmlFor="password">password</label>
+								<input type="password" name="password" value={this.state.password} onChange={this.handleChange} data-lpignore="true" />
+							</div>
 						</div>
-					</div>
-					<div className="row button-wrapper">
-						<div className="col-xs-12">
-							<button type="button" onClick={this.attemptLogin}>
-								login
-							</button>
+						<div className="row button-wrapper">
+							<div className="col-xs-12">
+								<button type="button" onClick={this.attemptLogin}>
+									login
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			);
+		}
+
+		return (
+			<Redirect to='/admin' />
 		);
 	}
 }
 
 function mapStateToProps(state) {
+	const { user } = state;
+
 	return {
-		state
+		user
 	};
 }
 
 Login.propTypes = {
 	dispatch: PropTypes.func.isRequired,
+	user: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps)(Login);

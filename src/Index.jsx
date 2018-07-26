@@ -42,14 +42,15 @@ class RootLogicWrapper extends Component {
 			<div className="container-fluid">
 				<Nav />
 				<div className="row">
-					{ this.props.state.user.loggedIn &&
-						<div className="col-xs-12">
-							<Link to='/admin'>Admin</Link>
+					{ this.props.state.user.loggedIn ? (
+						<div className="col-xs-12 center-xs">
+							<h1><Link to='/admin'>Admin</Link></h1>
 						</div>
-					}
-					<div className="col-xs-12 center-xs">
-						<h1>ryan wessel</h1>
-					</div>
+					) : (
+						<div className="col-xs-12 center-xs">
+							<h1>ryan wessel</h1>
+						</div>
+					)}
 				</div>
 				<Switch>
 					{['/', '/about'].map((path, index) => 
