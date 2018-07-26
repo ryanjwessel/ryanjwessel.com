@@ -34,3 +34,24 @@
 		}
 	}
 }
+
+.portfolio-item {
+	button {
+		background: transparent;
+		border: none;
+		margin: 1rem 0;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	a {
+		display: inline-block;
+		margin: 2rem 0;
+		padding: 1rem 4rem;
+		border-radius: 5rem;
+		min-height: 4.4rem;
+		background-color: $blue;
+	}
+}

@@ -12,6 +12,7 @@ import Profile from './components/Profile/Profile.jsx';
 import Portfolio from './components/Portfolio/Portfolio.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import Login from './components/Login/Login.jsx';
+import Admin from './components/Admin/Admin.jsx';
 
 // Styles
 import './styles/main.scss';
@@ -61,7 +62,8 @@ class RootLogicWrapper extends Component {
 					)}
 					<Route exact path="/contact" component={Contact} />
 					<Route exact path="/access" component={Login} />
-					<Route component={Error}/>
+					<Route exact path="/admin" component={Admin} />
+					<Route component={Error} />
 				</Switch>
 			</div>
 		);

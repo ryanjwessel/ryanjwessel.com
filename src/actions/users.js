@@ -6,17 +6,17 @@ import 'firebase/auth';
 
 export const UPDATE_USER_STATUS = 'UPDATE_USER_STATUS';
 
-const updateUserStatus = () => {
+export const updateUserStatus = (status) => {
 	return {
 		type: 'UPDATE_USER_STATUS',
-		loggedIn: true,
+		loggedIn: status,
 	};
 };
 
 export const attemptLogin = (user, pass) => {
 	return (dispatch) => {
 		return fire.auth().signInWithEmailAndPassword(user, pass).then(() => {
-			dispatch(updateUserStatus());
+			dispatch(updateUserStatus(true));
 		})
 			.catch(error => {
 				const errorCode = error.code;

@@ -10,6 +10,10 @@ import {
 import './Portfolio.scss';
 
 const SingleItem = props => {
+	const descriptionHtml = {
+		__html: props.details.description
+	};
+
 	return (
 		<div className="row portfolio-item">
 			<div className="col-xs-12">
@@ -20,9 +24,17 @@ const SingleItem = props => {
 					&lt; back
 				</button>
 			</div>
-			<div className="col-xs-12">
-				<p>{props.details.img}</p>
+			<div className="col-xs-12 center-xs">
+				<img src={props.details.img} />
 			</div>
+			<div className="col-xs-12 center-xs">
+				<p dangerouslySetInnerHTML={descriptionHtml} />
+			</div>
+			{ props.details.url &&
+				<div className="col-xs-12 center-xs">
+					<a href={props.details.url} target="_blank" rel="noopener noreferrer">live site</a>
+				</div>
+			}
 		</div>
 	);
 };

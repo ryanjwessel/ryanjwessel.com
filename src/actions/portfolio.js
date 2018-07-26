@@ -4,6 +4,8 @@ import fire from '../firebase';
 // These imports load individual services into the firebase namespace.
 import 'firebase/database';
 
+import { updateUserStatus } from './users';
+
 export const REQUEST_PORTFOLIO_ITEMS = 'REQUEST_PORTFOLIO_ITEMS';
 export const RECEIVE_PORTFOLIO_ITEMS = 'RECEIVE_PORTFOLIO_ITEMS';
 export const SELECT_PORTFOLIO_TYPE = 'SELECT_PORTFOLIO_TYPE';
@@ -67,5 +69,20 @@ export const fetchPortfolioItemsIfNeeded = (portfolioType) => {
 		if(shouldFetchPortfolioItems(getState(), portfolioType)) {
 			return dispatch(fetchPortfolioItems(portfolioType));
 		}
+	};
+};
+
+export const updatePortfolioItems = (newData, currentData) => {
+	return dispatch => {
+		const updatedData = currentData[newData.section].items[newData.item]; // Get the existing data for this item as an object.
+		updatedData[newData.field] = newData.value; // Add desired new field to this object.
+
+		return fire.database().ref(`${newData.section}/${newData.item}`).set(updatedData)
+			.then(() => {
+
+			})
+			.catch(() => {
+				dispatch(updateUserStatus(false));
+			});
 	};
 };

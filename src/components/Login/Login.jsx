@@ -22,10 +22,6 @@ class Login extends Component {
 		this.attemptLogin = this.attemptLogin.bind(this);
 	}
 
-	componentDidMount() {
-		// Check to see if the user is already logged in here? Then maybe update the form to include a logout button or something.
-	}
-
 	handleChange(event) {
 		const { name, value } = event.target;
 		this.setState({
