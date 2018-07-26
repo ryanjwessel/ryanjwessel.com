@@ -6,7 +6,7 @@ const initialState = {
 	loggedIn: false,
 };
 
-export function userStatus(state = initialState, action) {
+export function user(state = initialState, action) {
 	switch (action.type) {
 	case UPDATE_USER_STATUS:
 		return {

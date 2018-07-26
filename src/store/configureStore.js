@@ -21,7 +21,7 @@ const configureStore = () => {
 		saveState({
 			itemsByPortfolioType: store.getState().itemsByPortfolioType,
 			selectedPortfolioType: store.getState().selectedPortfolioType,
-			userStatus: store.getState().userStatus,
+			user: store.getState().user,
 		});
 	}, 1000));
 

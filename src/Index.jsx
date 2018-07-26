@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link, withRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
 import { connect } from 'react-redux';
@@ -43,8 +43,8 @@ class RootLogicWrapper extends Component {
 				<Nav />
 				<div className="row">
 					{ this.props.state.user.loggedIn &&
-						<div className="col-xs-12 center-xs">
-							<Link to='/admin'></Link>
+						<div className="col-xs-12">
+							<Link to='/admin'>Admin</Link>
 						</div>
 					}
 					<div className="col-xs-12 center-xs">
