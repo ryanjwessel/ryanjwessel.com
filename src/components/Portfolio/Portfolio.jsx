@@ -13,6 +13,7 @@ const SingleItem = props => {
 	const descriptionHtml = {
 		__html: props.details.description
 	};
+	const buttonCopy = (props.type === '/work') ? 'live site' : 'see more';
 
 	return (
 		<div className="row portfolio-item">
@@ -32,7 +33,7 @@ const SingleItem = props => {
 			</div>
 			{ props.details.url &&
 				<div className="col-xs-12 center-xs">
-					<a href={props.details.url} target="_blank" rel="noopener noreferrer">live site</a>
+					<a href={props.details.url} target="_blank" rel="noopener noreferrer">{buttonCopy}</a>
 				</div>
 			}
 		</div>
@@ -98,6 +99,7 @@ class Portfolio extends Component {
 						<SingleItem
 							details={items[this.state.selectedPortfolioItem]}
 							returnToPortfolioView={this.selectPortfolioItem}
+							type={location.pathname}
 						/>
 					) : (
 						<PortfolioItems
@@ -142,6 +144,7 @@ PortfolioItems.propTypes = {
 SingleItem.propTypes = {
 	details: PropTypes.object.isRequired,
 	returnToPortfolioView: PropTypes.func.isRequired,
+	type: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(Portfolio);
