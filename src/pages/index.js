@@ -7,6 +7,7 @@ const Index = (props) => {
     <Layout
       pathname="/"
       siteTitle={props.title}
+      headline={props.headline}
       siteDescription={props.description}
     >
       <section>
@@ -47,8 +48,9 @@ export async function getStaticProps() {
   return {
     props: {
       allBlogs: posts,
-      title: siteConfig.default.title,
-      description: siteConfig.default.description,
+      title: siteConfig.title,
+      headline: siteConfig.headline,
+      description: siteConfig.description,
     },
   };
 }

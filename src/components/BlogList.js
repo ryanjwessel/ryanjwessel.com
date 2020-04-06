@@ -16,114 +16,53 @@ const BlogList = ({ allBlogs }) => {
       <ul className="list">
         {allBlogs.length > 0 &&
           allBlogs.map((post) => (
-            <Link key={post.slug} href={{ pathname: `/blog/${post.slug}` }}>
-              <a>
-                <li>
-                  <div className="hero_image">
-                    <img
-                      src={post.frontmatter.hero_image}
-                      alt={post.frontmatter.hero_image}
-                    />
-                  </div>
-                  <div className="blog__info">
-                    <h2>{post.frontmatter.title}</h2>
-                    <h3> {reformatDate(post.frontmatter.date)}</h3>
-                    <p>
-                      <ReactMarkdown
-                        source={truncateSummary(post.markdownBody)}
-                      />
-                    </p>
-                  </div>
-                </li>
-              </a>
-            </Link>
+            <li className="post">
+              <div className="post-info">
+                <Link key={post.slug} href={{ pathname: `/blog/${post.slug}` }}>
+                  <a>
+                    <h2 className="post-title"># {post.frontmatter.title}</h2>
+                  </a>
+                </Link>
+                <h3 className="post-date">
+                  *{reformatDate(post.frontmatter.date)}*
+                </h3>
+                <div className="post-summary">
+                  <ReactMarkdown source={truncateSummary(post.markdownBody)} />
+                </div>
+              </div>
+            </li>
           ))}
       </ul>
       <style jsx>
         {`
           margin-bottom: 0;
-          a:hover {
-            opacity: 1;
-          }
-          a:hover li div.hero_image img {
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-          }
-          a:hover li .blog__info h2,
-          a:hover li .blog__info h3,
-          a:hover li .blog__info p {
-            transform: translateX(10px);
-            transition: transform 0.5s ease-out;
-          }
-          .hero_image {
-            width: 100%;
-            height: 33vh;
-            overflow: hidden;
-            background-color: #000;
-          }
-          .hero_image img {
-            object-fit: cover;
-            object-position: 50% 50%;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-            min-height: 100%;
-          }
-          .blog__info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 1.5rem 1.25rem;
-            transform: translateX(0px);
-            transition: transform 0.3s ease-in;
-            border-bottom: 1px solid #ebebeb;
-          }
-          .blog__info h2,
-          .blog__info h3,
-          .blog__info p {
-            transform: translateX(0px);
-            transition: transform 0.5s ease-out;
-          }
-          li {
-            opacity: inherit;
+
+          li.post {
             display: flex;
             justify-content: center;
             flex-direction: column;
             min-height: 38vh;
             margin-bottom: 0;
           }
-          h2 {
+          div.post-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.5rem 1.25rem;
+            border-bottom: 0.5px solid #06070a;
+          }
+          h2.post-title {
             margin-bottom: 0.5rem;
           }
-          h3 {
+          h3.post-date {
             margin-bottom: 1rem;
-          }
-          p {
-            max-width: 900px;
-          }
-          @media (min-width: 768px) {
-            li {
-              min-height: 250px;
-              height: 33.333vh;
-              flex-direction: row;
-            }
-            .hero_image {
-              height: 100%;
-            }
-            .hero_image img {
-              min-width: 100%;
-              height: 100%;
-              width: auto;
-              min-height: 0;
-            }
-            .blog__info {
-              min-width: 70%;
-            }
+            font-style: italic;
           }
           @media (min-width: 1280px) {
-            .blog__info {
+            .post-info {
               padding: 3rem;
             }
-            h3 {
+            h3.post-date {
               margin-bottom: 1.2rem;
             }
           }

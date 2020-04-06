@@ -8,7 +8,7 @@ export default function Layout(props) {
         siteTitle={props.siteTitle}
         siteDescription={props.siteDescription}
       />
-      <Header siteTitle={props.siteTitle} />
+      <Header headline={props.headline} />
       <div className="content">{props.children}</div>
       <style jsx>
         {`
@@ -20,6 +20,8 @@ export default function Layout(props) {
           }
           .content {
             flex-grow: 1;
+            max-width: 800px;
+            margin: 0 auto;
           }
         `}
       </style>

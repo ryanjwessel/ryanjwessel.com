@@ -11,7 +11,7 @@ export default function Meta(props) {
       </Head>
       <style jsx global>
         {`
-          @import url("https://fonts.googleapis.com/css?family=Work+Sans&display=swap");
+          @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
           * {
             box-sizing: inherit;
           }
@@ -21,16 +21,17 @@ export default function Meta(props) {
           }
           body {
             margin: 0;
-            font-family: "Work Sans", "Helvetica Neue", Helvetica, sans-serif;
             overflow-x: hidden;
-            color: #000;
+            background-color: #0f111a;
+            color: #a0a0a0;
+            font-family: "Ubunto Mono", "Lucida Console", monospace;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
           }
           a {
-            text-decoration: none;
-            color: inherit;
+            text-decoration: underline;
+            color: #fff;
             transition: opacity 0.2s ease;
           }
           a:hover {
@@ -185,14 +186,12 @@ export default function Meta(props) {
             font-size: 1.2rem;
             letter-spacing: -0.5px;
             line-height: 1.1875;
-            color: #a0a0a0;
             font-weight: normal;
           }
           p {
             font-size: 1.2rem;
             letter-spacing: -0.5px;
             line-height: 1.5;
-            color: #464646;
           }
           @media (min-width: 1280px) {
             h1 {
@@ -209,7 +208,6 @@ export default function Meta(props) {
               font-size: 1rem;
               letter-spacing: -0.5px;
               line-height: 1.1875;
-              color: #a0a0a0;
               font-weight: normal;
             }
             p {
