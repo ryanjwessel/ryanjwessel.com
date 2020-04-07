@@ -20,8 +20,6 @@ export default function Layout(props) {
           }
           .content {
             flex-grow: 1;
-            max-width: 800px;
-            margin: 0 auto;
           }
         `}
       </style>

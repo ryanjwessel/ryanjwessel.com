@@ -7,28 +7,11 @@ export default function Header(props) {
         <Link href="/">
           <h1>{props.headline}</h1>
         </Link>
-        {/* <div>
-          <Link
-            href={`${
-              typeof window !== "undefined" &&
-              window.location.pathname == "/info"
-                ? "/"
-                : "/info"
-            }`}
-          >
-            <h1>{`${
-              typeof window !== "undefined" &&
-              window.location.pathname == "/info"
-                ? "close"
-                : "info"
-            }`}</h1>
-          </Link>
-        </div> */}
       </nav>
       <style jsx>
         {`
           h1 {
-            font-size: 24px;
+            font-size: 1rem;
             margin-bottom: 0;
           }
           h1:hover {
@@ -39,7 +22,6 @@ export default function Header(props) {
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 0.5px solid #06070a;
           }
         `}
       </style>

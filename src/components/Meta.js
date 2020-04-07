@@ -22,10 +22,10 @@ export default function Meta(props) {
           body {
             margin: 0;
             overflow-x: hidden;
-            background-color: #0f111a;
-            color: #a0a0a0;
+            background-color: #243238;
+            color: #fff;
             font-family: "Ubunto Mono", "Lucida Console", monospace;
-            font-size: 16px;
+            font-size: 18px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
           }
@@ -156,7 +156,7 @@ export default function Meta(props) {
           h5,
           h6,
           p {
-            font-family: "Work Sans", "Helvetica Neue", Helvetica, sans-serif;
+            font-family: "Ubunto Mono", "Lucida Console", monospace;
             margin-left: 0;
             margin-right: 0;
             margin-top: 0;

@@ -4,9 +4,13 @@ import Layout from "../../components/Layout";
 const glob = require("glob");
 
 export default function BlogTemplate(props) {
-  // Render data from `getStaticProps`
   return (
-    <Layout siteTitle={props.siteTitle}>
+    <Layout
+      pathname="/"
+      siteTitle={props.title}
+      headline={props.headline}
+      siteDescription={props.description}
+    >
       <article>
         <h1>{props.frontmatter.title}</h1>
         <div>
