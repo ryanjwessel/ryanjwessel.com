@@ -4,8 +4,12 @@ import StyledFooter from "./StyledFooter";
 import Icons from "../icons";
 
 const Footer = ({ linkedin, twitter }) => {
-  const router = useRouter();
-  console.log(linkedin, twitter);
+  const { asPath } = useRouter();
+  let currentPath = `~${asPath}.md`;
+  if (asPath === "/") {
+    currentPath = currentPath.replace(".md", "");
+  }
+
   return (
     <StyledFooter>
       <div className="left">
@@ -14,7 +18,7 @@ const Footer = ({ linkedin, twitter }) => {
             <Icons.Home />
           </a>
         </Link>
-        <span>~{router.asPath}</span>
+        <span>{currentPath}</span>
       </div>
       <div className="right">
         <a

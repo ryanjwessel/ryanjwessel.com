@@ -8,8 +8,10 @@ export default function Header(props) {
       <div className="left">
         <Link href="/">
           <nav className="nav" role="navigation" aria-label="main navigation">
-            <StyledTerminalIcon>>_</StyledTerminalIcon>
-            <h1>{props.headline}</h1>
+            <a>
+              <StyledTerminalIcon>>_</StyledTerminalIcon>
+              <h1>{props.headline}</h1>
+            </a>
           </nav>
         </Link>
       </div>

@@ -9,16 +9,12 @@ const StyledBlogList = styled.div`
     flex-direction: column;
     margin-bottom: 0;
   }
-
   div.post-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  h2.terminal-loop,
-  h2.post-title,
-  h3.post-date,
-  div.post-summary h2 {
+  h2.terminal-loop {
     font-size: 1rem;
   }
   h2.post-title,
@@ -31,14 +27,6 @@ const StyledBlogList = styled.div`
   }
   h2.terminal-loop span.indent {
     padding-left: 2rem;
-  }
-  @media (min-width: 1280px) {
-    .post-info {
-      padding: 3rem;
-    }
-    h3.post-date {
-      margin-bottom: 1.2rem;
-    }
   }
 `;
 

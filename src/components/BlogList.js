@@ -3,17 +3,9 @@ import { kebabCase } from "lodash";
 import StyledBlogList from "./StyledBlogList";
 
 const BlogList = ({ allBlogs }) => {
-  function convertTitleToKebabCase(content) {
-    return `${kebabCase(content)}.md`;
-  }
-  function truncateSummary(content) {
-    return content.slice(0, 200).trimEnd();
-  }
-
-  function reformatDate(fullDate) {
-    const date = new Date(fullDate);
-    return date.toDateString().slice(4);
-  }
+  const convertTitleToKebabCase = (content) => `${kebabCase(content)}.md`;
+  const truncateSummary = (content) => content.slice(0, 200).trimEnd();
+  const reformatDate = (fullDate) => new Date(fullDate).toDateString();
 
   return (
     <StyledBlogList>
@@ -24,9 +16,8 @@ const BlogList = ({ allBlogs }) => {
           <br />
           <span className="indent">echo $post && head -c200 $post;</span>
           <br />
-          {`done; `}
+          done;
         </h2>
-        <span></span>
         {allBlogs.length > 0 &&
           allBlogs.map((post) => (
             <li className="post" key={post.frontmatter.title}>

@@ -12,12 +12,13 @@ const StyledHeader = styled.header`
     margin-bottom: 0;
   }
 
-  nav {
+  nav a {
     display: flex;
     align-items: center;
-  }
-  nav:hover {
-    cursor: pointer;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
