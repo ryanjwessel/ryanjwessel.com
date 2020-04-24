@@ -1,19 +1,14 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 3rem;
+  height: 4rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #2a2b3e;
+  margin-bottom: 2rem;
 
   h1 {
-    font-size: 1rem;
     margin-bottom: 0;
   }
 

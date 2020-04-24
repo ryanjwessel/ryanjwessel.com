@@ -7,13 +7,9 @@ const StyledBlogList = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    min-height: 38vh;
     margin-bottom: 0;
   }
-  h2.terminal-loop,
-  div.post-info {
-    padding: 1.5rem 1.25rem 0;
-  }
+
   div.post-info {
     display: flex;
     flex-direction: column;

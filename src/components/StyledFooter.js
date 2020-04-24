@@ -19,6 +19,10 @@ const StyledFooter = styled.footer`
   .right {
     display: flex;
     align-items: center;
+
+    & > *:not(:last-child) {
+      margin-right: 0.5rem;
+    }
   }
 
   svg {
@@ -36,12 +40,15 @@ const StyledFooter = styled.footer`
 
   &:hover {
     background-color: #000;
+  }
+
+  a.icon-link:hover {
+    cursor: pointer;
     color: #fff;
+    opacity: 1;
+
     svg {
       fill: #fff;
-    }
-    a {
-      color: #fff;
     }
   }
 `;

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import StyledFooter from "./StyledFooter";
 import Icons from "../icons";
 
@@ -8,7 +9,11 @@ const Footer = ({ linkedin, twitter }) => {
   return (
     <StyledFooter>
       <div className="left">
-        <Icons.Folder />
+        <Link href="/">
+          <a className="icon-link">
+            <Icons.Home />
+          </a>
+        </Link>
         <span>~{router.asPath}</span>
       </div>
       <div className="right">
