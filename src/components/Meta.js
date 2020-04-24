@@ -22,7 +22,7 @@ export default function Meta(props) {
           body {
             margin: 0;
             overflow-x: hidden;
-            background-color: #243238;
+            background-color: #292c3e;
             color: #fff;
             font-family: "Ubunto Mono", "Lucida Console", monospace;
             font-size: 18px;

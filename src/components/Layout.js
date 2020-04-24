@@ -1,28 +1,18 @@
 import Header from "./Header";
 import Meta from "./Meta";
+import StyledLayout from "./StyledLayout";
+import Footer from "./Footer";
 
 export default function Layout(props) {
   return (
-    <section className="layout">
+    <StyledLayout>
       <Meta
         siteTitle={props.siteTitle}
         siteDescription={props.siteDescription}
       />
       <Header headline={props.headline} />
       <div className="content">{props.children}</div>
-      <style jsx>
-        {`
-          .layout {
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-          }
-          .content {
-            flex-grow: 1;
-          }
-        `}
-      </style>
-    </section>
+      <Footer />
+    </StyledLayout>
   );
 }

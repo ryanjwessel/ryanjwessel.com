@@ -22,7 +22,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Ryan Wessel</title>
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
         </Head>
