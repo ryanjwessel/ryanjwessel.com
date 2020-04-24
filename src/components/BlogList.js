@@ -28,12 +28,13 @@ const BlogList = ({ allBlogs }) => {
         <span></span>
         {allBlogs.length > 0 &&
           allBlogs.map((post) => (
-            <li className="post">
+            <li className="post" key={post.frontmatter.title}>
               <div className="post-info">
                 <h2 className="post-title">
                   <Link
                     key={post.slug}
-                    href={{ pathname: `/blog/${post.slug}` }}
+                    href={{ pathname: `/blog/[slug]` }}
+                    as={{ pathname: `/blog/${post.slug}` }}
                   >
                     <a>{convertTitleToKebabCase(post.frontmatter.title)}</a>
                   </Link>

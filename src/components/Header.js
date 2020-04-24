@@ -1,11 +1,15 @@
 import Link from "next/link";
+import StyledTerminalIcon from "./StyledTerminalIcon";
 
 export default function Header(props) {
   return (
     <header className="header">
       <nav className="nav" role="navigation" aria-label="main navigation">
         <Link href="/">
-          <h1>{props.headline}</h1>
+          <h1>
+            <StyledTerminalIcon>>_</StyledTerminalIcon>
+            {props.headline}
+          </h1>
         </Link>
       </nav>
       <style jsx>
