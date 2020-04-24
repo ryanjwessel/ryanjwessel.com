@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: inherit;
+    line-height: 1.5;
+    transition: opacity 0.2s ease;
   }
   html {
     box-sizing: border-box;
@@ -21,184 +23,79 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: underline;
     color: #fff;
-    transition: opacity 0.2s ease;
   }
   a:hover {
-    transition: opacity 0.2s ease;
     opacity: 0.5;
-    text-decoration-color: inherit;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    list-style-position: outside;
-    list-style-image: none;
-  }
-  ol {
-    margin: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    list-style-position: outside;
-    list-style-image: none;
-  }
-  ul,
-  ol,
-  p {
-    margin-bottom: 1.45rem;
   }
   img {
     max-width: 100%;
   }
-  img,
-  figure,
-  table,
-  fieldset {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  pre {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 1.45rem;
-    font-size: 0.85rem;
-    line-height: 1.42;
-    background: hsla(0, 0%, 0%, 0.04);
-    border-radius: 3px;
-    overflow: auto;
-    word-wrap: normal;
-    padding: 1.45rem;
-  }
-  table {
-    font-size: 1rem;
-    line-height: 1.45rem;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  blockquote {
-    margin-left: 1.45rem;
-    margin-right: 1.45rem;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
   strong {
     font-weight: bold;
   }
-  li {
-    margin-bottom: calc(1.45rem / 2);
+  .indent {
+    padding-left: 2rem;
   }
-  ol li {
-    padding-left: 0;
-  }
-  ul li {
-    padding-left: 0;
-  }
-  li > ol {
-    margin-left: 1.45rem;
-    margin-bottom: calc(1.45rem / 2);
-    margin-top: calc(1.45rem / 2);
-  }
-  li > ul {
-    margin-left: 1.45rem;
-    margin-bottom: calc(1.45rem / 2);
-    margin-top: calc(1.45rem / 2);
-  }
-  blockquote *:last-child {
-    margin-bottom: 0;
-  }
-  li *:last-child {
-    margin-bottom: 0;
-  }
-  p *:last-child {
-    margin-bottom: 0;
-  }
-  li > p {
-    margin-bottom: calc(1.45rem / 2);
-  }
-  code {
-    font-size: 0.85rem;
-    line-height: 1.45rem;
-  }
-  
   h1,
   h2,
   h3,
   h4,
   h5,
   h6,
-  p {
+  p,
+  li {
     font-family: "Ubunto Mono", "Lucida Console", monospace;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
+    margin-bottom: 1rem;
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
-    margin-bottom: 1.45rem;
+    letter-spacing: -0.5px;
     color: inherit;
     text-rendering: optimizeLegibility;
   }
-  h1,
-  h2 {
-    font-weight: 500;
-  }
   h1 {
-    font-size: 2rem;
-    letter-spacing: -1px;
-    line-height: 1.1875;
+    font-size: 1.75rem;
   }
   h2 {
-    font-size: 1.7rem;
-    letter-spacing: -0.75px;
-    line-height: 1.2;
+    font-size: 1.5rem;
   }
-  h3 {
-    font-size: 1.2rem;
-    letter-spacing: -0.5px;
-    line-height: 1.1875;
-    font-weight: normal;
+  h3, h4 {
+    font-size: 1.25rem;
   }
-  p {
-    font-size: 1.2rem;
-    letter-spacing: -0.5px;
-    line-height: 1.5;
+  code {
+    border: 1px solid #94959e;
+    border-radius: 4px;
+    font-size: .9rem;
+    padding: .1rem .2rem;
+    background-color: #3f4052;
+    color: #8bcc57;
   }
   @media (min-width: 1280px) {
-    h1 {
-      font-size: 2rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
       letter-spacing: -1px;
-      line-height: 1.1875;
+    }
+    h1 {
+      ${"" /* font-size: 2rem; */}
+      letter-spacing: -1px;
     }
     h2 {
-      font-size: 1.5rem;
+      ${"" /* font-size: 1.5rem; */}
       letter-spacing: -0.75px;
-      line-height: 1.1667;
     }
     h3 {
-      font-size: 1rem;
+      ${"" /* font-size: 1rem; */}
       letter-spacing: -0.5px;
-      line-height: 1.1875;
       font-weight: normal;
-    }
-    p {
-      line-height: 1.4375;
     }
   }
 `;

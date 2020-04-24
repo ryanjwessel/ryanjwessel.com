@@ -2,32 +2,21 @@ import Layout from "../components/Layout";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 
-export default function Info({ frontmatter, markdownBody, title }) {
+export default function Info(props) {
   return (
     <Layout
-      pathname="info"
-      bgColor={frontmatter.background_color}
-      siteTitle={title}
+      pathname="/info"
+      siteTitle={props.title}
+      headline={props.headline}
+      siteDescription={props.description}
+      github={props.github}
+      linkedin={props.linkedin}
+      twitter={props.twitter}
     >
-      <section className="info_blurb">
-        <ReactMarkdown source={markdownBody} />
+      <section>
+        <h1>{props.frontmatter.title}</h1>
+        <ReactMarkdown source={props.markdownBody} />
       </section>
-      <style jsx>{`
-        .info_blurb {
-          max-width: 800px;
-          padding: 1.5rem 1.25rem;
-        }
-        @media (min-width: 768px) {
-          .info_blurb {
-            padding: 2rem;
-          }
-        }
-        @media (min-width: 1440px) {
-          .info_blurb {
-            padding: 3rem;
-          }
-        }
-      `}</style>
     </Layout>
   );
 }
@@ -42,6 +31,11 @@ export async function getStaticProps() {
       title: config.title,
       frontmatter: data.data,
       markdownBody: data.content,
+      headline: config.headline,
+      description: config.description,
+      github: config.github,
+      linkedin: config.linkedin,
+      twitter: config.twitter,
     },
   };
 }

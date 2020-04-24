@@ -13,6 +13,10 @@ export default function Meta(props) {
         href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
         rel="stylesheet"
       />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/an-old-hope.min.css"
+      />
     </Head>
   );
 }

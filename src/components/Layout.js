@@ -3,7 +3,7 @@ import Meta from "./Meta";
 import StyledLayout from "./StyledLayout";
 import Footer from "./Footer";
 
-export default function Layout(props) {
+const Layout = (props) => {
   return (
     <StyledLayout>
       <Meta
@@ -12,7 +12,13 @@ export default function Layout(props) {
       />
       <Header headline={props.headline} />
       <div className="content">{props.children}</div>
-      <Footer twitter={props.twitter} linkedin={props.linkedin} />
+      <Footer
+        github={props.github}
+        linkedin={props.linkedin}
+        twitter={props.twitter}
+      />
     </StyledLayout>
   );
-}
+};
+
+export default Layout;

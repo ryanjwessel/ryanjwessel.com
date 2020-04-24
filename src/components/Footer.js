@@ -1,33 +1,43 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import StyledFooter from "./StyledFooter";
-import Icons from "../icons";
+import Icon from "../icons/Icon";
 
-const Footer = ({ linkedin, twitter }) => {
+const Footer = ({ github, linkedin, twitter }) => {
   const { asPath } = useRouter();
-  let currentPath = `~${asPath}.md`;
-  if (asPath === "/") {
-    currentPath = currentPath.replace(".md", "");
-  }
+  const currentPath = `~${asPath}${asPath === "/" ? "" : ".md"}`;
 
   return (
     <StyledFooter>
       <div className="left">
         <Link href="/">
           <a className="icon-link">
-            <Icons.Home />
+            <Icon.Home />
           </a>
         </Link>
         <span>{currentPath}</span>
       </div>
       <div className="right">
+        <Link href="/info">
+          <a className="icon-link">
+            <Icon.About />
+          </a>
+        </Link>
+        <a
+          className="icon-link"
+          href={github}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Icon.GitHub />
+        </a>
         <a
           className="icon-link"
           href={linkedin}
           target="_blank"
           rel="noreferrer noopener"
         >
-          <Icons.LinkedIn />
+          <Icon.LinkedIn />
         </a>
         <a
           className="icon-link"
@@ -35,7 +45,7 @@ const Footer = ({ linkedin, twitter }) => {
           target="_blank"
           rel="noreferrer noopener"
         >
-          <Icons.Twitter />
+          <Icon.Twitter />
         </a>
       </div>
     </StyledFooter>

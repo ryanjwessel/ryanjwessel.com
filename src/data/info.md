@@ -1,12 +1,15 @@
 ---
-title: info page
-background_color: "#AEC4BE"
+title: About Me
 ---
 
-## This blog was created using [TinaCMS](https://tinacms.org) & [NextJS](https://nextjs.org/)
+I have been building software since 2015, but I've been obsessed with consumer technology and problem-solving for as long as I can remember.
 
-## To get started, read the TinaCMS [docs](https://tinacms.org/docs) or checkout the [repository](https://github.com/kendallstrautman/brevifolia-next-tinacms).
+Outside of work, I love to play golf, video games, and I attempt to run now and then.
 
-- ## Email: [hello@tinacms.org]
-- ## Twitter: [@tina_cms](https://twitter.com/tina_cms)
-- ## Github: [tinacms](https://github.com/tinacms/tinacms)
+## Current Status
+
+- Job: Software Engineer II - Mobile @ [Dataminr](https://www.dataminr.com/)
+
+- Playing: Diablo III on Nintendo Switch
+
+- Reading: Getting Things Done, and Robinson Crusoe

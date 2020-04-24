@@ -1,6 +1,7 @@
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
+import CodeBlock from "../../components/CodeBlock";
 const glob = require("glob");
 
 export default function BlogTemplate(props) {
@@ -11,12 +12,18 @@ export default function BlogTemplate(props) {
       siteTitle={props.title}
       headline={props.headline}
       siteDescription={props.description}
+      github={props.github}
+      linkedin={props.linkedin}
+      twitter={props.twitter}
     >
       <article>
         <h1>{props.frontmatter.title}</h1>
-        <p>{readableDate}</p>
+        <h3>{readableDate}</h3>
         <div>
-          <ReactMarkdown source={props.markdownBody} />
+          <ReactMarkdown
+            source={props.markdownBody}
+            renderers={{ code: CodeBlock }}
+          />
         </div>
       </article>
     </Layout>
@@ -35,6 +42,9 @@ export async function getStaticProps({ ...ctx }) {
       headline: config.headline,
       frontmatter: data.data,
       markdownBody: data.content,
+      github: config.github,
+      linkedin: config.linkedin,
+      twitter: config.twitter,
     },
   };
 }

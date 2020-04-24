@@ -9,8 +9,9 @@ const Index = (props) => {
       siteTitle={props.title}
       headline={props.headline}
       siteDescription={props.description}
-      twitter={props.twitter}
+      github={props.github}
       linkedin={props.linkedin}
+      twitter={props.twitter}
     >
       <section>
         <BlogList allBlogs={props.allBlogs} />
@@ -22,7 +23,7 @@ const Index = (props) => {
 export default Index;
 
 export async function getStaticProps() {
-  const siteConfig = await import(`../data/config.json`);
+  const config = await import(`../data/config.json`);
   // Get posts & context from folder
   const posts = ((context) => {
     const keys = context.keys();
@@ -50,11 +51,12 @@ export async function getStaticProps() {
   return {
     props: {
       allBlogs: posts,
-      title: siteConfig.title,
-      headline: siteConfig.headline,
-      description: siteConfig.description,
-      twitter: siteConfig.twitter,
-      linkedin: siteConfig.linkedin,
+      title: config.title,
+      headline: config.headline,
+      description: config.description,
+      github: config.github,
+      linkedin: config.linkedin,
+      twitter: config.twitter,
     },
   };
 }

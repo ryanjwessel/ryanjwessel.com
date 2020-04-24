@@ -9,7 +9,7 @@ const StyledTerminalIcon = styled.span`
   border: 1px solid transparent;
   border-radius: 4px;
   margin-right: 1rem;
-  height: fit-content;
+  line-height: initial;
 `;
 
 export default StyledTerminalIcon;
