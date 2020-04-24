@@ -4,6 +4,7 @@ import Layout from "../../components/Layout";
 const glob = require("glob");
 
 export default function BlogTemplate(props) {
+  const readableDate = new Date(props.frontmatter.date).toDateString();
   return (
     <Layout
       pathname="/"
@@ -13,6 +14,7 @@ export default function BlogTemplate(props) {
     >
       <article>
         <h1>{props.frontmatter.title}</h1>
+        <p>{readableDate}</p>
         <div>
           <ReactMarkdown source={props.markdownBody} />
         </div>
