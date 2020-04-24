@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import StyledFooter from "./StyledFooter";
 import Icons from "../icons";
 
-const Footer = () => {
+const Footer = ({ linkedin, twitter }) => {
   const router = useRouter();
-
+  console.log(linkedin, twitter);
   return (
     <StyledFooter>
       <div className="left">
@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="right">
         <a
           className="icon-link"
-          href="https://www.linkedin.com/in/ryanjwessel/"
+          href={linkedin}
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -22,11 +22,12 @@ const Footer = () => {
         </a>
         <a
           className="icon-link"
-          href="https://twitter.com/wesselstudios"
+          href={twitter}
           target="_blank"
           rel="noreferrer noopener"
-        ></a>
-        <Icons.Twitter />
+        >
+          <Icons.Twitter />
+        </a>
       </div>
     </StyledFooter>
   );

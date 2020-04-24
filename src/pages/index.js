@@ -9,6 +9,8 @@ const Index = (props) => {
       siteTitle={props.title}
       headline={props.headline}
       siteDescription={props.description}
+      twitter={props.twitter}
+      linkedin={props.linkedin}
     >
       <section>
         <BlogList allBlogs={props.allBlogs} />
@@ -51,6 +53,8 @@ export async function getStaticProps() {
       title: siteConfig.title,
       headline: siteConfig.headline,
       description: siteConfig.description,
+      twitter: siteConfig.twitter,
+      linkedin: siteConfig.linkedin,
     },
   };
 }

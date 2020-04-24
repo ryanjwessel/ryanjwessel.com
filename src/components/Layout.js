@@ -12,7 +12,7 @@ export default function Layout(props) {
       />
       <Header headline={props.headline} />
       <div className="content">{props.children}</div>
-      <Footer />
+      <Footer twitter={props.twitter} linkedin={props.linkedin} />
     </StyledLayout>
   );
 }
