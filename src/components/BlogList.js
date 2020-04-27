@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { kebabCase } from "lodash";
 import StyledBlogList from "./StyledBlogList";
+import BlinkingCursor from "./BlinkingCursor";
 
 const BlogList = ({ allBlogs }) => {
   const [animationCursor, setAnimationCursor] = useState([0, 0]);
@@ -40,37 +41,42 @@ const BlogList = ({ allBlogs }) => {
     return () => clearInterval(cursorMovementTiming);
   }, [animationCursor]);
 
-  // TODO: Clean-up janky implementation for animating.
-  // TODO: Add cursor display.
   // TODO: Only run animation on first vist.
   // TODO: Support replaying of animation.
-  const textIndex =
-    animationCursor[0] === 0 ? animationCursor[1] : bashCommand[0].length;
 
-  const secondIndex =
-    animationCursor[0] === 1 ? animationCursor[1] : bashCommand[1].length;
+  const memoizedBashCommand = useMemo(
+    () => bashCommand.slice(0, animationCursor[0] + 1),
+    [animationCursor[0]]
+  );
 
-  const thirdIndex =
-    animationCursor[0] === 2 ? animationCursor[1] : bashCommand[2].length;
+  const memoizedCommandsByLine = useMemo(() => {
+    return memoizedBashCommand.map((line, i) => {
+      if (i === animationCursor[0]) {
+        return line.slice(0, animationCursor[1]);
+      }
+      return line;
+    });
+  }, [memoizedBashCommand, animationCursor[0], animationCursor[1]]);
 
   return (
     <StyledBlogList>
       <>
         <p className="terminal-loop">
           <strong>(~/ryan-wessel) $ </strong>
-          {animationCursor[1] > 0 && (
-            <span>{bashCommand[0].slice(0, textIndex)}</span>
-          )}
-          <br />
-          {animationCursor[0] >= 1 && (
-            <span className="indent">
-              {bashCommand[1].slice(0, secondIndex)}
-            </span>
-          )}
-          <br />
-          {animationCursor[0] >= bashCommand.length - 1 && (
-            <span>{bashCommand[2].slice(0, thirdIndex)}</span>
-          )}
+          {memoizedCommandsByLine.map((line, i) => {
+            let cursor = null;
+            if (i + 1 === memoizedCommandsByLine.length) {
+              cursor = <BlinkingCursor />;
+            }
+            return (
+              <React.Fragment key={i}>
+                <span>
+                  {line}
+                  {cursor}
+                </span>
+              </React.Fragment>
+            );
+          })}
         </p>
         <ul className="list">
           {finishedAnimating &&

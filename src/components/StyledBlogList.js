@@ -12,6 +12,14 @@ const StyledBlogList = styled.div`
     flex-direction: column;
     justify-content: center;
   }
+  p.terminal-loop span:not(:first-of-type) {
+    display: flex;
+    align-items: center;
+
+    &:nth-of-type(2) {
+      padding-left: 2rem;
+    }
+  }
 `;
 
 export default StyledBlogList;

@@ -33,9 +33,6 @@ const GlobalStyle = createGlobalStyle`
   strong {
     font-weight: bold;
   }
-  .indent {
-    padding-left: 2rem;
-  }
   h1,
   h2,
   h3,
