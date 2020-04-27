@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import StyledFooter from "./StyledFooter";
-import Icon from "../icons/Icon";
+import Icon from "./icons/Icon";
 
 const Footer = ({ github, linkedin, twitter }) => {
   const { asPath } = useRouter();

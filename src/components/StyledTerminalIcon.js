@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+/**
+ * FIXME: This is not really a terminal icon component. It inverts the colors for the children it wraps.
+ * Update this when I add theme support to reflect this.
+ */
 const StyledTerminalIcon = styled.span`
   background-color: #fff;
   color: #292c3e;
