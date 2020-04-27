@@ -63,7 +63,7 @@ const GlobalStyle = createGlobalStyle`
   h3, h4 {
     font-size: 1.25rem;
   }
-  code {
+  code, .code {
     border: 1px solid #94959e;
     border-radius: 4px;
     font-size: .9rem;

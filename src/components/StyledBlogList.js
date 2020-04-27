@@ -20,6 +20,25 @@ const StyledBlogList = styled.div`
       padding-left: 2rem;
     }
   }
+  .replay-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    span {
+      margin-right: 0.25rem;
+    }
+    svg {
+      fill: #8bcc57;
+      width: 0.9rem;
+      height: 0.9rem;
+    }
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
 `;
 
 export default StyledBlogList;
