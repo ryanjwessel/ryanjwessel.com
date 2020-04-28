@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import GlobalStyle from "../styles/GlobalStyle";
+import "../styles/defaults.css";
 
 const theme = {
   colors: {
@@ -10,7 +10,6 @@ const theme = {
 
 export default ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>
-    <GlobalStyle />
     <Component {...pageProps} />
   </ThemeProvider>
 );
