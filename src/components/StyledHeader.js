@@ -13,12 +13,9 @@ const StyledHeader = styled.header`
   }
 
   nav a {
+    cursor: pointer;
     display: flex;
     align-items: center;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 `;
 

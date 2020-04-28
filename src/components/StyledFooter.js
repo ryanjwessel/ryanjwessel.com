@@ -61,9 +61,7 @@ const StyledFooter = styled.footer`
 
   a.icon-link:hover {
     cursor: pointer;
-    color: #fff;
     opacity: 1;
-
     svg {
       fill: #fff;
     }
