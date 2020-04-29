@@ -7,7 +7,7 @@ const StyledLayout = styled.section`
   min-height: 100vh;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 1.25rem 3.5rem;
+  padding: 0 1.25rem 4.5rem;
 
   .content {
     flex-grow: 1;

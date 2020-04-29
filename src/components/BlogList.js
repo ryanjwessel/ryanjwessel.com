@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { kebabCase } from "lodash";
 import StyledBlogList from "./StyledBlogList";
 import BlinkingCursor from "./BlinkingCursor";
 import {
@@ -16,7 +15,6 @@ const BlogList = ({ allBlogs }) => {
   const [animationCursor, setAnimationCursor] = useState(
     INITIAL_ANIMATION_CURSOR
   );
-  const convertTitleToKebabCase = (content) => `${kebabCase(content)}.md`;
   const truncateSummary = (content) => content.slice(0, 200).trimEnd();
   const reformatDate = (fullDate) => new Date(fullDate).toDateString();
   const bashCommand = [
@@ -126,7 +124,7 @@ const BlogList = ({ allBlogs }) => {
                       href={{ pathname: `/blog/[slug]` }}
                       as={{ pathname: `/blog/${post.slug}` }}
                     >
-                      <a>{convertTitleToKebabCase(post.frontmatter.title)}</a>
+                      <a>{post.frontmatter.title}</a>
                     </Link>
                   </h2>
                   <h3 className="post-date">

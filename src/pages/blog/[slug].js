@@ -1,7 +1,7 @@
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
-import CodeBlock from "../../components/CodeBlock";
+import CodeBlockRenderer from "../../components/renderers/CodeBlockRenderer";
 const glob = require("glob");
 
 export default function BlogTemplate(props) {
@@ -22,7 +22,7 @@ export default function BlogTemplate(props) {
         <div>
           <ReactMarkdown
             source={props.markdownBody}
-            renderers={{ code: CodeBlock }}
+            renderers={{ code: CodeBlockRenderer }}
           />
         </div>
       </article>

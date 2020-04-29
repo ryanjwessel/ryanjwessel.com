@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import LinkRenderer from "../components/renderers/LinkRenderer";
 
 export default function Info(props) {
   return (
@@ -15,7 +16,10 @@ export default function Info(props) {
     >
       <section>
         <h1>{props.frontmatter.title}</h1>
-        <ReactMarkdown source={props.markdownBody} />
+        <ReactMarkdown
+          source={props.markdownBody}
+          renderers={{ link: LinkRenderer }}
+        />
       </section>
     </Layout>
   );

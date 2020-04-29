@@ -2,6 +2,10 @@
   box-sizing: inherit;
   line-height: 1.5;
 }
+::selection {
+  background-color: #dc09c1;
+  color: #fff;
+}
 html {
   box-sizing: border-box;
   overflow-y: scroll;
@@ -22,13 +26,17 @@ a:any-link,
 a:-webkit-any-link,
 a:-moz-any-link {
   color: #fff;
-  border-bottom: 2px solid transparent;
   text-decoration: none;
   font-weight: bold;
 }
+a:visited {
+  color: #8b167e;
+}
 a:hover {
   text-decoration: underline;
-  opacity: 0.5;
+}
+a:active {
+  color: #dc09c1;
 }
 img {
   max-width: 100%;
