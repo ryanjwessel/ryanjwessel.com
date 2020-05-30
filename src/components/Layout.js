@@ -3,20 +3,20 @@ import Meta from "./Meta";
 import StyledLayout from "./StyledLayout";
 import Footer from "./Footer";
 
-const Layout = (props) => {
+const Layout = ({
+  title,
+  description,
+  github,
+  linkedin,
+  twitter,
+  children,
+}) => {
   return (
     <StyledLayout>
-      <Meta
-        siteTitle={props.siteTitle}
-        siteDescription={props.siteDescription}
-      />
-      <Header headline={props.headline} />
-      <div className="content">{props.children}</div>
-      <Footer
-        github={props.github}
-        linkedin={props.linkedin}
-        twitter={props.twitter}
-      />
+      <Meta title={title} description={description} />
+      <Header title={title} />
+      <div className="content">{children}</div>
+      <Footer github={github} linkedin={linkedin} twitter={twitter} />
     </StyledLayout>
   );
 };

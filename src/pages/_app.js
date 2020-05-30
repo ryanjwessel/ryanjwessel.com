@@ -7,6 +7,7 @@ const theme = {
     primary: "#0070f3",
   },
 };
+// TODO: Actually use the values provided by ThemeProvider.
 
 export default ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>

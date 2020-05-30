@@ -2,19 +2,27 @@ import matter from "gray-matter";
 import Layout from "../components/Layout";
 import BlogList from "../components/BlogList";
 
-const Index = (props) => {
+const Index = ({
+  title,
+  headline,
+  description,
+  github,
+  linkedin,
+  twitter,
+  posts,
+}) => {
   return (
     <Layout
       pathname="/"
-      siteTitle={props.title}
-      headline={props.headline}
-      siteDescription={props.description}
-      github={props.github}
-      linkedin={props.linkedin}
-      twitter={props.twitter}
+      title={title}
+      headline={headline}
+      description={description}
+      github={github}
+      linkedin={linkedin}
+      twitter={twitter}
     >
       <section>
-        <BlogList allBlogs={props.allBlogs} />
+        <BlogList posts={posts} />
       </section>
     </Layout>
   );
@@ -23,13 +31,20 @@ const Index = (props) => {
 export default Index;
 
 export async function getStaticProps() {
-  const config = await import(`../data/config.json`);
+  const {
+    title,
+    headline,
+    description,
+    github,
+    linkedin,
+    twitter,
+  } = await import(`../data/config.json`);
   // Get posts & context from folder
   const posts = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
-    const data = keys.map((key, index) => {
+    return keys.map((key, index) => {
       // Create slug from filename
       const slug = key
         .replace(/^.*[\\\/]/, "")
@@ -45,18 +60,17 @@ export async function getStaticProps() {
         slug,
       };
     });
-    return data;
   })(require.context("../posts", true, /\.md$/));
 
   return {
     props: {
-      allBlogs: posts,
-      title: config.title,
-      headline: config.headline,
-      description: config.description,
-      github: config.github,
-      linkedin: config.linkedin,
-      twitter: config.twitter,
+      posts,
+      title,
+      headline,
+      description,
+      github,
+      linkedin,
+      twitter,
     },
   };
 }

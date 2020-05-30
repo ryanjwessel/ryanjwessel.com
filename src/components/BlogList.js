@@ -2,15 +2,15 @@ import React from "react";
 import Link from "next/link";
 import StyledBlogList from "./StyledBlogList";
 
-const BlogList = ({ allBlogs }) => {
+const BlogList = ({ posts }) => {
   const truncateSummary = (content) => content.slice(0, 200).trimEnd();
   const reformatDate = (fullDate) => new Date(fullDate).toDateString();
 
   return (
     <StyledBlogList>
       <ul className="list">
-        {allBlogs.length > 0 &&
-          allBlogs.map((post) => (
+        {posts.length > 0 &&
+          posts.map((post) => (
             <li className="post" key={post.frontmatter.title}>
               <div className="post-info">
                 <h2 className="post-title">

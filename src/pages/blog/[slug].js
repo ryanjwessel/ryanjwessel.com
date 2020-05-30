@@ -4,47 +4,60 @@ import Layout from "../../components/Layout";
 import CodeBlockRenderer from "../../components/renderers/CodeBlockRenderer";
 const glob = require("glob");
 
-export default function BlogTemplate(props) {
-  const readableDate = new Date(props.frontmatter.date).toDateString();
+const BlogTemplate = ({
+  frontmatter,
+  title,
+  headline,
+  description,
+  github,
+  linkedin,
+  twitter,
+  markdownBody,
+}) => {
+  const readableDate = new Date(frontmatter.date).toDateString();
   return (
     <Layout
       pathname="/"
-      siteTitle={props.title}
-      headline={props.headline}
-      siteDescription={props.description}
-      github={props.github}
-      linkedin={props.linkedin}
-      twitter={props.twitter}
+      title={title}
+      headline={headline}
+      description={description}
+      github={github}
+      linkedin={linkedin}
+      twitter={twitter}
     >
       <article>
-        <h1>{props.frontmatter.title}</h1>
+        <h1>{frontmatter.title}</h1>
         <h3>{readableDate}</h3>
         <div>
           <ReactMarkdown
-            source={props.markdownBody}
+            source={markdownBody}
             renderers={{ code: CodeBlockRenderer }}
           />
         </div>
       </article>
     </Layout>
   );
-}
+};
+
+export default BlogTemplate;
 
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
-  const content = await import(`../../posts/${slug}.md`);
-  const config = await import(`../../data/config.json`);
-  const data = matter(content.default);
+  const post = await import(`../../posts/${slug}.md`);
+  const { title, headline, github, linkedin, twitter } = await import(
+    `../../data/config.json`
+  );
+  const { data, content } = matter(post.default);
 
   return {
     props: {
-      siteTitle: config.title,
-      headline: config.headline,
-      frontmatter: data.data,
-      markdownBody: data.content,
-      github: config.github,
-      linkedin: config.linkedin,
-      twitter: config.twitter,
+      title,
+      headline,
+      github,
+      linkedin,
+      twitter,
+      frontmatter: data,
+      markdownBody: content,
     },
   };
 }

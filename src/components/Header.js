@@ -2,7 +2,7 @@ import Link from "next/link";
 import StyledHeader from "./StyledHeader";
 import StyledAvatar from "./StyledAvatar";
 
-export default function Header(props) {
+const Header = ({ title }) => {
   return (
     <StyledHeader>
       <div className="left">
@@ -13,11 +13,13 @@ export default function Header(props) {
                 src="/animoji.png"
                 alt="Ryan's Animoji with a blue background"
               />
-              <h1>{props.headline}</h1>
+              <h1>{title}</h1>
             </a>
           </nav>
         </Link>
       </div>
     </StyledHeader>
   );
-}
+};
+
+export default Header;

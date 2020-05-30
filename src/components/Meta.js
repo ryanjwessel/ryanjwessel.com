@@ -1,13 +1,13 @@
 import Head from "next/head";
 import base64Favicon from "../../public/favicon";
 
-export default function Meta(props) {
+const Meta = ({ title, description }) => {
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <title>{props.siteTitle}</title>
-      <meta name="Description" content={props.description}></meta>
+      <title>{title}</title>
+      <meta name="Description" content={description}></meta>
       <link rel="shortcut icon" type="image/x-icon" href={base64Favicon} />
       <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
@@ -19,4 +19,6 @@ export default function Meta(props) {
       />
     </Head>
   );
-}
+};
+
+export default Meta;
