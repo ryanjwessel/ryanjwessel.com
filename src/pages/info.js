@@ -16,7 +16,7 @@ const Info = ({
   return (
     <Layout
       pathname="/info"
-      title={title}
+      title={`About ${title}`}
       headline={headline}
       description={description}
       github={github}

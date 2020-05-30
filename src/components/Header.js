@@ -2,7 +2,7 @@ import Link from "next/link";
 import StyledHeader from "./StyledHeader";
 import StyledAvatar from "./StyledAvatar";
 
-const Header = ({ title }) => {
+const Header = ({ headline }) => {
   return (
     <StyledHeader>
       <div className="left">
@@ -13,7 +13,7 @@ const Header = ({ title }) => {
                 src="/animoji.png"
                 alt="Ryan's Animoji with a blue background"
               />
-              <h1>{title}</h1>
+              <h1>{headline}</h1>
             </a>
           </nav>
         </Link>

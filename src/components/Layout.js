@@ -5,6 +5,7 @@ import Footer from "./Footer";
 
 const Layout = ({
   title,
+  headline,
   description,
   github,
   linkedin,
@@ -14,7 +15,7 @@ const Layout = ({
   return (
     <StyledLayout>
       <Meta title={title} description={description} />
-      <Header title={title} />
+      <Header headline={headline} />
       <div className="content">{children}</div>
       <Footer github={github} linkedin={linkedin} twitter={twitter} />
     </StyledLayout>

@@ -18,7 +18,7 @@ const BlogTemplate = ({
   return (
     <Layout
       pathname="/"
-      title={title}
+      title={frontmatter.title}
       headline={headline}
       description={description}
       github={github}
