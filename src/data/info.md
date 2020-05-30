@@ -10,6 +10,6 @@ Outside of work, I love to play golf, video games, and I attempt to run now and 
 
 - Job: Software Engineer II - Mobile @ [Dataminr](https://www.dataminr.com/)
 
-- Playing: Diablo III on Nintendo Switch
+- Playing: Links Awakening on Nintendo Switch
 
-- Reading: Getting Things Done, and Robinson Crusoe
+- Reading: Getting Things Done, and Dune
