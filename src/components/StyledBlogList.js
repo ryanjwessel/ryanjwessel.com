@@ -1,43 +1,20 @@
 import styled from "styled-components";
 
 const StyledBlogList = styled.div`
-  li.post {
+  .post-list {
+    padding-inline-start: 0;
+  }
+  .post {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     margin-bottom: 0;
   }
-  div.post-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .post .post-date {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
   }
-  p.terminal-loop span:not(:first-of-type) {
-    display: flex;
-    align-items: center;
-
-    &:nth-of-type(2) {
-      padding-left: 2rem;
-    }
-  }
-  .replay-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-
-    span {
-      margin-right: 0.25rem;
-    }
-    svg {
-      fill: #8bcc57;
-      width: 0.9rem;
-      height: 0.9rem;
-    }
-
-    &:hover {
-      opacity: 0.75;
-    }
+  .post .post-title {
+    font-size: 1.2rem;
   }
 `;
 
