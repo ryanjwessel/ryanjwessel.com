@@ -1,5 +1,4 @@
 import Link from "next/link";
-import StyledTerminalIcon from "./StyledTerminalIcon";
 import StyledHeader from "./StyledHeader";
 
 export default function Header(props) {
@@ -9,7 +8,10 @@ export default function Header(props) {
         <Link href="/">
           <nav className="nav" role="navigation" aria-label="main navigation">
             <a>
-              <StyledTerminalIcon>>_</StyledTerminalIcon>
+              <img
+                src="/animoji.png"
+                alt="Ryan's Animoji with a blue background"
+              />
               <h1>{props.headline}</h1>
             </a>
           </nav>
