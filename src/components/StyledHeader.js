@@ -5,7 +5,6 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2a2b3e;
   margin-bottom: 2rem;
 
   h1 {
@@ -17,8 +16,8 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
 
-    &:active {
-      color: #dc09c1;
+    &:hover {
+      color: #0451a5;
     }
   }
 `;

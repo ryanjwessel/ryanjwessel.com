@@ -18,10 +18,6 @@ export default function Header(props) {
           </nav>
         </Link>
       </div>
-      <div className="right">
-        {/* TODO: Add theme toggle for light/dark */}
-        <p />
-      </div>
     </StyledHeader>
   );
 }

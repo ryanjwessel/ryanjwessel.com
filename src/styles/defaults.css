@@ -3,7 +3,7 @@
   line-height: 1.5;
 }
 ::selection {
-  background-color: #dc09c1;
+  background-color: #007acc;
   color: #fff;
 }
 html {
@@ -13,30 +13,19 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  background-color: #292c3e;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   font-family: "Ubunto Mono", "Lucida Console", monospace;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-a,
-a:link,
-a:any-link,
-a:-webkit-any-link,
-a:-moz-any-link {
-  color: #fff;
+a {
+  color: #007acc;
   text-decoration: none;
-  font-weight: bold;
-}
-a:visited {
-  color: #8b167e;
 }
 a:hover {
-  text-decoration: underline;
-}
-a:active {
-  color: #dc09c1;
+  color: #0451a5;
 }
 img {
   max-width: 100%;
@@ -74,15 +63,6 @@ h2 {
 h3,
 h4 {
   font-size: 1.25rem;
-}
-code,
-.code {
-  border: 1px solid #94959e;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  padding: 0.1rem 0.2rem;
-  background-color: #3f4052;
-  color: #8bcc57;
 }
 @media (min-width: 1280px) {
   h1,

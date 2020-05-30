@@ -9,8 +9,8 @@ const StyledFooter = styled.footer`
   height: 4.5rem;
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
-  background-color: #15161f;
-  color: #94959e;
+  background-color: #f3f3f3;
+  color: #666;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -43,29 +43,21 @@ const StyledFooter = styled.footer`
   }
 
   svg {
-    fill: #94959e;
+    fill: #666;
     width: 1.5rem;
     height: 1.5rem;
   }
 
   a {
-    color: #94959e;
+    color: #666;
     &.icon-link {
       cursor: pointer;
       font-size: 0;
     }
   }
 
-  &:hover {
-    background-color: #000;
-  }
-
   a.icon-link:hover svg {
-    fill: #fff;
-  }
-
-  a.icon-link:active svg {
-    fill: #dc09c1;
+    fill: #0451a5;
   }
 
   @media only screen and (min-width: 768px) {
