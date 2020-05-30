@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StyledHeader from "./StyledHeader";
+import StyledAvatar from "./StyledAvatar";
 
 export default function Header(props) {
   return (
@@ -8,7 +9,7 @@ export default function Header(props) {
         <Link href="/">
           <nav className="nav" role="navigation" aria-label="main navigation">
             <a>
-              <img
+              <StyledAvatar
                 src="/animoji.png"
                 alt="Ryan's Animoji with a blue background"
               />
