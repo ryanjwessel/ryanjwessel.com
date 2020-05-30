@@ -44,7 +44,7 @@ export async function getStaticProps() {
     const keys = context.keys();
     const values = keys.map(context);
 
-    return keys.map((key, index) => {
+    const postsData = keys.map((key, index) => {
       // Create slug from filename
       const slug = key
         .replace(/^.*[\\\/]/, "")
@@ -60,6 +60,10 @@ export async function getStaticProps() {
         slug,
       };
     });
+
+    return postsData.sort(
+      (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+    );
   })(require.context("../posts", true, /\.md$/));
 
   return {
