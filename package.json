@@ -1,8 +1,8 @@
 {
   "name": "ryan-wessel-dot-com",
   "version": "2.0.0",
-  "description": "The personal website of Ryan Wessel found at ryanwessel.com",
-  "author": "Ryan Wessel <ryan@wesselstudios.com",
+  "description": "The personal website of Ryan J. Wessel found at ryanjwessel.com",
+  "author": "Ryan J. Wessel <ryan@wesselstudios.com",
   "license": "MIT",
   "scripts": {
     "dev": "next",
@@ -32,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rynjwssl/ryan-wessel-dot-com.git"
+    "url": "git+https://github.com/ryanjwessel/ryanjwessel.com.git"
   },
   "bugs": {
-    "url": "https://github.com/rynjwssl/ryan-wessel-dot-com/issues"
+    "url": "https://github.com/ryanjwessel/ryanjwessel.com/issues"
   },
-  "homepage": "https://github.com/rynjwssl/ryan-wessel-dot-com#readme"
+  "homepage": "https://github.com/ryanjwessel/ryanjwessel.com#readme"
 }
