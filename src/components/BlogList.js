@@ -10,7 +10,7 @@ const BlogList = ({ posts }) => {
       <ul className="post-list">
         {posts.length > 0 &&
           posts.map((post) => (
-            <li className="post" key={post.frontmatter.title}>
+            <li key={post.frontmatter.title} className="post">
               <h3 className="post-date">
                 {reformatDate(post.frontmatter.date)}
               </h3>

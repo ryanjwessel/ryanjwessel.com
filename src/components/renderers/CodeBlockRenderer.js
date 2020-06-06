@@ -1,16 +1,30 @@
-import React from "react";
-import Lowlight from "react-lowlight";
-// import shallowCompare from "react-addons-shallow-compare";
-import js from "highlight.js/lib/languages/javascript";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-Lowlight.registerLanguage("js", js);
+import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
+import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
 
-const CodeBlockRenderer = ({ language, value }) => {
-  // TODO: Redo this in hooks.
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return shallowCompare(this, nextProps, nextState);
-  // },
-  return <Lowlight value={value || ""} language={language || "js"} />;
-};
+SyntaxHighlighter.registerLanguage('js', js);
+SyntaxHighlighter.registerLanguage('jsx', jsx);
 
-export default CodeBlockRenderer;
+const CodeBlock = ({ language, value }) => {
+  return (
+    <SyntaxHighlighter style={prism} language={language}>
+      {value}
+    </SyntaxHighlighter>
+  );
+}
+
+
+CodeBlock.propTypes = {
+  value: PropTypes.string.isRequired,
+  language: PropTypes.string,
+}
+
+CodeBlock.defaultProps = {
+  language: null,
+}
+
+export default CodeBlock;
