@@ -6,7 +6,6 @@ const glob = require("glob");
 
 const BlogTemplate = ({
   frontmatter,
-  title,
   headline,
   description,
   github,
@@ -14,11 +13,13 @@ const BlogTemplate = ({
   twitter,
   markdownBody,
 }) => {
-  const readableDate = new Date(frontmatter.date).toDateString();
+  const { title, date, codesample } = frontmatter;
+  const readableDate = new Date(date).toDateString();
+
   return (
     <Layout
       pathname="/"
-      title={frontmatter.title}
+      title={title}
       headline={headline}
       description={description}
       github={github}
@@ -26,8 +27,13 @@ const BlogTemplate = ({
       twitter={twitter}
     >
       <article>
-        <h1>{frontmatter.title}</h1>
+        <h1>{title}</h1>
         <h3>{readableDate}</h3>
+        {codesample && (
+          <h5>
+          <a href={codesample} alt="Example Code URL" target="_blank" rel="noreferrer noopener">Example code for this post</a>
+          </h5>
+        )}
         <div>
           <ReactMarkdown
             source={markdownBody}
@@ -51,7 +57,6 @@ export async function getStaticProps({ ...ctx }) {
 
   return {
     props: {
-      title,
       headline,
       github,
       linkedin,
