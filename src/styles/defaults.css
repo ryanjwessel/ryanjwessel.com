@@ -40,7 +40,8 @@ h4,
 h5,
 h6,
 p,
-li {
+li, 
+table {
   font-family: "Ubuntu", Arial, sans-serif;
   margin-left: 0;
   margin-right: 0;
@@ -63,6 +64,16 @@ h2 {
 h3,
 h4 {
   font-size: 1.25rem;
+}
+h5, h6 {
+  font-weight: normal;
+  font-style: italic;
+}
+table {
+  width: 100%;
+}
+code {
+  color: #dd4a68;
 }
 @media (min-width: 1280px) {
   h1,
