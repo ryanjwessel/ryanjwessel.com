@@ -1,7 +1,7 @@
 {
-  "name": "ryan-wessel-dot-com",
+  "name": "editing-confidence-pedestal-post",
   "version": "2.0.0",
-  "description": "The personal website of Ryan J. Wessel found at ryanjwessel.com",
+  "description": "",
   "author": "Ryan J. Wessel <ryan@wesselstudios.com",
   "license": "MIT",
   "scripts": {
@@ -36,5 +36,6 @@
   "bugs": {
     "url": "https://github.com/ryanjwessel/ryanjwessel.com/issues"
   },
-  "homepage": "https://github.com/ryanjwessel/ryanjwessel.com#readme"
+  "homepage": "https://github.com/ryanjwessel/ryanjwessel.com#readme",
+  "keywords": []
 }

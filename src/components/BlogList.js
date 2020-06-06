@@ -1,15 +1,15 @@
-import React from "react";
-import Link from "next/link";
-import StyledBlogList from "./StyledBlogList";
+import React from 'react';
+import Link from 'next/link';
+import StyledBlogList from './StyledBlogList';
 
 const BlogList = ({ posts }) => {
-  const reformatDate = (fullDate) => new Date(fullDate).toDateString();
+  const reformatDate = fullDate => new Date(fullDate).toDateString();
 
   return (
     <StyledBlogList>
       <ul className="post-list">
         {posts.length > 0 &&
-          posts.map((post) => (
+          posts.map(post => (
             <li key={post.frontmatter.title} className="post">
               <h3 className="post-date">
                 {reformatDate(post.frontmatter.date)}
@@ -20,7 +20,7 @@ const BlogList = ({ posts }) => {
                   href={{ pathname: `/blog/[slug]` }}
                   as={{ pathname: `/blog/${post.slug}` }}
                 >
-                  <a>{post.frontmatter.title}</a>
+                  <p>{post.frontmatter.title}</p>
                 </Link>
               </h2>
             </li>
