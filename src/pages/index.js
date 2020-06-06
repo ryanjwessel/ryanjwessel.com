@@ -1,6 +1,6 @@
-import matter from "gray-matter";
-import Layout from "../components/Layout";
-import BlogList from "../components/BlogList";
+import matter from 'gray-matter';
+import Layout from '../components/Layout';
+import BlogList from '../components/BlogList';
 
 const Index = ({
   title,
@@ -40,17 +40,17 @@ export async function getStaticProps() {
     twitter,
   } = await import(`../data/config.json`);
   // Get posts & context from folder
-  const posts = ((context) => {
+  const posts = (context => {
     const keys = context.keys();
     const values = keys.map(context);
 
     const postsData = keys.map((key, index) => {
       // Create slug from filename
       const slug = key
-        .replace(/^.*[\\\/]/, "")
-        .split(".")
+        .replace(/^.*[\\/]/, '')
+        .split('.')
         .slice(0, -1)
-        .join(".");
+        .join('.');
       const value = values[index];
       // Parse yaml metadata & markdownbody in document
       const document = matter(value.default);
@@ -62,9 +62,9 @@ export async function getStaticProps() {
     });
 
     return postsData.sort(
-      (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+      (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date),
     );
-  })(require.context("../posts", true, /\.md$/));
+  })(require.context('../posts', true, /\.md$/));
 
   return {
     props: {
