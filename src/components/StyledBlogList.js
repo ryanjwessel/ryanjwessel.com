@@ -10,11 +10,7 @@ const StyledBlogList = styled.div`
     margin-bottom: 0;
   }
   .post .post-date {
-    font-size: 0.9rem;
     margin-bottom: 0.25rem;
-  }
-  .post .post-title {
-    font-size: 1.2rem;
   }
 `;
 
