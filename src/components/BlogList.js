@@ -20,7 +20,7 @@ const BlogList = ({ posts }) => {
                   href={{ pathname: `/blog/[slug]` }}
                   as={{ pathname: `/blog/${post.slug}` }}
                 >
-                  <p>{post.frontmatter.title}</p>
+                  <a>{post.frontmatter.title}</a>
                 </Link>
               </h2>
             </li>
