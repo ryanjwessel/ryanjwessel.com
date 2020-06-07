@@ -1,7 +1,7 @@
 ---
-title: 'The Testing Trophy Alone Does Not Result In Confidence'
-date: '2020-06-06T09:30:00-05:00'
-codesample: 'https://codesandbox.io/s/beautiful-dubinsky-rwi7s?file=/src/ResetPassword.js'
+title: "The Testing Trophy Alone Does Not Result In Confidence"
+date: "2020-06-06T09:30:00-05:00"
+codesandbox: "https://codesandbox.io/s/beautiful-dubinsky-rwi7s?file=/src/ResetPassword.js"
 ---
 
 If you have been reading about test driven development in Javascript, chances
@@ -23,13 +23,7 @@ And yes, the order here matters!
 
 This is the missing piece of the Testing Trophy that I have decided to call **The Confidence Pedestal**. This is what your Testing Trophy rests upon, and without it your testing suite will have a shaky foundation.
 
-|                                                                            |
-| :------------------------------------------------------------------------: |
-| ![Confidence Pedestal Diagram](../diagrams/confidence-pedestal.drawio.svg) |
-
-| The Confidence Pedestal + The Testing Trophy |
-| :------------------------------------------: |
-|                                              |
+![Confidence Pedestal Diagram](../diagrams/confidence-pedestal.drawio.svg)
 
 As you can see, Realism and Resiliency are the ultimate foundation for your tests. Having adequate code coverage is good, but without those as your base you will end up expending a lot of effort without a solid return on investment.
 
@@ -45,14 +39,14 @@ Now, let's go through an example of what a realistic, resilient test would look 
 
 ```jsx
 // ResetPassword.js
-import React from 'react';
+import React from "react";
 
 const initialState = {
-  currentPassword: '',
-  newPassword: '',
-  retypePassword: '',
+  currentPassword: "",
+  newPassword: "",
+  retypePassword: "",
   isSubmitted: false,
-  isValid: false,
+  isValid: false
 };
 
 const validatePasswords = (currentPassword, newPassword, retypePassword) => {
@@ -71,28 +65,28 @@ const ResetPassword = () => {
     newPassword,
     retypePassword,
     isSubmitted,
-    isValid,
+    isValid
   } = formState;
 
   // Validate the password fields anytime the input fields are updated.
   React.useEffect(() => {
     setFormState(prevFormState => ({
       ...prevFormState,
-      isValid: validatePasswords(currentPassword, newPassword, retypePassword),
+      isValid: validatePasswords(currentPassword, newPassword, retypePassword)
     }));
   }, [currentPassword, newPassword, retypePassword]);
 
   const handleChange = ({ target: { name, value } }) => {
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
 
   const handleSubmit = () => {
     setFormState({
       ...formState,
-      isSubmitted: true,
+      isSubmitted: true
     });
   };
 
@@ -148,38 +142,38 @@ Here is an example of what these assertions would look like using `@testing-libr
 
 ```jsx
 // ResetPassword.test.js
-import React from 'react';
-import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
-import ResetPassword from './ResetPassword';
+import React from "react";
+import "@testing-library/jest-dom";
+import { render, screen, fireEvent } from "@testing-library/react";
+import ResetPassword from "./ResetPassword";
 
-describe('ResetPassword', () => {
-  const mockCurrentPassword = 'oldPassword9';
-  const mockNewPassword = 'newPassword10@';
-  const mockNonMatchingNewPassword = 'newPassword11&';
+describe("ResetPassword", () => {
+  const mockCurrentPassword = "oldPassword9";
+  const mockNewPassword = "newPassword10@";
+  const mockNonMatchingNewPassword = "newPassword11&";
 
-  it('the submit button should only be enabled when the form is valid', () => {
+  it("the submit button should only be enabled when the form is valid", () => {
     render(<ResetPassword />);
 
-    const currentPassword = screen.getByLabelText('Current Password');
-    const newPassword = screen.getByLabelText('New Password');
-    const retypePassword = screen.getByLabelText('Retype Password');
-    const submitButton = screen.getByRole('button');
+    const currentPassword = screen.getByLabelText("Current Password");
+    const newPassword = screen.getByLabelText("New Password");
+    const retypePassword = screen.getByLabelText("Retype Password");
+    const submitButton = screen.getByRole("button");
 
     expect(submitButton).toBeDisabled();
 
     fireEvent.change(currentPassword, {
-      target: { value: mockCurrentPassword },
+      target: { value: mockCurrentPassword }
     });
     expect(currentPassword.value).toEqual(mockCurrentPassword);
 
     fireEvent.change(newPassword, {
-      target: { value: mockNewPassword },
+      target: { value: mockNewPassword }
     });
     expect(newPassword.value).toEqual(mockNewPassword);
 
     fireEvent.change(retypePassword, {
-      target: { value: mockNewPassword },
+      target: { value: mockNewPassword }
     });
     expect(retypePassword.value).toEqual(mockNewPassword);
 
@@ -187,7 +181,7 @@ describe('ResetPassword', () => {
     expect(submitButton).toBeEnabled();
 
     fireEvent.change(retypePassword, {
-      target: { value: mockNonMatchingNewPassword },
+      target: { value: mockNonMatchingNewPassword }
     });
     expect(retypePassword.value).toEqual(mockNonMatchingNewPassword);
 
@@ -206,3 +200,5 @@ Kent C. Dodds had all of this in mind when he wrote about the Testing Trophy. Th
 Hopefully, this piece helped you understand why Realistic, Resilient tests are a vital foundation for a testing suite that gives you confidence in pushing code.
 
 All of the code from this example is available at [this CodeSandbox](https://codesandbox.io/s/beautiful-dubinsky-rwi7s?file=/src/ResetPassword.js).
+
+I plan on continuing to update this article with hands-on examples to demonstrate the fragility of snapshot testing when compared to assertion-based, user-centric testing. Stay tuned!
