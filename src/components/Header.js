@@ -1,6 +1,8 @@
-import Link from "next/link";
-import StyledHeader from "./StyledHeader";
-import StyledAvatar from "./StyledAvatar";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import StyledHeader from './StyledHeader';
+import StyledAvatar from './StyledAvatar';
 
 const Header = ({ headline }) => {
   return (
@@ -20,6 +22,10 @@ const Header = ({ headline }) => {
       </div>
     </StyledHeader>
   );
+};
+
+Header.propTypes = {
+  headline: PropTypes.string.isRequired,
 };
 
 export default Header;

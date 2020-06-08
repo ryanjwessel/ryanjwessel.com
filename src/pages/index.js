@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import matter from 'gray-matter';
 import Layout from '../components/Layout';
 import BlogList from '../components/BlogList';
@@ -28,6 +30,25 @@ const Index = ({
   );
 };
 
+Index.propTypes = {
+  title: PropTypes.string.isRequired,
+  headline: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  twitter: PropTypes.string.isRequired,
+  // TODO: Make posts prop type shared.
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+      }),
+      slug: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
 export default Index;
 
 export async function getStaticProps() {
@@ -38,9 +59,9 @@ export async function getStaticProps() {
     github,
     linkedin,
     twitter,
-  } = await import(`../data/config.json`);
+  } = await import('../data/config.json');
   // Get posts & context from folder
-  const posts = (context => {
+  const posts = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 

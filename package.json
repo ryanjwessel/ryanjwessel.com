@@ -29,9 +29,18 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-frontmatter": "^0.0.8",
+    "eslint-plugin-json": "^2.1.1",
+    "eslint-plugin-md": "^1.0.15",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "lint-staged": ">=10",
+    "markdown-eslint-parser": "^1.2.1",
+    "prettier": "2.0.5",
+    "remark-preset-lint-markdown-style-guide": "^3.0.0"
   },
   "repository": {
     "type": "git",
@@ -41,5 +50,13 @@
     "url": "https://github.com/ryanjwessel/ryanjwessel.com/issues"
   },
   "homepage": "https://github.com/ryanjwessel/ryanjwessel.com#readme",
-  "keywords": []
+  "keywords": [],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
 }

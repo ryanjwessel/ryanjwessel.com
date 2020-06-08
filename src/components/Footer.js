@@ -1,11 +1,13 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
-import StyledFooter from "./StyledFooter";
-import Icon from "./icons/Icon";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import StyledFooter from './StyledFooter';
+import Icon from './icons/Icon';
 
 const Footer = ({ github, linkedin, twitter }) => {
   const { asPath } = useRouter();
-  const currentPath = `~${asPath}${asPath === "/" ? "" : ".md"}`;
+  const currentPath = `~${asPath}${asPath === '/' ? '' : '.md'}`;
 
   return (
     <StyledFooter>
@@ -50,6 +52,12 @@ const Footer = ({ github, linkedin, twitter }) => {
       </div>
     </StyledFooter>
   );
+};
+
+Footer.propTypes = {
+  github: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  twitter: PropTypes.string.isRequired,
 };
 
 export default Footer;

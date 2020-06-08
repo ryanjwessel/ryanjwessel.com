@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const LinkRenderer = (props) => {
   return (
@@ -6,6 +7,18 @@ const LinkRenderer = (props) => {
       {props.children}
     </a>
   );
+};
+
+LinkRenderer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  href: PropTypes.string,
+};
+
+LinkRenderer.defaultProps = {
+  href: '',
 };
 
 export default LinkRenderer;
