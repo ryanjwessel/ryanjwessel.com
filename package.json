@@ -1,6 +1,6 @@
 {
-  "name": "editing-confidence-pedestal-post",
-  "version": "2.0.0",
+  "name": "ryan-j-wessel-dot-com",
+  "version": "2.0.1",
   "description": "",
   "author": "Ryan J. Wessel <ryan@wesselstudios.com",
   "license": "MIT",
@@ -27,7 +27,11 @@
     "swr": "^0.1.18"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.7"
+    "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "^7.2.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "husky": "^4.2.5"
   },
   "repository": {
     "type": "git",
