@@ -33,10 +33,11 @@ that time. My hopeful outcome for those reading this is two-fold.
 1. I hope that you see that it is okay to not know everything right now, and
    that it takes time to learn anything. There are so many subject matter
    experts, and so much content available on dozens of channels like Medium and
-   Youtube. It is easy to see all of that and feel you are too far behind to
+   YouTube. It is easy to see all of that and feel you are too far behind to
    even get started. It is okay to start from knowing nothing, and over time you
    will get better!
-2. I hope this inspires you to reflect on progress you have made in areas where
+
+1. I hope this inspires you to reflect on progress you have made in areas where
    you are overly critical with your self. It is easy to lose sight of the
    progress you have made when you are always looking forward. There is a
    delicate balance to strike between being content with where you are and
@@ -357,11 +358,11 @@ all comfortable with TypeScript.
 
 Static-typing was only one piece of the testing equation that we needed to solve
 for. Albert Orlando, a fellow engineer on the team, and myself became interested
-in Kent C. Dodds **(add apostrophe for Dodds)** content surrounding testing in
-Javascript. We asked if PebblePost would pay for his Testing Javascript course,
-and fortunately it was approved! There was a clear need to improve our testing
-methodology on the front-end because, as I mentioned earlier, we had >75% test
-coverage that was not helping us deliver code with confidence.
+in Kent C. Dodd's content surrounding testing in Javascript. We asked if
+PebblePost would pay for his Testing Javascript course, and fortunately it was
+approved! There was a clear need to improve our testing methodology on the
+front-end because, as I mentioned earlier, we had >75% test coverage that was
+not helping us deliver code with confidence.
 
 By taking this course, the distinctions between static-typing, unit testing,
 integration testing, and end-to-end testing became more clear to me. They all
@@ -369,7 +370,8 @@ comprised the overall “trophy”, and we were really only doing static-typing 
 unit-testing. We needed to improve our integration testing approach first, and
 then we could consider end-to-end testing.
 
-[Link to Testing Javascript trophy]
+[Here is a link](https://testingjavascript.com/) to the course if you are
+interested in learning more.
 
 ### Integration Testing and Snapshots
 

@@ -73,14 +73,14 @@ like. Take a look at this `ResetPassword` component.
 
 ```jsx
 // ResetPassword.js
-import React from "react";
+import React from 'react';
 
 const initialState = {
-  currentPassword: "",
-  newPassword: "",
-  retypePassword: "",
+  currentPassword: '',
+  newPassword: '',
+  retypePassword: '',
   isSubmitted: false,
-  isValid: false
+  isValid: false,
 };
 
 const validatePasswords = (currentPassword, newPassword, retypePassword) => {
@@ -99,28 +99,28 @@ const ResetPassword = () => {
     newPassword,
     retypePassword,
     isSubmitted,
-    isValid
+    isValid,
   } = formState;
 
   // Validate the password fields anytime the input fields are updated.
   React.useEffect(() => {
-    setFormState(prevFormState => ({
+    setFormState((prevFormState) => ({
       ...prevFormState,
-      isValid: validatePasswords(currentPassword, newPassword, retypePassword)
+      isValid: validatePasswords(currentPassword, newPassword, retypePassword),
     }));
   }, [currentPassword, newPassword, retypePassword]);
 
   const handleChange = ({ target: { name, value } }) => {
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleSubmit = () => {
     setFormState({
       ...formState,
-      isSubmitted: true
+      isSubmitted: true,
     });
   };
 
@@ -182,38 +182,38 @@ Here is an example of what these assertions would look like using
 
 ```jsx
 // ResetPassword.test.js
-import React from "react";
-import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
-import ResetPassword from "./ResetPassword";
+import React from 'react';
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import ResetPassword from './ResetPassword';
 
-describe("ResetPassword", () => {
-  const mockCurrentPassword = "oldPassword9";
-  const mockNewPassword = "newPassword10@";
-  const mockNonMatchingNewPassword = "newPassword11&";
+describe('ResetPassword', () => {
+  const mockCurrentPassword = 'oldPassword9';
+  const mockNewPassword = 'newPassword10@';
+  const mockNonMatchingNewPassword = 'newPassword11&';
 
-  it("the submit button should only be enabled when the form is valid", () => {
+  it('the submit button should only be enabled when the form is valid', () => {
     render(<ResetPassword />);
 
-    const currentPassword = screen.getByLabelText("Current Password");
-    const newPassword = screen.getByLabelText("New Password");
-    const retypePassword = screen.getByLabelText("Retype Password");
-    const submitButton = screen.getByRole("button");
+    const currentPassword = screen.getByLabelText('Current Password');
+    const newPassword = screen.getByLabelText('New Password');
+    const retypePassword = screen.getByLabelText('Retype Password');
+    const submitButton = screen.getByRole('button');
 
     expect(submitButton).toBeDisabled();
 
     fireEvent.change(currentPassword, {
-      target: { value: mockCurrentPassword }
+      target: { value: mockCurrentPassword },
     });
     expect(currentPassword.value).toEqual(mockCurrentPassword);
 
     fireEvent.change(newPassword, {
-      target: { value: mockNewPassword }
+      target: { value: mockNewPassword },
     });
     expect(newPassword.value).toEqual(mockNewPassword);
 
     fireEvent.change(retypePassword, {
-      target: { value: mockNewPassword }
+      target: { value: mockNewPassword },
     });
     expect(retypePassword.value).toEqual(mockNewPassword);
 
@@ -221,7 +221,7 @@ describe("ResetPassword", () => {
     expect(submitButton).toBeEnabled();
 
     fireEvent.change(retypePassword, {
-      target: { value: mockNonMatchingNewPassword }
+      target: { value: mockNonMatchingNewPassword },
     });
     expect(retypePassword.value).toEqual(mockNonMatchingNewPassword);
 

@@ -9,5 +9,9 @@
   "eslint.validate": ["javascript", "json", "markdown"],
   "prettier.configPath": "./.prettierrc.json",
   "prettier.trailingComma": "none",
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[markdown]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+  }
 }

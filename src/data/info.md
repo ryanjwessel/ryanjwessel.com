@@ -11,7 +11,5 @@ then.
 ## Current Status
 
 - Job: Software Engineer II - Mobile @ [Dataminr](https://www.dataminr.com/)
-
-- Playing: Links Awakening on Nintendo Switch
-
-* Reading: Getting Things Done, and Dune
+- Playing: Link's Awakening on Nintendo Switch
+- Reading: Getting Things Done, and Dune
