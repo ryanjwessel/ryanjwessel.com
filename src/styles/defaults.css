@@ -27,6 +27,7 @@ a,
 }
 a:hover,
 .link:hover {
+  cursor: pointer;
   color: #0451a5;
 }
 img {

@@ -1,0 +1,17 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "eslint.lintTask.enable": true,
+  "eslint.packageManager": "yarn",
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "eslint.validate": ["javascript", "json", "markdown"],
+  "prettier.configPath": "./.prettierrc.json",
+  "prettier.trailingComma": "none",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[markdown]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+  }
+}

@@ -1,7 +1,9 @@
-import Layout from "../components/Layout";
-import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
-import LinkRenderer from "../components/renderers/LinkRenderer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Layout from '../components/Layout';
+import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
+import LinkRenderer from '../components/renderers/LinkRenderer';
 
 const Info = ({
   title,
@@ -34,10 +36,27 @@ const Info = ({
   );
 };
 
+Info.propTypes = {
+  // TODO: Make sharable prop types across project.
+  title: PropTypes.string.isRequired,
+  headline: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  twitter: PropTypes.string.isRequired,
+  // TODO: Make frontmatter prop type shared.
+  frontmatter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    codesandbox: PropTypes.string,
+  }).isRequired,
+  markdownBody: PropTypes.string.isRequired,
+};
+
 export default Info;
 
 export async function getStaticProps() {
-  const post = await import(`../data/info.md`);
+  const post = await import('../data/info.md');
   const {
     title,
     headline,
@@ -45,7 +64,7 @@ export async function getStaticProps() {
     github,
     linkedin,
     twitter,
-  } = await import(`../data/config.json`);
+  } = await import('../data/config.json');
   const { data, content } = matter(post.default);
 
   return {

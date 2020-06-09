@@ -15,16 +15,15 @@ const CodeBlock = ({ language, value }) => {
       {value}
     </SyntaxHighlighter>
   );
-}
-
+};
 
 CodeBlock.propTypes = {
   value: PropTypes.string.isRequired,
   language: PropTypes.string,
-}
+};
 
 CodeBlock.defaultProps = {
   language: null,
-}
+};
 
 export default CodeBlock;
