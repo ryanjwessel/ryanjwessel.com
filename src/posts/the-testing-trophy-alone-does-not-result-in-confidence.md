@@ -11,9 +11,10 @@ If you have been reading about test driven development in Javascript, chances
 are you have come across [Kent C. Dodds](https://kentcdodds.com/), the
 [Testing Trophy](https://twitter.com/kentcdodds/status/960723172591992832?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E960723172591992832&ref_url=https%3A%2F%2Fkentcdodds.com%2Fblog%2Fwrite-tests),
 and the [Testing Library](https://testing-library.com/). The Testing Trophy and
-Testing Library have grown significantly over the last couple of years. You may
-be asking yourself, "Self... Why are these things so great?", and today I hope
-to answer your inner monologue.
+Testing Library have grown significantly over the last couple of years.
+
+You may be asking yourself, _"Self... Why are these things so great?"_. Today I
+hope to answer your inner monologue.
 
 The Testing Trophy is a guide as to what the composition of your testing suite
 might look like. Each type of testing requires a different amount of effort.
