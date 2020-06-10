@@ -1,6 +1,8 @@
 ---
 title: 'Reflecting On My Growth As A Software Engineer'
 date: '2020-04-05T19:30:00-05:00'
+bannerImgSrc: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1850&q=80'
+bannerImgAlt: 'Small island with a yellow tree in a calm pond'
 ---
 
 I remember writing HTML and CSS to customize my MySpace profile back in 2006, an
