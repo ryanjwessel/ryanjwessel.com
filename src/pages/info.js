@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import LinkRenderer from '../components/renderers/LinkRenderer';
+import { frontmatterPropTypes } from '../propTypes';
 
 const Info = ({
   title,
@@ -37,19 +38,13 @@ const Info = ({
 };
 
 Info.propTypes = {
-  // TODO: Make sharable prop types across project.
+  frontmatter: frontmatterPropTypes,
   title: PropTypes.string.isRequired,
   headline: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   twitter: PropTypes.string.isRequired,
-  // TODO: Make frontmatter prop type shared.
-  frontmatter: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    codesandbox: PropTypes.string,
-  }).isRequired,
   markdownBody: PropTypes.string.isRequired,
 };
 

@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import Layout from '../../components/Layout';
 import CodeBlockRenderer from '../../components/renderers/CodeBlockRenderer';
+import { frontmatterPropTypes } from '../../propTypes';
 const glob = require('glob');
 
 const BlogTemplate = ({
@@ -56,11 +57,7 @@ const BlogTemplate = ({
 };
 
 BlogTemplate.propTypes = {
-  frontmatter: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    codesandbox: PropTypes.string,
-  }).isRequired,
+  frontmatter: frontmatterPropTypes,
   headline: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   github: PropTypes.string.isRequired,

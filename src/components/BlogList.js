@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import StyledBlogList from './StyledBlogList';
+import { postListPropTypes } from '../propTypes';
 
 const BlogList = ({ posts }) => {
   const reformatDate = (fullDate) => new Date(fullDate).toDateString();
@@ -32,15 +32,7 @@ const BlogList = ({ posts }) => {
 };
 
 BlogList.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-      }),
-      slug: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  posts: postListPropTypes,
 };
 
 export default BlogList;
