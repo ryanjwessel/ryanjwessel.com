@@ -16,43 +16,42 @@ Testing Library have grown significantly over the last couple of years.
 You may be asking yourself, _"Self... Why are these things so great?"_. Today I
 hope to answer your inner monologue.
 
-The Testing Trophy is a guide as to what the composition of your testing suite
-might look like. Each type of testing requires a different amount of effort.
-Since end-to-end tests requires more effort to set up, it is not viable to write
-them exclusively while omitting unit and integration tests. But, if you only
-write unit tests, then you won't have confidence that larger pieces of
+The Testing Trophy is a guide as to what the **composition of your testing
+suite** might look like. Each type of testing requires a different amount of
+effort. Since end-to-end tests requires more effort to set up, it is not viable
+to write them exclusively while omitting unit and integration tests. But, if you
+only write unit tests, then you won't have confidence that larger pieces of
 functionality are working each time you push new code.
 
 This is not an exact prescription to write 50% integration tests, 30% unit
 tests, and so on. Instead, it suggests that you (and your team) write tests in a
 way that strikes the best possible balance between **confidence** and **level of
-effort**. For frontend applications, his suggestion is that integration tests
-strike the best balance between confidence and speed, so you should spend most
-of your effort on writing those types of tests.
+effort**.
+
+For frontend applications, his suggestion is that integration tests strike the
+best balance between confidence and speed, so you should spend most of your
+effort on writing those types of tests.
 
 But, **how** do you achieve confidence with your tests?
 
 If the primary goal of testing is to gain confidence in pushing code without
 breaking functionality, then our tests need to be written to satisfy the
-following conditions:
+following conditions (in this order!):
 
 - They are Realistic (representative of how a user would interact with a
   component)
 - They are Resilient to changes (avoiding false positives and false negatives)
 - They provide adequate Coverage of your code
 
-And yes, the order here matters!
-
 This is the missing piece for the Testing Trophy that I have decided to call
 **The Confidence Pedestal**.
 
 ![Confidence Pedestal Diagram](../diagrams/confidence-pedestal.drawio.svg)
 
-This is the foundation of your Testing Trophy, and without it your testing suite
-will have a shaky foundation. Realism and Resiliency are the ultimate foundation
-for your tests. Having adequate code Coverage is good, but without those two as
-your base you will end up expending a lot of effort without a solid return on
-investment.
+This is the foundation of your Testing Trophy. Realism and Resiliency are
+prerequisites for a test suite that gives you confidence. Having adequate code
+Coverage is good, but without those as your base you will end up expending
+effort without a solid return on investment.
 
 If you use snapshot testing you will gain a lot of Coverage quite easily. But,
 as soon as you make a change, even if it does not break the core functionality
@@ -263,7 +262,7 @@ capable of creating snapshot tests, but it is not intended to be used that way.
 
 Instead, it provides a set of utilities that closely resemble how a user would
 interact with a component. The API is designed in a way that encourages
-test-writing that adheres to The Confidence Pedestal principles.
+test-writing that adheres to The Confidence Pedestal hierarchy.
 
 We will be using the `getByLabelText` and `getByRole` queries to find the
 components we need to test in the rendered output.
@@ -336,33 +335,17 @@ They should be able to enter the values in the input fields that correspond with
 what they are trying to provide, and the form should only be submittable once
 the fields are valid.
 
-Why is this a better alternative than a snapshot test? Because if we were to
-make a non-behavioral change, such as replacing a `<div>` element with a
-`<section>` element, the snapshot test would fail.
+Why is this a better alternative than a snapshot test? Because each of the
+examples where we caused _false negatives_ and _false positives_ for snapshot
+testing are handled gracefully by this approach.
 
-Additionally, if we were to make a mistake in updating the object destructuring
-of our `handleChange` function, that would break the ability to enter text on
-the form. A snapshot test would not surface this breakage, whereas this test
-would.
-
-Each of the examples where we caused _false negatives_ and _false positives_ for
-snapshot testing are handled gracefully by this approach. _False negatives_ are
-not surfaced as errors because are functionality continues to work. _False
-positives_ are surfaced as errors because our component no longer works.
+_False negatives_ are not surfaced as errors because are functionality continues
+to work. _False positives_ are surfaced as errors because our component no
+longer works.
 
 Our interactions and assertions make these tests Realistic, and using the
 `@testing-library/react` queries makes them Resilient. Our Confidence Pedestal
 is now a sturdy foundation for our testing suite!
-
-Kent C. Dodds had all of this in mind when he wrote about the Testing Trophy.
-That is why he also created the Testing Library, so that your **composition of
-tests** could be supported by **The Confidence Pedestal**.
-
-The design of the Testing Library encourages writing tests that are Realistic
-and Resilient by exposing a set of utilities that more closely resemble how a
-user interacts with a user interface. Also, they have the added benefit of
-readability when compared to `react-test-renderer`, `enzyme`, and other
-libraries.
 
 Hopefully, this piece helped you understand why Realistic, Resilient tests are a
 vital foundation for a testing suite that gives you confidence in pushing code.
