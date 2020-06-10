@@ -6,6 +6,7 @@ import Layout from '../../components/Layout';
 import CodeBlockRenderer from '../../components/renderers/CodeBlockRenderer';
 import { frontmatterPropTypes } from '../../propTypes';
 import { getReadableDate } from '../../utils/date';
+import StyledBanner from '../../components/StyledBanner';
 const glob = require('glob');
 
 const BlogTemplate = ({
@@ -38,37 +39,41 @@ const BlogTemplate = ({
       twitter={twitter}
     >
       <article>
-        <h1>{title}</h1>
-        <h3>{readableDate}</h3>
-        {/* TODO: Separate this into a BlogHeader component */}
-        {(githubSample || codesandboxSample) && (
-          <h5>
-            {githubSample && (
-              <a
-                href={githubSample}
-                alt="Example Repo"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Example Repo
-              </a>
-            )}
-            {githubSample && codesandboxSample && (
-              <span style={{ margin: '0 4px' }}>|</span>
-            )}
-            {codesandboxSample && (
-              <a
-                href={codesandboxSample}
-                alt="Example CodeSandbox"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Example CodeSandbox
-              </a>
-            )}
-          </h5>
-        )}
-        {bannerImgSrc && <img src={bannerImgSrc} alt={bannerImgAlt} />}
+        <header>
+          <h1>{title}</h1>
+          <h3>{readableDate}</h3>
+          {/* TODO: Separate this into a BlogHeader component */}
+          {(githubSample || codesandboxSample) && (
+            <h5>
+              {githubSample && (
+                <a
+                  href={githubSample}
+                  alt="Example Repo"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Example Repo
+                </a>
+              )}
+              {githubSample && codesandboxSample && (
+                <span style={{ margin: '0 4px' }}>|</span>
+              )}
+              {codesandboxSample && (
+                <a
+                  href={codesandboxSample}
+                  alt="Example CodeSandbox"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Example CodeSandbox
+                </a>
+              )}
+            </h5>
+          )}
+          {bannerImgSrc && (
+            <StyledBanner src={bannerImgSrc} alt={bannerImgAlt} />
+          )}
+        </header>
         <div>
           <ReactMarkdown
             source={markdownBody}
@@ -77,7 +82,7 @@ const BlogTemplate = ({
           />
         </div>
         {(githubSample || codesandboxSample) && (
-          <div className="post-footer-card">
+          <footer className="article-footer-card">
             <p>If you&apos;d like to see the source code:</p>
             <>
               {githubSample && (
@@ -104,7 +109,7 @@ const BlogTemplate = ({
                 </a>
               )}
             </>
-          </div>
+          </footer>
         )}
       </article>
     </Layout>

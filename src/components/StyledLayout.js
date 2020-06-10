@@ -16,6 +16,9 @@ const StyledLayout = styled.section`
   @media only screen and (min-width: 768px) {
     padding-bottom: 3rem;
   }
+  @media only screen and (min-width: 1280px) {
+    padding: 0 4rem 3rem;
+  }
 `;
 
 export default StyledLayout;

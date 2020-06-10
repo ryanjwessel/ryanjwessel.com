@@ -219,7 +219,7 @@ snapshot test to fail:
 
 - Providing styles to an element
 
-```html
+```jsx
 <div style={{ backgroundColor: '#ccc'}}>
 ```
 
@@ -246,7 +246,7 @@ incapable of typing anything into the `oldPassword` field.
 
 Here is what our test output looks like with that change:
 
-```shell
+```bash
 FAIL src/ResetPassword.test.js
   ResetPassword
     ✓ should match the snapshot (31ms)
