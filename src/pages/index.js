@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import matter from 'gray-matter';
 import Layout from '../components/Layout';
 import BlogList from '../components/BlogList';
+import { postListPropTypes } from '../propTypes';
 
 const Index = ({
   title,
@@ -37,16 +38,7 @@ Index.propTypes = {
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   twitter: PropTypes.string.isRequired,
-  // TODO: Make posts prop type shared.
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-      }),
-      slug: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  posts: postListPropTypes,
 };
 
 export default Index;
