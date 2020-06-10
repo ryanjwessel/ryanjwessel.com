@@ -5,15 +5,20 @@ import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
+import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
+import StyledCodeBlock from './StyledCodeBlock';
 
 SyntaxHighlighter.registerLanguage('js', js);
 SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('bash', bash);
 
 const CodeBlock = ({ language, value }) => {
   return (
-    <SyntaxHighlighter style={prism} language={language}>
-      {value}
-    </SyntaxHighlighter>
+    <StyledCodeBlock>
+      <SyntaxHighlighter style={prism} language={language}>
+        {value}
+      </SyntaxHighlighter>
+    </StyledCodeBlock>
   );
 };
 
