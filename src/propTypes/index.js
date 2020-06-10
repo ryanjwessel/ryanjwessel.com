@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 export const frontmatterPropTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  bannerImg: PropTypes.string,
-  codesandbox: PropTypes.string,
-  github: PropTypes.string,
+  bannerImgSrc: PropTypes.string,
+  bannerImgAlt: PropTypes.string,
+  codesandboxSample: PropTypes.string,
+  githubSample: PropTypes.string,
 }).isRequired;
 
 export const postListPropTypes = PropTypes.arrayOf(

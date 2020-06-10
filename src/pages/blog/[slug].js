@@ -16,7 +16,14 @@ const BlogTemplate = ({
   twitter,
   markdownBody,
 }) => {
-  const { title, date, codesandbox } = frontmatter;
+  const {
+    title,
+    date,
+    bannerImgSrc,
+    bannerImgAlt,
+    codesandboxSample,
+    githubSample,
+  } = frontmatter;
   const readableDate = new Date(date).toDateString();
 
   return (
@@ -32,18 +39,34 @@ const BlogTemplate = ({
       <article>
         <h1>{title}</h1>
         <h3>{readableDate}</h3>
-        {codesandbox && (
+        {(githubSample || codesandboxSample) && (
           <h5>
-            <a
-              href={codesandbox}
-              alt="Example CodeSandbox"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Example CodeSandbox
-            </a>
+            {githubSample && (
+              <a
+                href={githubSample}
+                alt="Example Source Code"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Example Source Code
+              </a>
+            )}
+            {githubSample && codesandboxSample && (
+              <span style={{ margin: '0 4px' }}>|</span>
+            )}
+            {codesandboxSample && (
+              <a
+                href={codesandboxSample}
+                alt="Example CodeSandbox"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Example CodeSandbox
+              </a>
+            )}
           </h5>
         )}
+        {bannerImgSrc && <img src={bannerImgSrc} alt={bannerImgAlt} />}
         <div>
           <ReactMarkdown
             source={markdownBody}

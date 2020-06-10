@@ -1,7 +1,10 @@
 ---
 title: 'The Testing Trophy Alone Does Not Result In Confidence'
 date: '2020-06-06T09:30:00-05:00'
-codesandbox: 'https://codesandbox.io/s/beautiful-dubinsky-rwi7s?file=/src/ResetPassword.js'
+githubSample: 'https://github.com/ryanjwessel/confidence-pedestal-reset-password-example'
+codesandboxSample: 'https://codesandbox.io/s/beautiful-dubinsky-rwi7s?file=/src/ResetPassword.js'
+bannerImgSrc: 'https://images.unsplash.com/photo-1531816458010-fb7685eecbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80'
+bannerImgAlt: 'Ancient Greek Building with Columns'
 ---
 
 If you have been reading about test driven development in Javascript, chances
