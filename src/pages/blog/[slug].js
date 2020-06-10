@@ -40,16 +40,17 @@ const BlogTemplate = ({
       <article>
         <h1>{title}</h1>
         <h3>{readableDate}</h3>
+        {/* TODO: Separate this into a BlogHeader component */}
         {(githubSample || codesandboxSample) && (
           <h5>
             {githubSample && (
               <a
                 href={githubSample}
-                alt="Example Source Code"
+                alt="Example Repo"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Example Source Code
+                Example Repo
               </a>
             )}
             {githubSample && codesandboxSample && (
@@ -75,6 +76,36 @@ const BlogTemplate = ({
             renderers={{ code: CodeBlockRenderer }}
           />
         </div>
+        {(githubSample || codesandboxSample) && (
+          <div className="post-footer-card">
+            <p>If you&apos;d like to see the source code:</p>
+            <>
+              {githubSample && (
+                <a
+                  href={githubSample}
+                  alt="Example Repo"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Example Repo
+                </a>
+              )}
+              {githubSample && codesandboxSample && (
+                <span style={{ margin: '0 4px' }}>|</span>
+              )}
+              {codesandboxSample && (
+                <a
+                  href={codesandboxSample}
+                  alt="Example CodeSandbox"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Example CodeSandbox
+                </a>
+              )}
+            </>
+          </div>
+        )}
       </article>
     </Layout>
   );
