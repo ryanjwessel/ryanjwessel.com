@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import Layout from '../../components/Layout';
 import CodeBlockRenderer from '../../components/renderers/CodeBlockRenderer';
 import { frontmatterPropTypes } from '../../propTypes';
+import { getReadableDate } from '../../utils/date';
 const glob = require('glob');
 
 const BlogTemplate = ({
@@ -24,7 +25,7 @@ const BlogTemplate = ({
     codesandboxSample,
     githubSample,
   } = frontmatter;
-  const readableDate = new Date(date).toDateString();
+  const readableDate = getReadableDate(date);
 
   return (
     <Layout
@@ -94,15 +95,21 @@ export default BlogTemplate;
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
   const post = await import(`../../posts/${slug}.md`);
-  const { title, headline, github, linkedin, twitter } = await import(
-    '../../data/config.json'
-  );
+  const {
+    title,
+    headline,
+    description,
+    github,
+    linkedin,
+    twitter,
+  } = await import('../../data/config.json');
   const { data, content } = matter(post.default);
 
   return {
     props: {
       title,
       headline,
+      description,
       github,
       linkedin,
       twitter,
