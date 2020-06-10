@@ -1,5 +1,5 @@
 ---
-title: 'The Testing Trophy Alone Does Not Result In Confidence'
+title: 'The Confidence Pedestal + The Testing Trophy'
 date: '2020-06-06T09:30:00-05:00'
 githubSample: 'https://github.com/ryanjwessel/confidence-pedestal-reset-password-example'
 codesandboxSample: 'https://codesandbox.io/s/beautiful-dubinsky-rwi7s?file=/src/ResetPassword.js'
@@ -64,15 +64,19 @@ This is a _false positive_, and it further undermines confidence in your tests.
 In addition to not being resilient, these tests are not realistic in that they
 don't represent how a user would actually use your component.
 
-So, what would The Confidence Pedestal look like when applied to snapshot
-testing? You would have pencil-thin layers of Realism and Resiliency with a
-deceivingly-wide Coverage layer. It only gives you the illusion of Confidence.
-When you have to overwrite multiple thousand-line snapshot files for a seemingly
-minor code change, will you actually review them all? The answer, in my
-experience, is overwhelmingly no.
+This is what The Confidence Pedestal would look like when applied to snapshot
+testing.
 
-Now, let's go through an example of what a realistic, resilient test would look
-like. Take a look at this `ResetPassword` component.
+![Confidence Pedestal Snapshot Diagram](../diagrams/confidence-pedestal-snapshot.drawio.svg)
+
+The Realism and Resiliency layers are pencil-thin, and your Coverage layer is
+deceivingly wide. It only gives you the illusion of Confidence. When you have to
+overwrite multiple thousand-line snapshot files for a seemingly minor code
+change, will you actually review them all? The answer, in my experience, is
+overwhelmingly no.
+
+Allow me to demonstrate the fragility of snapshot testing with a simple
+`ResetPassword` component.
 
 ```jsx
 // ResetPassword.js
@@ -170,6 +174,47 @@ There are three input fields, and a submit button. As a user, we would expect to
 be able to enter text into these three input fields, and then we can submit the
 form once we have text in all three fields, plus the two new password fields are
 matching. This is overly simplified for the sake of an easy-to-follow example.
+
+If we were to write a snapshot test, it would be as easy as this:
+
+```js
+// ResetPassword.test.js
+import React from 'react';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import ResetPassword from './ResetPassword';
+
+describe('ResetPassword', () => {
+  it('should match the snapshot', () => {
+    const { container } = render(<ResetPassword />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+});
+```
+
+Our generated snapshot file looks like this:
+
+```js
+exports['ResetPassword should match the snapshot 1'] = `
+<div>
+  <label
+    for="currentPassword"
+    id="currentPasswordLabel"
+  >
+    Current Password
+  </label>
+  <input
+    aria-labelledby="currentPasswordLabel"
+    name="currentPassword"
+    type="password"
+    value=""
+  />
+</div>
+`;
+```
+
+Now, let's go through an example of what a realistic, resilient test would look
+like.
 
 What would our test look like then? Here are a few assertions we could make:
 
