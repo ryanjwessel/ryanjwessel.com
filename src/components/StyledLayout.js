@@ -7,17 +7,14 @@ const StyledLayout = styled.section`
   min-height: 100vh;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 1.25rem 4.5rem;
+  padding: 0 1.25rem 0;
 
   .content {
     flex-grow: 1;
   }
 
-  @media only screen and (min-width: 768px) {
-    padding-bottom: 3rem;
-  }
   @media only screen and (min-width: 1280px) {
-    padding: 0 4rem 3rem;
+    padding: 0 4rem 0;
   }
 `;
 
