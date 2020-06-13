@@ -65,7 +65,7 @@ export async function getStaticProps() {
         .slice(0, -1)
         .join('.');
       const value = values[index];
-      // Parse yaml metadata & markdownbody in document
+      // Parse yaml metadata & markdownBody in document
       const document = matter(value.default);
       return {
         frontmatter: document.data,
@@ -77,7 +77,7 @@ export async function getStaticProps() {
     return postsData.sort(
       (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date),
     );
-  })(require.context('../posts', true, /\.md$/));
+  })(require.context('../posts', false, /\.md$/));
 
   return {
     props: {
