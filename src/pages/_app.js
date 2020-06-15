@@ -1,20 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import 'src/styles/defaults.css';
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-};
-// TODO: Actually use the values provided by ThemeProvider.
+import StyledApp from 'src/components/StyledApp';
 
 const App = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Component {...pageProps} />
-    </ThemeProvider>
+      <StyledApp />
+    </>
   );
 };
 
