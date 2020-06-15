@@ -2,7 +2,7 @@ import React from 'react';
 import { colors } from 'src/styles/theme';
 
 const StyledApp = () => (
-  <style jsx>{`
+  <style jsx global>{`
     * {
       box-sizing: inherit;
       line-height: 1.5;
