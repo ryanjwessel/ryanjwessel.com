@@ -5,7 +5,7 @@ import { postListPropTypes } from 'src/propTypes';
 import { getReadableDate } from 'src/utils/date';
 
 const BlogList = ({ posts }) => (
-  <StyledBlogList>
+  <>
     <ul className="post-list">
       {posts.length > 0 &&
         posts.map((post) => (
@@ -25,7 +25,8 @@ const BlogList = ({ posts }) => (
           </li>
         ))}
     </ul>
-  </StyledBlogList>
+    <StyledBlogList />
+  </>
 );
 
 BlogList.propTypes = {

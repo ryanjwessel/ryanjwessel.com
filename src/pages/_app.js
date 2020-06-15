@@ -6,7 +6,9 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Component {...pageProps} />
-      <StyledApp />
+      <style jsx global>
+        {StyledApp}
+      </style>
     </>
   );
 };

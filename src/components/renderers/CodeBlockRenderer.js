@@ -14,11 +14,12 @@ SyntaxHighlighter.registerLanguage('bash', bash);
 
 const CodeBlock = ({ language, value }) => {
   return (
-    <StyledCodeBlock>
+    <>
       <SyntaxHighlighter style={prism} language={language}>
         {value}
       </SyntaxHighlighter>
-    </StyledCodeBlock>
+      <StyledCodeBlock />
+    </>
   );
 };
 

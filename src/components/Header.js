@@ -6,7 +6,7 @@ import StyledAvatar from './StyledAvatar';
 
 const Header = ({ headline }) => {
   return (
-    <StyledHeader>
+    <header>
       <div className="left">
         <Link href="/">
           <nav className="nav" role="navigation" aria-label="main navigation">
@@ -20,7 +20,8 @@ const Header = ({ headline }) => {
           </nav>
         </Link>
       </div>
-    </StyledHeader>
+      <StyledHeader />
+    </header>
   );
 };
 
