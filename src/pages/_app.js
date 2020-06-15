@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import '../styles/defaults.css';
+import 'src/styles/defaults.css';
 
 const theme = {
   colors: {

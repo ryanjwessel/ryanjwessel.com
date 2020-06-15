@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Layout from '../components/Layout';
+import Layout from 'src/components/Layout';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import LinkRenderer from '../components/renderers/LinkRenderer';
-import { frontmatterPropTypes } from '../propTypes';
+import LinkRenderer from 'src/components/renderers/LinkRenderer';
+import { frontmatterPropTypes } from 'src/propTypes';
 
 const Info = ({
   title,

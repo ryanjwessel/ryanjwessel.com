@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import base64Favicon from '../../public/favicon';
+import base64Favicon from 'public/favicon';
 
 const Meta = ({ title, description }) => {
   return (

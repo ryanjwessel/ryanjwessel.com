@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import Layout from '../../components/Layout';
-import CodeBlockRenderer from '../../components/renderers/CodeBlockRenderer';
-import { frontmatterPropTypes } from '../../propTypes';
-import { getReadableDate } from '../../utils/date';
-import StyledBanner from '../../components/StyledBanner';
+import Layout from 'src/components/Layout';
+import CodeBlockRenderer from 'src/components/renderers/CodeBlockRenderer';
+import { frontmatterPropTypes } from 'src/propTypes';
+import { getReadableDate } from 'src/utils/date';
+import StyledBanner from 'src/components/StyledBanner';
 const glob = require('glob');
 
 const BlogTemplate = ({
@@ -130,7 +130,7 @@ export default BlogTemplate;
 
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
-  const post = await import(`../../posts/${slug}.md`);
+  const post = await import(`src/posts/${slug}.md`);
   const {
     title,
     headline,
@@ -138,7 +138,7 @@ export async function getStaticProps({ ...ctx }) {
     github,
     linkedin,
     twitter,
-  } = await import('../../data/config.json');
+  } = await import('src/data/config.json');
   const { data, content } = matter(post.default);
 
   return {
@@ -157,7 +157,7 @@ export async function getStaticProps({ ...ctx }) {
 
 export async function getStaticPaths() {
   // get all .md files in the posts dir
-  const blogs = glob.sync('src/posts/**/*.md');
+  const blogs = glob.sync('posts/**/*.md');
 
   // remove path and extension to leave filename only
   const blogSlugs = blogs.map((file) =>

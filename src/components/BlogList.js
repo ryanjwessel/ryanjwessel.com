@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import StyledBlogList from './StyledBlogList';
-import { postListPropTypes } from '../propTypes';
-import { getReadableDate } from '../utils/date';
+import { postListPropTypes } from 'src/propTypes';
+import { getReadableDate } from 'src/utils/date';
 
 const BlogList = ({ posts }) => (
   <StyledBlogList>

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import matter from 'gray-matter';
-import Layout from '../components/Layout';
-import BlogList from '../components/BlogList';
-import { postListPropTypes } from '../propTypes';
+import Layout from 'src/components/Layout';
+import BlogList from 'src/components/BlogList';
+import { postListPropTypes } from 'src/propTypes';
 
 const Index = ({
   title,
