@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledApp from 'src/components/StyledApp';
+import StyledApp from 'src/styles/app';
 
 const App = ({ Component, pageProps }) => {
   return (

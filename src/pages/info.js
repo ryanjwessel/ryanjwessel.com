@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Layout from 'src/components/Layout';
+import Layout from 'src/components/Layout/Layout';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import LinkRenderer from 'src/components/renderers/LinkRenderer';
+import LinkRenderer from 'src/components/_renderers/LinkRenderer';
 import { frontmatterPropTypes } from 'src/propTypes';
 
 const Info = ({

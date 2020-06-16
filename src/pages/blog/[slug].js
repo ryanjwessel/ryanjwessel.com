@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import Layout from 'src/components/Layout';
-import CodeBlockRenderer from 'src/components/renderers/CodeBlockRenderer';
+import Layout from 'src/components/Layout/Layout';
+import CodeBlockRenderer from 'src/components/_renderers/CodeBlockRenderer';
 import { frontmatterPropTypes } from 'src/propTypes';
-import { getReadableDate } from 'src/utils/date';
-import StyledBanner from 'src/components/StyledBanner';
+import BlogHeader from 'src/components/Blog/BlogHeader';
+import BlogFooter from 'src/components/Blog/BlogFooter';
+import StyledBlogTemplate from 'src/components/Blog/StyledBlogTemplate';
+import ImageRenderer from 'src/components/_renderers/ImageRenderer';
+import InlineCodeRenderer from 'src/components/_renderers/InlineCodeRenderer';
 const glob = require('glob');
 
 const BlogTemplate = ({
@@ -17,104 +20,34 @@ const BlogTemplate = ({
   linkedin,
   twitter,
   markdownBody,
-}) => {
-  const {
-    title,
-    date,
-    bannerImgSrc,
-    bannerImgAlt,
-    codesandboxSample,
-    githubSample,
-  } = frontmatter;
-  const readableDate = getReadableDate(date);
-
-  return (
-    <Layout
-      pathname="/"
-      title={title}
-      headline={headline}
-      description={description}
-      github={github}
-      linkedin={linkedin}
-      twitter={twitter}
-    >
-      <article>
-        <header>
-          <h1>{title}</h1>
-          <h3>{readableDate}</h3>
-          {/* TODO: Separate this into a BlogHeader component */}
-          {(githubSample || codesandboxSample) && (
-            <h5>
-              {githubSample && (
-                <a
-                  href={githubSample}
-                  alt="Example Repo"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Example Repo
-                </a>
-              )}
-              {githubSample && codesandboxSample && (
-                <span style={{ margin: '0 4px' }}>|</span>
-              )}
-              {codesandboxSample && (
-                <a
-                  href={codesandboxSample}
-                  alt="Example CodeSandbox"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Example CodeSandbox
-                </a>
-              )}
-            </h5>
-          )}
-          {bannerImgSrc && (
-            <StyledBanner src={bannerImgSrc} alt={bannerImgAlt} />
-          )}
-        </header>
-        <div>
-          <ReactMarkdown
-            source={markdownBody}
-            className="markdown-container"
-            renderers={{ code: CodeBlockRenderer }}
-          />
-        </div>
-        {(githubSample || codesandboxSample) && (
-          <footer className="article-footer-card">
-            <p>If you&apos;d like to see the source code:</p>
-            <>
-              {githubSample && (
-                <a
-                  href={githubSample}
-                  alt="Example Repo"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Example Repo
-                </a>
-              )}
-              {githubSample && codesandboxSample && (
-                <span style={{ margin: '0 4px' }}>|</span>
-              )}
-              {codesandboxSample && (
-                <a
-                  href={codesandboxSample}
-                  alt="Example CodeSandbox"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Example CodeSandbox
-                </a>
-              )}
-            </>
-          </footer>
-        )}
-      </article>
-    </Layout>
-  );
-};
+}) => (
+  <Layout
+    pathname="/"
+    title={frontmatter.title}
+    headline={headline}
+    description={description}
+    github={github}
+    linkedin={linkedin}
+    twitter={twitter}
+  >
+    <article>
+      <BlogHeader frontmatter={frontmatter} />
+      <div>
+        <ReactMarkdown
+          source={markdownBody}
+          className="markdown-container"
+          renderers={{
+            code: CodeBlockRenderer,
+            inlineCode: InlineCodeRenderer,
+            image: ImageRenderer,
+          }}
+        />
+      </div>
+      <BlogFooter frontmatter={frontmatter} />
+    </article>
+    <style jsx>{StyledBlogTemplate}</style>
+  </Layout>
+);
 
 BlogTemplate.propTypes = {
   frontmatter: frontmatterPropTypes,

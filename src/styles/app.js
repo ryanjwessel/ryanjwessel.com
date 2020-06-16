@@ -77,22 +77,6 @@ const StyledApp = css.global`
     font-weight: normal;
     font-style: italic;
   }
-  table {
-    width: 100%;
-  }
-  code {
-    color: ${colors.light.typography.code};
-  }
-  .markdown-container img {
-    display: block;
-    margin: 0 auto;
-  }
-  .article-footer-card {
-    border: 1px solid ${colors.light.border};
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 2rem 0;
-  }
   @media (min-width: 1280px) {
     h1,
     h2,
