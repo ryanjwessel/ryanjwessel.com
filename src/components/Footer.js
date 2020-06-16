@@ -6,7 +6,7 @@ import Icon from './icons/Icon';
 
 const Footer = ({ github, linkedin, twitter }) => {
   return (
-    <StyledFooter>
+    <footer>
       <Link href="/info">
         <a className="icon-link">
           <Icon.About />
@@ -36,7 +36,8 @@ const Footer = ({ github, linkedin, twitter }) => {
       >
         <Icon.LinkedIn />
       </a>
-    </StyledFooter>
+      <style jsx>{StyledFooter}</style>
+    </footer>
   );
 };
 

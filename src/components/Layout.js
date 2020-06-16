@@ -15,12 +15,13 @@ const Layout = ({
   children,
 }) => {
   return (
-    <StyledLayout>
+    <div className="layout-container">
       <Meta title={title} description={description} />
       <Header headline={headline} />
-      <div className="content">{children}</div>
+      <section className="content-container">{children}</section>
       <Footer github={github} linkedin={linkedin} twitter={twitter} />
-    </StyledLayout>
+      <style jsx>{StyledLayout}</style>
+    </div>
   );
 };
 

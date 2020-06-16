@@ -1,10 +1,13 @@
-import styled from 'styled-components';
+import css from 'styled-jsx/css';
 
-const StyledCodeBlock = styled.div`
-  margin: 0 -1.25rem 1rem;
-
+const StyledCodeBlock = css`
+  div.code-block {
+    margin: 0 -1.25rem 1rem;
+  }
   @media only screen and (min-width: 1280px) {
-    margin: 0 -4rem 1rem;
+    div.code-block {
+      margin: 0 -4rem 1rem;
+    }
   }
 `;
 

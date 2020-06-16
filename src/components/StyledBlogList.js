@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import css from 'styled-jsx/css';
 
-const StyledBlogList = styled.div`
+const StyledBlogList = css`
   .post-list {
     padding-inline-start: 0;
   }

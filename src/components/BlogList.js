@@ -5,7 +5,7 @@ import { postListPropTypes } from 'src/propTypes';
 import { getReadableDate } from 'src/utils/date';
 
 const BlogList = ({ posts }) => (
-  <StyledBlogList>
+  <>
     <ul className="post-list">
       {posts.length > 0 &&
         posts.map((post) => (
@@ -19,13 +19,14 @@ const BlogList = ({ posts }) => (
                 href={{ pathname: '/blog/[slug]' }}
                 as={{ pathname: `/blog/${post.slug}` }}
               >
-                <p className="link">{post.frontmatter.title}</p>
+                <span className="link">{post.frontmatter.title}</span>
               </Link>
             </h2>
           </li>
         ))}
     </ul>
-  </StyledBlogList>
+    <style jsx>{StyledBlogList}</style>
+  </>
 );
 
 BlogList.propTypes = {
