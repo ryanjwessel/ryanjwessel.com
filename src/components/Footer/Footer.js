@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import StyledFooter from './StyledFooter';
-import Icon from './icons/Icon';
+import Icon from '../_icons/Icon';
 
 const Footer = ({ github, linkedin, twitter }) => {
   return (

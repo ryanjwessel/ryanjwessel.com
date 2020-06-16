@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
-import Meta from './Meta';
+import Header from '../Header/Header';
+import Meta from '../Meta';
 import StyledLayout from './StyledLayout';
-import Footer from './Footer';
+import Footer from '../Footer/Footer';
 
 const Layout = ({
   title,

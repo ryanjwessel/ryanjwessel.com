@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import Layout from 'src/components/Layout';
-import CodeBlockRenderer from 'src/components/renderers/CodeBlockRenderer';
+import Layout from 'src/components/Layout/Layout';
+import CodeBlockRenderer from 'src/components/_renderers/CodeBlockRenderer';
 import { frontmatterPropTypes } from 'src/propTypes';
 import { getReadableDate } from 'src/utils/date';
-import StyledBanner from 'src/components/StyledBanner';
+import StyledBanner from 'src/components/Banner';
 const glob = require('glob');
 
 const BlogTemplate = ({
