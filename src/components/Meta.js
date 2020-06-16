@@ -11,6 +11,10 @@ const Meta = ({ title, description }) => {
       <title>{title}</title>
       <meta name="Description" content={description}></meta>
       <link rel="shortcut icon" type="image/x-icon" href={base64Favicon} />
+      <link rel="apple-touch-icon" href={base64Favicon} />
+      <link rel="apple-touch-icon" sizes="76x76" href={base64Favicon} />
+      <link rel="apple-touch-icon" sizes="120x120" href={base64Favicon} />
+      <link rel="apple-touch-icon" sizes="152x152" href={base64Favicon} />
       <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet"

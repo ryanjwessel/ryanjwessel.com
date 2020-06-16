@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import StyledHeader from './StyledHeader';
-import StyledAvatar from '../Avatar';
+import StyledAvatar from '../../Avatar';
 
 const Header = ({ headline }) => {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import matter from 'gray-matter';
 import Layout from 'src/components/Layout/Layout';
-import BlogList from 'src/components/BlogList/BlogList';
+import BlogList from 'src/components/Blog/BlogList';
 import { postListPropTypes } from 'src/propTypes';
 
 const Index = ({
