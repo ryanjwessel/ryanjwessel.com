@@ -1,19 +1,17 @@
-import React from 'react';
+import css from 'styled-jsx/css';
 
-const StyledBlogList = () => (
-  <style jsx>{`
-    .post-list {
-      padding-inline-start: 0;
-    }
-    .post {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 0;
-    }
-    .post .post-date {
-      margin-bottom: 0.25rem;
-    }
-  `}</style>
-);
+const StyledBlogList = css`
+  .post-list {
+    padding-inline-start: 0;
+  }
+  .post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .post .post-date {
+    margin-bottom: 0.25rem;
+  }
+`;
 
 export default StyledBlogList;

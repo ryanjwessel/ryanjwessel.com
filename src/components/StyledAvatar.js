@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const StyledAvatar = ({ src, alt }) => (
-  <div>
+  <>
     <img src={src} alt={alt} />
     <style jsx>{`
       img {
@@ -12,7 +12,7 @@ const StyledAvatar = ({ src, alt }) => (
         margin-right: 1rem;
       }
     `}</style>
-  </div>
+  </>
 );
 
 StyledAvatar.propTypes = {

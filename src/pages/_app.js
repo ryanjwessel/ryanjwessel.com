@@ -4,12 +4,12 @@ import StyledApp from 'src/components/StyledApp';
 
 const App = ({ Component, pageProps }) => {
   return (
-    <>
+    <div className="app-container">
       <Component {...pageProps} />
       <style jsx global>
         {StyledApp}
       </style>
-    </>
+    </div>
   );
 };
 

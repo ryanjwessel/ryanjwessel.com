@@ -20,7 +20,7 @@ const Header = ({ headline }) => {
           </nav>
         </Link>
       </div>
-      <StyledHeader />
+      <style jsx>{StyledHeader}</style>
     </header>
   );
 };

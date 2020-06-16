@@ -36,7 +36,7 @@ const Footer = ({ github, linkedin, twitter }) => {
       >
         <Icon.LinkedIn />
       </a>
-      <StyledFooter />
+      <style jsx>{StyledFooter}</style>
     </footer>
   );
 };

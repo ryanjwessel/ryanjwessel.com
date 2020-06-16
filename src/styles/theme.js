@@ -1,3 +1,13 @@
+export const layout = {
+  height: {
+    header: '4rem',
+    footer: '3rem',
+  },
+  margin: {
+    header: '1.5rem',
+  },
+};
+
 export const colors = {
   light: {
     background: '#fff',
