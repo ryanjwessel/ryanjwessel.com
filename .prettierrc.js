@@ -5,7 +5,7 @@ module.exports = {
 	"useTabs": false,
 	"trailingComma": "all",
 	"printWidth": 80,
-	"proseWrap": "never",
+	"proseWrap": "always",
 	"overrides": [
 		{
 			"files": "*.json",
