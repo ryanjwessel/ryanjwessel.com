@@ -17,7 +17,7 @@
   "lint-staged": {
     "src/**/*.{js,json,md}": [
       "eslint --fix",
-      "prettier --check --write"
+      "prettier --check --write --prose-wrap=always"
     ]
   },
   "dependencies": {
