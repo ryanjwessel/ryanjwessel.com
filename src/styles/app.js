@@ -77,6 +77,12 @@ const StyledApp = css.global`
     font-weight: normal;
     font-style: italic;
   }
+  blockquote {
+    margin: 0.5rem 0;
+    padding: 0.25rem 0 0.25rem 2rem;
+    border-left: 0.25rem solid ${colors.light.accent};
+    background-color: #f3f3f3;
+  }
   @media (min-width: 1280px) {
     h1,
     h2,
