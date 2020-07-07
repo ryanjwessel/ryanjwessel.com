@@ -1,6 +1,6 @@
 ---
 title: 'Getting Things Done: An Overview'
-date: '2020-07-97T09:00:00-05:00'
+date: '2020-07-07T09:00:00-05:00'
 bannerImgSrc: 'https://images.unsplash.com/uploads/14114640960629b5c3fa0/116dc05a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80'
 bannerImgAlt:
   'Plane Flying In The Clouds'
