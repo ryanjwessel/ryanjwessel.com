@@ -1,3 +1,11 @@
+---
+title: 'Getting Things Done: An Overview'
+date: '2020-07-97T09:00:00-05:00'
+bannerImgSrc: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80'
+bannerImgAlt:
+  'Plane Flying In The Clouds'
+---
+
 Throughout 2020, I have been reading David Allen’s book, *Getting Things Done* (also known as GTD), and gradually applying pieces of the system to my life. I just finished the book last month, so I would like to outline some of the most important lessons I have derived from the book.
 
 Before I begin, I just want to clarify that you don’t need to read this and put every piece of it in action right away. Part of the beauty of the GTD system is that you can apply pieces of it in stages. Likely, you will be better off trying one or two things at a time first before you add onto your system. As I explain some of the fundamental parts of the system, I will call out which ones make the most sense to start implementing first.
