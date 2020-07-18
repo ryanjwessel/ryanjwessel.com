@@ -12,6 +12,7 @@ const Index = ({
   github,
   linkedin,
   twitter,
+  youtube,
   posts,
 }) => {
   return (
@@ -23,6 +24,7 @@ const Index = ({
       github={github}
       linkedin={linkedin}
       twitter={twitter}
+      youtube={youtube}
     >
       <section>
         <BlogList posts={posts} />
@@ -38,6 +40,7 @@ Index.propTypes = {
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   twitter: PropTypes.string.isRequired,
+  youtube: PropTypes.string.isRequired,
   posts: postListPropTypes,
 };
 
@@ -51,6 +54,7 @@ export async function getStaticProps() {
     github,
     linkedin,
     twitter,
+    youtube,
   } = await import('../data/config.json');
   // Get posts & context from folder
   const posts = ((context) => {
@@ -88,6 +92,7 @@ export async function getStaticProps() {
       github,
       linkedin,
       twitter,
+      youtube,
     },
   };
 }

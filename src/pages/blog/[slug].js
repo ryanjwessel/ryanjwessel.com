@@ -19,6 +19,7 @@ const BlogTemplate = ({
   github,
   linkedin,
   twitter,
+  youtube,
   markdownBody,
 }) => (
   <Layout
@@ -29,6 +30,7 @@ const BlogTemplate = ({
     github={github}
     linkedin={linkedin}
     twitter={twitter}
+    youtube={youtube}
   >
     <article>
       <BlogHeader frontmatter={frontmatter} />
@@ -56,6 +58,7 @@ BlogTemplate.propTypes = {
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   twitter: PropTypes.string.isRequired,
+  youtube: PropTypes.string.isRequired,
   markdownBody: PropTypes.string.isRequired,
 };
 
@@ -71,6 +74,7 @@ export async function getStaticProps({ ...ctx }) {
     github,
     linkedin,
     twitter,
+    youtube,
   } = await import('src/data/config.json');
   const { data, content } = matter(post.default);
 
@@ -82,6 +86,7 @@ export async function getStaticProps({ ...ctx }) {
       github,
       linkedin,
       twitter,
+      youtube,
       frontmatter: data,
       markdownBody: content,
     },
