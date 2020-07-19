@@ -4,7 +4,7 @@ import Link from 'next/link';
 import StyledFooter from './StyledFooter';
 import Icon from '../../_icons/Icon';
 
-const Footer = ({ github, linkedin, twitter }) => {
+const Footer = ({ github, linkedin, twitter, youtube }) => {
   return (
     <footer>
       <Link href="/info">
@@ -30,6 +30,14 @@ const Footer = ({ github, linkedin, twitter }) => {
       </a>
       <a
         className="icon-link"
+        href={youtube}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <Icon.YouTube />
+      </a>
+      <a
+        className="icon-link"
         href={linkedin}
         target="_blank"
         rel="noreferrer noopener"
@@ -45,6 +53,7 @@ Footer.propTypes = {
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   twitter: PropTypes.string.isRequired,
+  youtube: PropTypes.string.isRequired,
 };
 
 export default Footer;

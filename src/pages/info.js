@@ -13,6 +13,7 @@ const Info = ({
   github,
   linkedin,
   twitter,
+  youtube,
   frontmatter,
   markdownBody,
 }) => {
@@ -25,6 +26,7 @@ const Info = ({
       github={github}
       linkedin={linkedin}
       twitter={twitter}
+      youtube={youtube}
     >
       <section>
         <h1>{frontmatter.title}</h1>
@@ -45,6 +47,7 @@ Info.propTypes = {
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   twitter: PropTypes.string.isRequired,
+  youtube: PropTypes.string.isRequired,
   markdownBody: PropTypes.string.isRequired,
 };
 
@@ -59,6 +62,7 @@ export async function getStaticProps() {
     github,
     linkedin,
     twitter,
+    youtube,
   } = await import('../data/config.json');
   const { data, content } = matter(post.default);
 
@@ -70,6 +74,7 @@ export async function getStaticProps() {
       github,
       linkedin,
       twitter,
+      youtube,
       frontmatter: data,
       markdownBody: content,
     },

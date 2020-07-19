@@ -12,6 +12,7 @@ const Layout = ({
   github,
   linkedin,
   twitter,
+  youtube,
   children,
 }) => {
   return (
@@ -19,7 +20,12 @@ const Layout = ({
       <Meta title={title} description={description} />
       <Header headline={headline} />
       <section className="content-container">{children}</section>
-      <Footer github={github} linkedin={linkedin} twitter={twitter} />
+      <Footer
+        github={github}
+        linkedin={linkedin}
+        twitter={twitter}
+        youtube={youtube}
+      />
       <style jsx>{StyledLayout}</style>
     </div>
   );
@@ -32,6 +38,7 @@ Layout.propTypes = {
   github: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   twitter: PropTypes.string.isRequired,
+  youtube: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
