@@ -5,6 +5,7 @@ export const frontmatterPropTypes = PropTypes.shape({
   date: PropTypes.string.isRequired,
   bannerImgSrc: PropTypes.string,
   bannerImgAlt: PropTypes.string,
+  youtubeEmbed: PropTypes.string,
   codesandboxSample: PropTypes.string,
   githubSample: PropTypes.string,
 }).isRequired;

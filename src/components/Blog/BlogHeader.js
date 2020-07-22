@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPlayer from 'react-player';
 import { frontmatterPropTypes } from 'src/propTypes';
 import { getReadableDate } from 'src/utils/date';
 import StyledBanner from 'src/components/Blog/BlogBanner';
@@ -9,6 +10,7 @@ const BlogHeader = ({ frontmatter }) => {
     date,
     bannerImgSrc,
     bannerImgAlt,
+    youtubeEmbed,
     codesandboxSample,
     githubSample,
   } = frontmatter;
@@ -45,7 +47,11 @@ const BlogHeader = ({ frontmatter }) => {
           )}
         </h5>
       )}
-      {bannerImgSrc && <StyledBanner src={bannerImgSrc} alt={bannerImgAlt} />}
+      {youtubeEmbed ? (
+        <ReactPlayer url={youtubeEmbed} />
+      ) : (
+        bannerImgSrc && <StyledBanner src={bannerImgSrc} alt={bannerImgAlt} />
+      )}
     </header>
   );
 };
