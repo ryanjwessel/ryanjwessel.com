@@ -246,10 +246,13 @@ incapable of typing anything into the `oldPassword` field.
 Here is what our test output looks like with that change:
 
 ```bash
-FAIL src/ResetPassword.test.js
+PASS src/ResetPassword.test.js
   ResetPassword
     ✓ should match the snapshot (31ms)
 ```
+
+So, the user is now unable to enter any text into the input field, but our test
+did not notify us of this breakage. 
 
 Hopefully, these examples have helped you understand the shortcomings of
 snapshot testing. But, I don't want to leave you only with what **not** to do.
