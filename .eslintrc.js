@@ -13,7 +13,6 @@ module.exports = {
     'plugin:md/recommended',
     'plugin:prettier/recommended',
     'prettier',
-    'prettier/react',
   ],
   plugins: ['react', 'react-hooks', 'json', 'prettier'],
   parserOptions: {
