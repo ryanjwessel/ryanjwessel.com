@@ -252,7 +252,7 @@ PASS src/ResetPassword.test.js
 ```
 
 So, the user is now unable to enter any text into the input field, but our test
-did not notify us of this breakage. 
+did not notify us of this breakage.
 
 Hopefully, these examples have helped you understand the shortcomings of
 snapshot testing. But, I don't want to leave you only with what **not** to do.

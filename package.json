@@ -1,6 +1,6 @@
 {
   "name": "ryan-j-wessel-dot-com",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "author": "Ryan J. Wessel <ryan@wesselstudios.com",
   "license": "MIT",
@@ -40,9 +40,9 @@
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
-    "remark-cli": "^8.0.0",
-    "remark-frontmatter": "^2.0.0",
-    "remark-preset-lint-consistent": "^3.0.0"
+    "remark-cli": "^9.0.0",
+    "remark-frontmatter": "^3.0.0",
+    "remark-preset-lint-consistent": "^4.0.0"
   },
   "repository": {
     "type": "git",
