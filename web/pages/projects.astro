@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/site';
+---
+
+<BaseLayout
+  path="/projects"
+  title="Projects | Ryan Wessel"
+  description="Selected initiatives spanning integrations platform scaling, mobile simplification, and international delivery."
+>
+  <section class="hero">
+    <p class="eyebrow">Selected Work</p>
+    <h1>Programs and initiatives with measurable engineering impact.</h1>
+    <p class="hero-lead">
+      These examples highlight how I connect technical strategy, team execution,
+      and business outcomes in high-scale intelligence environments.
+    </p>
+  </section>
+
+  <section class="stack">
+    {projects.map((project) => (
+      <article class="panel stack">
+        <h2>{project.name}</h2>
+        <p>{project.summary}</p>
+        <ul class="impact-list">
+          {project.impact.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

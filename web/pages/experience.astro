@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { experience } from '../data/site';
+---
+
+<BaseLayout
+  path="/experience"
+  title="Experience | Ryan Wessel"
+  description="Career timeline and leadership impact across Dataminr and prior engineering roles."
+>
+  <section class="hero">
+    <p class="eyebrow">Experience</p>
+    <h1>Progressive leadership across platform, mobile, and product delivery.</h1>
+    <p class="hero-lead">
+      My path spans hands-on software engineering through multi-team leadership,
+      with a consistent focus on reliability, execution clarity, and long-term
+      technical health.
+    </p>
+  </section>
+
+  <section class="stack">
+    {experience.map((company) => (
+      <article class="panel">
+        <div class="meta-row">
+          <strong>{company.company}</strong>
+          <span>{company.period}</span>
+        </div>
+        <p class="eyebrow" style="margin-bottom: 0.75rem;">{company.location}</p>
+        <div class="stack">
+          {company.roles.map((role) => (
+            <section>
+              <div class="meta-row">
+                <h2 style="font-size: 1.05rem;">{role.title}</h2>
+                <span>{role.period}</span>
+              </div>
+              <ul class="role-list">
+                {role.bullets.map((bullet) => <li>{bullet}</li>)}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

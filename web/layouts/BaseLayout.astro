@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+const {
+  title = site.title,
+  description = site.description,
+  path = '/',
+} = Astro.props;
+
+const canonical = new URL(path, Astro.site).toString();
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: Astro.site,
+  sameAs: [site.linkedin, site.substack],
+  jobTitle: 'Senior Engineering Manager',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Dataminr',
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://ryanjwessel.com/animoji.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://ryanjwessel.com/animoji.png" />
+    <link rel="icon" href="/animoji.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </head>
+  <body>
+    <div class="background-glow"></div>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="/">
+          <span class="brand-mark">rw</span>
+          <span>{site.name}</span>
+        </a>
+        <nav aria-label="Primary">
+          <a href="/experience">Experience</a>
+          <a href="/projects">Projects</a>
+          <a href="/writing">Writing</a>
+          <a class="link-out" href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>{site.name} - Engineering Leadership</p>
+        <div class="footer-links">
+          <a href={site.substack} target="_blank" rel="noreferrer">Substack</a>
+          <a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

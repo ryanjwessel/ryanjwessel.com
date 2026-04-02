@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  path="/writing"
+  title="Writing | Ryan Wessel"
+  description="Leadership and engineering writing by Ryan Wessel on Eng Leadership, Practiced."
+>
+  <section class="hero">
+    <p class="eyebrow">Writing</p>
+    <h1>Eng Leadership, Practiced</h1>
+    <p class="hero-lead">
+      I publish practical writing on engineering leadership, team development,
+      and operating effectively in complex systems.
+    </p>
+    <div class="cta-row">
+      <a
+        class="btn btn-primary"
+        href={site.substack}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Visit Substack
+      </a>
+      <a class="btn" href={site.linkedin} target="_blank" rel="noreferrer">Follow on LinkedIn</a>
+    </div>
+  </section>
+
+  <section class="panel stack">
+    <h2>What to expect</h2>
+    <ul class="impact-list">
+      <li>Engineering leadership lessons grounded in real delivery environments.</li>
+      <li>Frameworks for scaling teams, systems, and decision quality.</li>
+      <li>Practical reflections from operating in real-time intelligence contexts.</li>
+    </ul>
+  </section>
+</BaseLayout>

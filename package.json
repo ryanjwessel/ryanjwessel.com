@@ -1,14 +1,15 @@
 {
   "name": "ryan-j-wessel-dot-com",
-  "version": "2.0.2",
-  "description": "",
-  "author": "Ryan J. Wessel <ryan@wesselstudios.com",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Ryan Wessel professional website",
+  "author": "Ryan J. Wessel",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
-    "start": "next start",
-    "prepare": "husky install"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "lint-staged": {
     "src/**/*.{js,json,md}": [
@@ -17,40 +18,12 @@
     ]
   },
   "dependencies": {
-    "glob": "^7.1.6",
-    "gray-matter": "^4.0.2",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^12.1.0",
-    "raw-loader": "^4.0.0",
-    "react": "^17",
-    "react-dom": "^17",
-    "react-markdown": "^5",
-    "react-player": "^2.5.0",
-    "react-syntax-highlighter": "^15",
-    "styled-jsx": "^3.3.0"
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.12.8"
   },
   "devDependencies": {
-    "eslint": "^7.23.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-json": "^2.1.2",
-    "eslint-plugin-md": "^1.0.19",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.23.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "remark-cli": "^9.0.0",
-    "remark-frontmatter": "^3.0.0",
-    "remark-preset-lint-consistent": "^4.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ryanjwessel/ryanjwessel.com.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ryanjwessel/ryanjwessel.com/issues"
-  },
-  "homepage": "https://github.com/ryanjwessel/ryanjwessel.com#readme",
-  "keywords": []
+    "eslint": "^9.23.0",
+    "lint-staged": "^16.2.5",
+    "prettier": "^3.6.2"
+  }
 }

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { highlights, site, skills } from '../data/site';
+---
+
+<BaseLayout path="/">
+  <section class="hero">
+    <p class="eyebrow">Engineering Leadership</p>
+    <h1>Building resilient teams and scalable intelligence delivery systems.</h1>
+    <p class="hero-lead">
+      I lead distributed engineering teams at Dataminr that power how real-time
+      event, risk, and threat intelligence flows into customer platforms and
+      workflows. I focus on systems that help teams move quickly, build with
+      intention, and deliver durable impact.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/experience">View Experience</a>
+      <a class="btn" href="/projects">Explore Projects</a>
+      <a class="btn" href={site.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+    </div>
+  </section>
+
+  <section class="grid home-grid">
+    <article class="hero-card">
+      <h2>Current Focus</h2>
+      <ul class="highlights">
+        {highlights.map((item) => <li>{item}</li>)}
+      </ul>
+    </article>
+
+    <aside class="panel stack">
+      <img
+        src="/animoji.png"
+        alt="Ryan Wessel avatar"
+        width="84"
+        height="84"
+        style="border-radius: 0.6rem; border: 1px solid var(--border);"
+      />
+      <div>
+        <p class="eyebrow">Profile</p>
+        <p>
+          {site.name} ({site.pronouns})<br />
+          {site.role}
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow">Core Skills</p>
+        <ul class="tag-list">
+          {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Writing</p>
+        <p>
+          I publish leadership and engineering reflections at
+          <a href={site.substack} target="_blank" rel="noreferrer"> Eng Leadership, Practiced</a>.
+        </p>
+      </div>
+    </aside>
+  </section>
+</BaseLayout>
