@@ -1,18 +1,27 @@
+/* ─── Runtime Leadership Design Tokens ────────────────────────────────────── */
 :root {
-  --bg: #2b2b2b;
-  --bg-elevated: #313335;
-  --surface: #3c3f41;
-  --surface-alt: #353739;
-  --text: #a9b7c6;
-  --text-strong: #d3dae3;
-  --muted: #7f8c98;
-  --accent: #ffc66d;
-  --accent-blue: #6897bb;
-  --accent-green: #6a8759;
-  --border: #4a4d50;
-  --max: 1040px;
+  /* Background layers */
+  --bg:           #020C1B; /* navy-blue         deep workspace  */
+  --bg-elevated:  #11172A; /* tmux-indigo        elevated panel  */
+  --surface:      #11172A; /* panel body                        */
+  --surface-alt:  #161F38; /* tabbar-indigo      chrome / alt   */
+
+  /* Typography */
+  --text:         #F4F5F7; /* ice-white          primary copy   */
+  --text-strong:  #F4F5F7; /* same               high-emphasis  */
+  --muted:        #8FA3D9; /* prompt-periwinkle  secondary meta */
+
+  /* Accents */
+  --accent:        #47FBAB; /* mint-green         primary cta    */
+  --accent-blue:   #8BE9FD; /* trace-cyan         annotations    */
+  --accent-violet: #BC93F9; /* decision-violet    strategic cues */
+
+  /* Structure */
+  --border: #2A3559; /* gitgraph-indigo    structural outlines */
+  --max:    1040px;
 }
 
+/* ─── Reset ────────────────────────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
 }
@@ -24,11 +33,15 @@ body {
   min-height: 100%;
 }
 
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
 body {
-  background: radial-gradient(circle at 12% 10%, #34373a 0%, transparent 32%),
-    radial-gradient(circle at 88% 0%, #2f3234 0%, transparent 24%), var(--bg);
+  background-color: var(--bg);
+  /* Subtle mint + cyan glow anchored to corners */
+  background-image:
+    radial-gradient(ellipse at 0% 0%, rgba(71, 251, 171, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 5%, rgba(139, 233, 253, 0.05) 0%, transparent 35%);
   color: var(--text);
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
 }
 
@@ -41,30 +54,32 @@ a:hover {
   color: var(--text-strong);
 }
 
+/* ─── Layout ───────────────────────────────────────────────────────────────── */
 .container {
   width: min(calc(100% - 2.5rem), var(--max));
   margin-inline: auto;
 }
 
+/* Subtle terminal grid texture applied over the whole page */
 .background-glow {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    145deg,
-    rgba(104, 151, 187, 0.08),
-    rgba(255, 198, 109, 0.06) 35%,
-    transparent 72%
-  );
+  /* Fine grid lines at panel-stroke opacity */
+  background-image:
+    linear-gradient(rgba(42, 53, 89, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 53, 89, 0.25) 1px, transparent 1px);
+  background-size: 48px 48px;
   z-index: -1;
 }
 
+/* ─── Header ───────────────────────────────────────────────────────────────── */
 .site-header {
   position: sticky;
   top: 0;
-  backdrop-filter: blur(8px);
-  background: rgba(43, 43, 43, 0.82);
-  border-bottom: 1px solid rgba(74, 77, 80, 0.65);
+  backdrop-filter: blur(10px);
+  background: rgba(2, 12, 27, 0.88);
+  border-bottom: 1px solid rgba(71, 251, 171, 0.18);
   z-index: 10;
 }
 
@@ -81,8 +96,13 @@ a:hover {
   align-items: center;
   gap: 0.65rem;
   color: var(--text-strong);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand:hover {
+  color: var(--accent);
 }
 
 .brand-avatar {
@@ -117,40 +137,52 @@ nav a:focus-visible {
   padding: 0.3rem 0.8rem;
 }
 
+.link-out:hover {
+  border-color: rgba(71, 251, 171, 0.4);
+  color: var(--accent) !important;
+}
+
+/* ─── Main ─────────────────────────────────────────────────────────────────── */
 main {
   padding: 3.5rem 0 4.5rem;
 }
 
+/* ─── Typography ───────────────────────────────────────────────────────────── */
 h1,
 h2,
 h3 {
   color: var(--text-strong);
   line-height: 1.2;
   margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 h1 {
-  font-family: 'JetBrains Mono', monospace;
   font-size: clamp(2rem, 5vw, 3.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-family: 'JetBrains Mono', monospace;
   font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 p {
   margin: 0;
 }
 
+/* Terminal-prompt style label */
 .eyebrow {
   color: var(--accent-blue);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
+/* ─── Hero ─────────────────────────────────────────────────────────────────── */
 .hero {
   display: grid;
   gap: 1.45rem;
@@ -158,20 +190,23 @@ p {
   animation: fade-in 550ms ease;
 }
 
+.hero-lead {
+  max-width: 72ch;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+/* ─── Cards & Panels ───────────────────────────────────────────────────────── */
 .hero-card,
 .panel {
-  background: linear-gradient(180deg, var(--surface), var(--surface-alt));
+  background: linear-gradient(160deg, var(--surface), var(--surface-alt));
   border: 1px solid var(--border);
   border-radius: 0.8rem;
   padding: clamp(1.2rem, 2vw, 1.7rem);
 }
 
-.hero-lead {
-  max-width: 72ch;
-  color: var(--text);
-  font-size: 1.05rem;
-}
-
+/* ─── Buttons ──────────────────────────────────────────────────────────────── */
 .cta-row {
   display: flex;
   gap: 0.8rem;
@@ -182,24 +217,39 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 0.95rem;
+  padding: 0.55rem 1rem;
   border-radius: 0.55rem;
   border: 1px solid var(--border);
   color: var(--text-strong);
   font-weight: 500;
+  font-size: 0.95rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn:hover {
+  border-color: rgba(143, 163, 217, 0.5);
+  color: var(--text-strong);
 }
 
 .btn-primary {
-  border-color: #9f7f46;
-  background: rgba(255, 198, 109, 0.12);
+  border-color: rgba(71, 251, 171, 0.5);
+  background: rgba(71, 251, 171, 0.08);
   color: var(--accent);
 }
 
+.btn-primary:hover {
+  border-color: var(--accent);
+  background: rgba(71, 251, 171, 0.14);
+  color: var(--accent);
+}
+
+/* ─── Grid ─────────────────────────────────────────────────────────────────── */
 .grid {
   display: grid;
   gap: 1rem;
 }
 
+/* ─── Lists ────────────────────────────────────────────────────────────────── */
 .highlights li,
 .tag-list li,
 .impact-list li,
@@ -215,6 +265,7 @@ p {
   padding-left: 1.2rem;
 }
 
+/* Skills tags */
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -225,19 +276,21 @@ p {
 
 .tag-list li {
   margin-bottom: 0;
-  border: 1px solid #4f5457;
+  border: 1px solid rgba(71, 251, 171, 0.22);
   border-radius: 999px;
-  padding: 0.22rem 0.62rem;
-  font-size: 0.85rem;
+  padding: 0.22rem 0.68rem;
+  font-size: 0.83rem;
   color: var(--text-strong);
-  background: rgba(104, 151, 187, 0.1);
+  background: rgba(71, 251, 171, 0.06);
 }
 
+/* ─── Stack utility ────────────────────────────────────────────────────────── */
 .stack {
   display: grid;
   gap: 1rem;
 }
 
+/* ─── Meta row ─────────────────────────────────────────────────────────────── */
 .meta-row {
   display: flex;
   justify-content: space-between;
@@ -247,6 +300,7 @@ p {
   margin-bottom: 0.65rem;
 }
 
+/* ─── Footer ───────────────────────────────────────────────────────────────── */
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 1.1rem 0;
@@ -258,6 +312,7 @@ p {
   align-items: center;
   gap: 1rem;
   color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .footer-links {
@@ -265,10 +320,19 @@ p {
   gap: 1rem;
 }
 
+.footer-links a {
+  color: var(--muted);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* ─── Animation ────────────────────────────────────────────────────────────── */
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -276,6 +340,7 @@ p {
   }
 }
 
+/* ─── Responsive ───────────────────────────────────────────────────────────── */
 @media (min-width: 900px) {
   .home-grid {
     grid-template-columns: 1.3fr 1fr;
