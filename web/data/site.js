@@ -5,7 +5,7 @@ export const site = {
     'Senior Engineering Manager at Dataminr focused on scaling integrations and developing resilient engineering teams.',
   location: 'Remote',
   linkedin: 'https://www.linkedin.com/in/ryanjwessel/',
-  substack: 'https://engleadershippracticed.substack.com/',
+  substack: 'https://runtimeleadership.substack.com/',
   title:
     'Ryan Wessel | Engineering Leadership for Real-Time Intelligence Systems',
   description:
