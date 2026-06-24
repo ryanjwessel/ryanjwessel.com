@@ -12,8 +12,8 @@ const Header = ({ headline }) => {
           <nav className="nav" role="navigation" aria-label="main navigation">
             <a>
               <StyledAvatar
-                src="/animoji.png"
-                alt="Ryan's Animoji with a blue background"
+                src="/headshot.jpg"
+                alt="Ryan Wessel"
               />
               <h1>{headline}</h1>
             </a>
