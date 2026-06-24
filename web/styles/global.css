@@ -85,15 +85,13 @@ a:hover {
   font-weight: 700;
 }
 
-.brand-mark {
-  display: inline-grid;
-  place-items: center;
+.brand-avatar {
   width: 1.8rem;
   height: 1.8rem;
-  border: 1px solid var(--accent-blue);
-  border-radius: 0.35rem;
-  color: var(--accent-blue);
-  font-size: 0.78rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border);
 }
 
 nav {
