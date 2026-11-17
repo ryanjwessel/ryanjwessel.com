@@ -1,131 +1,92 @@
 export const site = {
   name: 'Ryan Wessel',
-  pronouns: 'He/Him',
-  role:
-    'Senior Engineering Manager at Dataminr focused on scaling integrations and developing resilient engineering teams.',
-  location: 'Remote',
+  role: 'Engineering Director at Dataminr',
   linkedin: 'https://www.linkedin.com/in/ryanjwessel/',
-  substack: 'https://runtimeleadership.substack.com/',
-  title:
-    'Ryan Wessel | Engineering Leadership for Real-Time Intelligence Systems',
+  studio: 'https://wesselstudios.com',
+  substack: 'https://runtimeleadership.substack.com',
+  title: 'Ryan Wessel | Engineering Leader, Builder & Writer',
   description:
-    'Engineering leader focused on building high-impact teams and scalable systems for real-time intelligence delivery.',
+    'Engineering leader, builder, and writer. I lead engineering at Dataminr, build through Wessel Studios, and write Runtime Leadership.',
 };
-
-export const highlights = [
-  'Led systems delivering Dataminr AI event intelligence across mobile, messaging, and enterprise channels, processing 10M+ alerts daily.',
-  'Scaled delivery infrastructure for peak global event volume while preserving low latency and platform reliability.',
-  'Drove multi-year mobile architecture simplification that reduced app complexity by 32% and improved release confidence.',
-  'Mentored managers and senior engineers to expand leadership capacity and strengthen execution across distributed teams.',
-];
-
-export const skills = [
-  'Engineering Management',
-  'Organizational Leadership',
-  'Platform and Integrations',
-  'TypeScript and React',
-  'React Native',
-  'AWS',
-  'Delivery and Reliability',
-  'Cross-Functional Strategy',
-];
 
 export const experience = [
   {
     company: 'Dataminr',
-    location: 'Remote',
-    period: '2019 - Present',
+    period: 'May 2020 – Present',
+    summary: 'Real-time intelligence, mobile products, integrations, and alert delivery.',
     roles: [
-      {
-        title: 'Senior Engineering Manager - Integrations',
-        period: 'Aug 2025 - Present',
-        bullets: [
-          'Own platform strategy and execution for intelligence delivery channels spanning mobile, messaging, and enterprise workflows.',
-          'Scaled systems for global event spikes while maintaining low-latency, high-reliability delivery at 10M+ daily alerts.',
-          'Introduced standardized integration patterns that reduced bespoke implementation work and accelerated onboarding.',
-          'Aligned technical roadmap with business priorities to increase platform reuse and cost efficiency.',
-        ],
-      },
-      {
-        title: 'Senior Engineering Manager - Mobile',
-        period: 'Jan 2024 - Aug 2025',
-        bullets: [
-          'Managed iOS and Android engineering for mission-critical real-time intelligence applications.',
-          'Led architectural simplification that reduced complexity by 32% and improved release reliability.',
-          'Partnered with product and AI teams to ship ReGenAI capabilities directly into mobile user experiences.',
-        ],
-      },
-      {
-        title: 'Software Engineer II, Senior Software Engineer (Tech Lead), and Engineering Manager - Mobile',
-        period: 'May 2020 - Jan 2024',
-        bullets: [
-          'Improved delivery predictability through stronger planning and clearer ownership boundaries.',
-          'Advanced vulnerability remediation and security posture while balancing business delivery needs.',
-          'Contributed to CI/CD modernization and internationalization initiatives across four mobile apps.',
-        ],
-      },
+      { title: 'Engineering Director', period: 'Oct 2026 – Present', description: 'Leading engineering across integrations and alert delivery.' },
+      { title: 'Senior Engineering Manager, Integrations', period: 'Aug 2025 – Oct 2026', description: 'Led platform strategy and execution across mobile, messaging, and enterprise delivery channels.' },
+      { title: 'Senior Engineering Manager, Mobile', period: 'Jan 2024 – Aug 2025', description: 'Led iOS and Android engineering, including the consolidation of separate React Native modules into a unified application.' },
+      { title: 'Software Engineer II → Senior Software Engineer / Tech Lead → Engineering Manager', period: 'May 2020 – Jan 2024', description: 'Grew from hands-on mobile engineering into technical and people leadership, working on delivery, security, and internationalization across four applications.' },
     ],
   },
   {
     company: 'PebblePost',
-    location: 'New York, NY',
-    period: 'Oct 2018 - May 2020',
+    period: 'Oct 2018 – May 2020',
+    summary: 'Enterprise software connecting digital campaigns with physical mail.',
     roles: [
-      {
-        title: 'Software Engineer',
-        period: 'Oct 2018 - May 2020',
-        bullets: [
-          'Led beta launch of the first external reporting dashboard for brand delivery analytics.',
-          'Helped rebuild internal applications with TypeScript and React while improving test coverage and delivery quality.',
-        ],
-      },
+      { title: 'Software Engineer', period: 'Oct 2018 – May 2020', description: 'Worked with fellow engineers and a UX designer to rebuild enterprise applications in React and TypeScript, develop creative tools, and deliver reporting dashboards.' },
     ],
   },
   {
     company: 'Synapse Group',
-    location: 'Stamford, CT',
-    period: 'Sep 2015 - Jun 2018',
+    period: 'Sep 2015 – Jun 2018',
+    summary: 'E-commerce experiences and the systems behind them.',
     roles: [
-      {
-        title: 'Senior Web Developer',
-        period: 'Sep 2015 - Jun 2018',
-        bullets: [
-          'Led migration from legacy ecommerce experience to React and Redux with sub-second page loads.',
-          'Automated internal workflows and introduced development practices that increased team velocity.',
-        ],
-      },
+      { title: 'Senior Web Developer', period: 'Sep 2015 – Jun 2018', description: 'Led a migration to React and Redux and automated internal workflows to support faster iteration.' },
     ],
   },
 ];
 
-export const projects = [
+export const work = [
   {
-    name: 'Dataminr Integrations Platform Scaling',
-    summary:
-      'Scaled a delivery platform for real-time AI event intelligence across mobile, messaging, and enterprise channels.',
-    impact: [
-      'Sustained 10M+ daily alert processing with strong latency and reliability outcomes.',
-      'Improved cost efficiency while handling increased alert volume and metadata payload growth.',
-      'Standardized integration patterns to reduce bespoke channel work and accelerate launches.',
+    slug: 'intelligence-delivery',
+    category: 'Platform strategy · Dataminr',
+    title: 'Getting intelligence where it matters.',
+    summary: 'Connecting real-time event intelligence to the mobile, messaging, and enterprise workflows people rely on.',
+    outcome: 'A platform approach to delivery across channels.',
+    role: 'Engineering leadership · Integrations & alert delivery',
+    sections: [
+      { label: 'The context', title: 'The event is only the beginning.', body: 'Real-time intelligence becomes useful when it reaches the people who need it. At Dataminr, delivery spans mobile applications, messaging, and enterprise integrations, with reliability and latency remaining important as global events drive changes in volume.' },
+      { label: 'My responsibility', title: 'Connect the platform to the priorities.', body: 'My work has connected platform strategy, technical roadmaps, and team execution across those delivery channels. That means balancing the needs of individual integrations with the long-term health and reuse of the platform beneath them.' },
+      { label: 'The approach', title: 'Build patterns that carry forward.', body: 'We introduced standardized integration patterns to reduce bespoke channel work. Alongside scaling delivery infrastructure, the focus was on making shared capabilities more reusable and aligning platform improvements with business priorities.' },
+      { label: 'The result', title: 'More than an individual integration.', body: 'The work supported delivery at global event scale and reduced bespoke implementation work across channels. It illustrates the connection between engineering leadership and platform design: helping teams meet immediate needs while building a foundation that can support what comes next.' },
     ],
   },
   {
-    name: 'Mobile Architecture Simplification Program',
-    summary:
-      'Led a multi-year simplification effort across iOS and Android applications in enterprise and defense use cases.',
-    impact: [
-      'Reduced app complexity by 32% and increased release reliability.',
-      'Enabled faster feature delivery while preserving quality and maintainability.',
-      'Created room for AI-first product enhancements and broader engineering ownership.',
+    slug: 'mobile-architecture',
+    category: 'Architecture & team leadership · Dataminr',
+    title: 'One application. A clearer foundation.',
+    summary: 'Consolidating separate React Native modules into a unified application, rather than bridging experiences through native code.',
+    outcome: 'A unified React Native application architecture.',
+    role: 'Engineering leadership · Mobile',
+    sections: [
+      { label: 'The context', title: 'Separate modules. Connected experiences.', body: 'The mobile architecture used separate React Native modules, with native code bridging the experiences between them. That structure made the application more complex to work on as a whole.' },
+      { label: 'My responsibility', title: 'Lead the simplification.', body: 'While leading mobile engineering at Dataminr, I drove a multi-year architecture simplification effort across iOS and Android. The work sat alongside ongoing product delivery in enterprise and defense use cases.' },
+      { label: 'The architectural change', title: 'Bring the experience together.', body: 'The team consolidated those separate modules into a unified React Native application. Instead of relying on native code to connect separate React Native experiences, the application could be understood and developed as a more cohesive whole.' },
+      { label: 'The result', title: 'A more cohesive application.', body: 'The result was a unified application in place of separate modules joined through native code. It gave the mobile work a clearer foundation while the team continued delivering product capabilities.' },
     ],
   },
+];
+
+export const articles = [
   {
-    name: 'International Mobile Expansion',
-    summary:
-      'Directed localization delivery for French and German market launches across four mobile applications.',
-    impact: [
-      'Coordinated product, engineering, and release workflows across multiple apps and teams.',
-      'Delivered market expansion capabilities while maintaining quality and execution speed.',
-    ],
+    path: 'Lead The Work',
+    title: 'Achieving Architectural Change Under Real Constraints',
+    description: 'Make meaningful technical change without assuming you can pause delivery or replace everything.',
+    url: `${site.substack}/p/achieving-architectural-change-under`,
+  },
+  {
+    path: 'Lead The Team',
+    title: 'The Engineering Manager’s Real Job: Maintaining the Full Picture',
+    description: 'Keep a current view of people, work, risks, and priorities before important context drifts.',
+    url: `${site.substack}/p/the-engineering-managers-real-job`,
+  },
+  {
+    path: 'Lead The Team',
+    title: 'A Practical System for Turning Team Ideas Into Shared Priorities and Ownership',
+    description: 'Turn scattered input into goals, owners, and an operating rhythm the team can follow.',
+    url: `${site.substack}/p/a-practical-system-for-turning-team`,
   },
 ];

@@ -1,0 +1,13 @@
+---
+import { work } from '../data/site';
+---
+<div class="work-grid">
+  {work.map((item, index) => (
+    <article class:list={['work-card', { 'work-card-alt': index === 1 }]}>
+      <div class="card-top"><p class="eyebrow">{item.category}</p><span class="card-number" aria-hidden="true">0{index + 1}</span></div>
+      <h3><a href={`/work/${item.slug}`}>{item.title}<span aria-hidden="true"> ↗</span></a></h3>
+      <p>{item.summary}</p>
+      <div class="card-outcome">{item.outcome}</div>
+    </article>
+  ))}
+</div>

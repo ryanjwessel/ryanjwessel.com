@@ -1,0 +1,15 @@
+---
+import { articles } from '../data/site';
+const { items = articles } = Astro.props;
+---
+<div class="article-list">
+  {items.map((article) => (
+    <article class="article-row">
+      <p class="eyebrow">{article.path}</p>
+      <div>
+        <h3><a href={article.url}>{article.title} <span aria-hidden="true">↗</span></a></h3>
+        <p>{article.description}</p>
+      </div>
+    </article>
+  ))}
+</div>

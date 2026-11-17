@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { experience, site } from '../data/site';
+---
+<BaseLayout title="About Ryan Wessel | Engineering Leader & Builder" description="From front-end engineering and UX to engineering leadership, independent building, and writing. Get to know Ryan Wessel." path="/about">
+  <section class="page-hero container"><p class="eyebrow">About me</p><h1>A builder’s curiosity.<br />A leader’s perspective.</h1><p class="page-lead">I’m Ryan Wessel, an engineering leader with roots in design and a lasting interest in how useful things get made.</p></section>
+  <section class="bio-grid container">
+    <img class="bio-portrait" src="/headshot.jpg" alt="Ryan Wessel" width="600" height="700" />
+    <div class="prose"><h2>The thread through it all.</h2><p>I’m a self-taught software engineer. I started in front-end engineering and UX, where the connection between how something works and how it feels is hard to ignore.</p><p>My work has since taken me through e-commerce, ad tech, mobile applications, and real-time intelligence systems. Over time, my focus expanded from building the software to helping teams understand the direction, make decisions, and own the work.</p><p>Today, I’m an Engineering Director at Dataminr. I joined in May 2020 and moved into the Director role in October 2026, following hands-on engineering, technical leadership, and engineering management roles.</p><p>Alongside that work, I own <a href={site.studio}>Wessel Studios</a>, where Hannah Sawhney and I bring complementary creative, technical, and marketing experience to original ventures and selected collaborations. I also write <a href={site.substack}>Runtime Leadership</a> to work through the practical questions of leading engineering work and teams.</p></div>
+  </section>
+  <section class="section container" id="experience" aria-labelledby="experience-heading">
+    <div class="section-heading"><div><p class="eyebrow">The path so far</p><h2 id="experience-heading">Experience.</h2></div><p>From hands-on product development to the systems and teams behind delivery.</p></div>
+    <div class="timeline">{experience.map((company) => (
+      <article class="company"><div><h3>{company.company}</h3><p class="period">{company.period}</p><p>{company.summary}</p></div><div class="roles">{company.roles.map((role) => (<section><p class="eyebrow">{role.period}</p><h4>{role.title}</h4><p>{role.description}</p></section>))}</div></article>
+    ))}</div>
+  </section>
+</BaseLayout>

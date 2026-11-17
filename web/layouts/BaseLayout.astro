@@ -2,33 +2,25 @@
 import '../styles/global.css';
 import { site } from '../data/site';
 
-const {
-  title = site.title,
-  description = site.description,
-  path = '/',
-} = Astro.props;
-
+const { title = site.title, description = site.description, path = '/' } = Astro.props;
 const canonical = new URL(path, Astro.site).toString();
-
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': `${Astro.site}#person`,
   name: site.name,
   url: Astro.site,
-  sameAs: [site.linkedin, site.substack],
-  jobTitle: 'Senior Engineering Manager',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Dataminr',
-  },
+  sameAs: [site.linkedin],
+  jobTitle: 'Engineering Director',
+  worksFor: { '@type': 'Organization', name: 'Dataminr' },
 };
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F7F2E6" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -36,46 +28,40 @@ const personSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="https://ryanjwessel.com/headshot.jpg" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://ryanjwessel.com/social-preview.png" />
+    <meta property="og:image:alt" content="Ryan Wessel. Engineering leader. Builder. Writer." />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://ryanjwessel.com/headshot.jpg" />
+    <meta name="twitter:image" content="https://ryanjwessel.com/social-preview.png" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body>
-    <div class="background-glow"></div>
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="/">
-          <img src="/headshot.jpg" alt="" aria-hidden="true" class="brand-avatar" />
-          <span>{site.name}</span>
-        </a>
-        <nav aria-label="Primary">
-          <a href="/experience">Experience</a>
-          <a href="/projects">Projects</a>
-          <a href="/writing">Writing</a>
-          <a class="link-out" href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-        </nav>
-      </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header container">
+      <a class="wordmark" href="/" aria-label="Ryan Wessel home">Ryan<br />Wessel<span aria-hidden="true">.</span></a>
+      <nav aria-label="Primary">
+        <a href="/about" aria-current={path === '/about' ? 'page' : undefined}>About</a>
+        <a href="/work" aria-current={path.startsWith('/work') ? 'page' : undefined}>Work</a>
+        <a href="/writing" aria-current={path === '/writing' ? 'page' : undefined}>Writing</a>
+        <a class="studio-nav" href={site.studio}>Wessel Studios <span aria-hidden="true">↗</span></a>
+      </nav>
     </header>
-    <main class="container">
-      <slot />
-    </main>
-    <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p>Ryan Wessel &mdash; <a href={site.substack} target="_blank" rel="noreferrer" style="color: var(--muted);">Runtime Leadership</a></p>
-        <div class="footer-links">
-          <a href={site.substack} target="_blank" rel="noreferrer">Runtime Leadership</a>
-          <a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
+    <main id="main"><slot /></main>
+    <footer class="site-footer container">
+      <div class="footer-intro">
+        <p class="eyebrow">Keep in touch</p>
+        <h2>Good work starts<br />with a conversation.</h2>
+        <a class="text-link" href={site.linkedin}>Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-bottom">
+        <p>© {new Date().getFullYear()} Ryan Wessel</p>
+        <div><a href={site.studio}>Wessel Studios ↗</a><a href={site.substack}>Runtime Leadership ↗</a></div>
+        <p>Engineering. Creativity. Curiosity.</p>
       </div>
     </footer>
   </body>
