@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test:e2e": "playwright test"
   },
   "lint-staged": {
     "src/**/*.{js,json,md}": [
@@ -22,6 +23,7 @@
     "astro": "^7.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "eslint": "^9.23.0",
     "lint-staged": "^16.2.5",
     "prettier": "^3.6.2",

@@ -1,0 +1,55 @@
+name: Dependabot auto-merge
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  enable:
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # This privileged workflow never checks out or executes PR code.
+      - uses: dependabot/fetch-metadata@v2
+        id: metadata
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/github-script@v7
+        env:
+          UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+          ECOSYSTEM: ${{ steps.metadata.outputs.package-ecosystem }}
+          DEPENDENCIES: ${{ steps.metadata.outputs.updated-dependencies-json }}
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              ...context.repo, pull_number: pr.number
+            });
+            const allowed = ['package.json', 'package-lock.json'];
+            const dependencies = JSON.parse(process.env.DEPENDENCIES || '[]');
+            const routineTypes = ['version-update:semver-patch', 'version-update:semver-minor'];
+            const eligible = !pr.draft && pr.base.ref === 'master' &&
+              process.env.ECOSYSTEM === 'npm_and_yarn' &&
+              routineTypes.includes(process.env.UPDATE_TYPE) &&
+              dependencies.length > 0 && dependencies.every(dep => routineTypes.includes(dep.updateType)) &&
+              files.length > 0 && files.every(file => allowed.includes(file.filename));
+            if (!eligible) {
+              if (pr.auto_merge) {
+                await github.graphql(`mutation($id: ID!) {
+                  disablePullRequestAutoMerge(input: {pullRequestId: $id}) { pullRequest { number } }
+                }`, { id: pr.node_id });
+              }
+              core.info('Human review required: major, unknown, or non-npm changes.');
+              return;
+            }
+            await github.graphql(`mutation($id: ID!) {
+              enablePullRequestAutoMerge(input: {pullRequestId: $id, mergeMethod: SQUASH}) {
+                pullRequest { number }
+              }
+            }`, { id: pr.node_id });
+            core.info('Auto-merge queued; required build, browser, and Vercel checks gate merging.');
