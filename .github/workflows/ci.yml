@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build website
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node --test scripts/availability.test.mjs
+
+  browser:
+    name: Browser validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      # Generate reference screenshots from the PR's base, in the same browser
+      # and runner as the candidate. Never accept the candidate as its own baseline.
+      - uses: actions/checkout@v4
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .baseline
+          persist-credentials: false
+      - name: Build reference site
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+        run: npm ci --prefix .baseline && npm run build --prefix .baseline
+      - name: Capture reference screenshots
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+        run: npm run test:e2e -- --update-snapshots
+        env:
+          BASELINE_DIR: .baseline
+          TEST_BASE_URL: http://127.0.0.1:4322
+          VISUAL_CHECK: '1'
+      - name: Validate candidate
+        run: npm run test:e2e
+        env:
+          VISUAL_CHECK: ${{ github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]' && '1' || '0' }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-results
+          path: |
+            outputs/playwright-report/
+            outputs/test-results/
+          retention-days: 14
