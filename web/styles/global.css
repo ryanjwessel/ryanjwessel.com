@@ -1,4 +1,4 @@
-/* A personal editorial sibling to Wessel Studios. */
+/* Shared palette, with deep teal leading Ryan's personal identity. */
 :root {
   --paper: #f7f2e6;
   --teal: #0e4b4a;
@@ -132,6 +132,18 @@ nav a:hover, nav a[aria-current] { color: var(--beet); text-decoration: underlin
 .reading-path + .reading-path { padding-top: 0; }
 .writing-note { margin-top: 30px; font-size: .85rem; color: var(--muted); }
 .writing-note a { margin-left: 10px; }
+.teal-surface { background: var(--teal); color: var(--paper); --line: #507574; --muted: #dbe4d7; }
+.teal-surface h1, .teal-surface h2, .teal-surface .wordmark { color: var(--paper); }
+.teal-surface .wordmark span, .teal-surface .hero h1 span { color: var(--sage); }
+.teal-surface a:focus-visible { outline-color: var(--paper); }
+.teal-surface nav a:hover, .teal-surface nav a[aria-current],
+.teal-surface .text-link:hover, .teal-surface .footer-bottom a:hover { color: var(--sage); }
+.teal-surface .button { background: var(--paper); color: var(--teal); }
+.teal-surface .button:hover { background: var(--sage); }
+.teal-surface .hero-portrait { isolation: isolate; }
+.teal-surface .hero-portrait::before { background: #507574; }
+.teal-surface .current-strip { border-bottom: 0; }
+.teal-surface ::selection { background: var(--paper); color: var(--teal); }
 @media (max-width: 1000px) {
   nav { gap: 24px; }
   .hero { gap: 5%; }

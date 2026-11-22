@@ -5,6 +5,7 @@ import WorkCards from '../components/WorkCards.astro';
 import { site } from '../data/site';
 ---
 <BaseLayout path="/">
+  <div class="teal-surface">
   <section class="hero container">
     <div class="hero-copy">
       <p class="eyebrow">Ryan Wessel · Engineering & beyond</p>
@@ -19,6 +20,7 @@ import { site } from '../data/site';
     </div>
   </section>
   <div class="current-strip container"><span class="eyebrow">Currently</span><p>Engineering Director at Dataminr</p><a href="/about#experience">The path so far ↗</a></div>
+  </div>
   <section class="section container" aria-labelledby="work-heading">
     <div class="section-heading"><div><p class="eyebrow">01 / Selected work</p><h2 id="work-heading">Complex systems.<br />Clearer ways forward.</h2></div><p>Leadership work at the intersection of technical direction, team execution, and useful outcomes.</p></div>
     <WorkCards />
