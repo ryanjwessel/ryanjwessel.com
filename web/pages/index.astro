@@ -5,6 +5,7 @@ import WorkCards from '../components/WorkCards.astro';
 import { site } from '../data/site';
 ---
 <BaseLayout path="/">
+  <div class="teal-surface">
   <section class="hero container">
     <div class="hero-copy">
       <p class="eyebrow">Ryan Wessel · Engineering & beyond</p>
@@ -19,6 +20,7 @@ import { site } from '../data/site';
     </div>
   </section>
   <div class="current-strip container"><span class="eyebrow">Currently</span><p>Engineering Director at Dataminr</p><a href="/about#experience">The path so far ↗</a></div>
+  </div>
   <section class="section container" aria-labelledby="work-heading">
     <div class="section-heading"><div><p class="eyebrow">01 / Selected work</p><h2 id="work-heading">Complex systems.<br />Clearer ways forward.</h2></div><p>Leadership work at the intersection of technical direction, team execution, and useful outcomes.</p></div>
     <WorkCards />
@@ -29,9 +31,11 @@ import { site } from '../data/site';
       <div class="studio-copy"><p class="eyebrow">02 / Independent building</p><h2 id="studio-heading">Where ideas<br />become things.</h2><p>Wessel Studios is my creative business. It brings together my background in design and engineering with Hannah Sawhney’s experience in marketing, brand, and audience development.</p><p>We build our own ventures and collaborate on selected projects, from shaping an identity to bringing a digital product to life.</p><a class="text-link" href={site.studio}>Explore Wessel Studios ↗</a></div>
     </div>
   </section>
+  <div class="blue-surface">
   <section class="section container" aria-labelledby="writing-heading">
     <div class="section-heading"><div><p class="eyebrow">03 / Selected writing</p><h2 id="writing-heading">Thinking it through.<br />Sharing what helps.</h2></div><div><p>I write Runtime Leadership for engineers leading complex work and managers building reliable teams.</p><a class="text-link" href="/writing">Explore the writing ↗</a></div></div>
     <ArticleList />
   </section>
+  </div>
   <section class="about-note container"><p class="eyebrow">A little about me</p><div><h2>Always a builder.<br />Still curious.</h2><p>My path started in front-end engineering and UX, then expanded into mobile, platforms, and leading teams. I’m drawn to the places where creative thinking and technical judgment make each other better.</p><a class="text-link" href="/about">More about me ↗</a></div></section>
 </BaseLayout>

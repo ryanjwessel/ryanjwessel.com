@@ -20,7 +20,7 @@ const personSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#F7F2E6" />
+    <meta name="theme-color" content="#0E4B4A" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -42,6 +42,7 @@ const personSchema = {
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="teal-surface">
     <header class="site-header container">
       <a class="wordmark" href="/" aria-label="Ryan Wessel home">Ryan<br />Wessel<span aria-hidden="true">.</span></a>
       <nav aria-label="Primary">
@@ -51,7 +52,9 @@ const personSchema = {
         <a class="studio-nav" href={site.studio}>Wessel Studios <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
+    </div>
     <main id="main"><slot /></main>
+    <div class="teal-surface">
     <footer class="site-footer container">
       <div class="footer-intro">
         <p class="eyebrow">Keep in touch</p>
@@ -64,5 +67,6 @@ const personSchema = {
         <p>Engineering. Creativity. Curiosity.</p>
       </div>
     </footer>
+    </div>
   </body>
 </html>

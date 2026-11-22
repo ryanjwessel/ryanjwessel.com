@@ -1,10 +1,11 @@
-/* A personal editorial sibling to Wessel Studios. */
+/* Shared palette, with deep teal leading Ryan's personal identity. */
 :root {
   --paper: #f7f2e6;
   --teal: #0e4b4a;
   --ink: #263c37;
   --muted: #53635a;
   --beet: #58013b;
+  --blue: #315e73;
   --sage: #dbe4d7;
   --line: #d6d6c6;
   --body: 'Manrope', sans-serif;
@@ -41,9 +42,8 @@ nav a:hover, nav a[aria-current] { color: var(--beet); text-decoration: underlin
 .hero-lead { max-width: 560px; font-size: 1.14rem; margin-top: 30px; }
 .hero-context { max-width: 530px; color: var(--muted); font-size: .88rem; margin-top: 18px; }
 .hero-context a, .prose a { text-decoration: underline; text-underline-offset: 4px; }
-.hero-portrait { position: relative; padding: 20px 0 0 20px; }
-.hero-portrait::before { content: ''; position: absolute; width: 85%; aspect-ratio: 1; background: var(--sage); border-radius: 50%; top: -25px; right: -16px; z-index: -1; }
-.portrait-frame { overflow: hidden; border-radius: 46% 46% 4px 4px; background: var(--sage); }
+.hero-portrait { padding: 20px 0 0 20px; }
+.portrait-frame { overflow: hidden; border-radius: 4px; }
 .portrait-frame img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; }
 .hero-portrait > p { margin-top: 20px; font-size: .75rem; line-height: 1.6; color: var(--muted); }
 .cta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 30px; }
@@ -132,6 +132,22 @@ nav a:hover, nav a[aria-current] { color: var(--beet); text-decoration: underlin
 .reading-path + .reading-path { padding-top: 0; }
 .writing-note { margin-top: 30px; font-size: .85rem; color: var(--muted); }
 .writing-note a { margin-left: 10px; }
+.blue-surface { background: var(--blue); color: var(--paper); --muted: var(--paper); --line: #8da6ad; }
+.blue-surface h1, .blue-surface h2, .blue-surface h3 { color: var(--paper); }
+.blue-surface .text-link:hover, .blue-surface .article-row h3 a:hover { color: var(--sage); }
+.blue-surface a:focus-visible { outline-color: var(--paper); }
+.blue-surface + .about-note { padding-top: 90px; }
+.experience-surface { margin-top: 100px; }
+.teal-surface { background: var(--teal); color: var(--paper); --line: #507574; --muted: #dbe4d7; }
+.teal-surface h1, .teal-surface h2, .teal-surface .wordmark { color: var(--paper); }
+.teal-surface .wordmark span, .teal-surface .hero h1 span { color: var(--sage); }
+.teal-surface a:focus-visible { outline-color: var(--paper); }
+.teal-surface nav a:hover, .teal-surface nav a[aria-current],
+.teal-surface .text-link:hover, .teal-surface .footer-bottom a:hover { color: var(--sage); }
+.teal-surface .button { background: var(--paper); color: var(--teal); }
+.teal-surface .button:hover { background: var(--sage); }
+.teal-surface .current-strip { border-bottom: 0; }
+.teal-surface ::selection { background: var(--paper); color: var(--teal); }
 @media (max-width: 1000px) {
   nav { gap: 24px; }
   .hero { gap: 5%; }
@@ -169,6 +185,8 @@ nav a:hover, nav a[aria-current] { color: var(--beet); text-decoration: underlin
   .studio-orbit { right: 15px; bottom: 0; }
   .article-row { grid-template-columns: 1fr; gap: 12px; padding-block: 25px; }
   .about-note { grid-template-columns: 1fr; gap: 24px; padding-block: 10px 60px; }
+  .blue-surface + .about-note { padding-top: 60px; }
+  .experience-surface { margin-top: 65px; }
   .footer-bottom { flex-direction: column; gap: 18px; }
   .page-hero { padding-block: 45px; }
   h1 { font-size: clamp(2.6rem, 9vw, 4rem); }
