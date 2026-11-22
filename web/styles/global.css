@@ -132,11 +132,13 @@ nav a:hover, nav a[aria-current] { color: var(--beet); text-decoration: underlin
 .reading-path + .reading-path { padding-top: 0; }
 .writing-note { margin-top: 30px; font-size: .85rem; color: var(--muted); }
 .writing-note a { margin-left: 10px; }
-.writing-surface { background: var(--blue); color: var(--paper); --muted: var(--paper); --line: #8da6ad; }
-.writing-surface h2, .writing-surface h3 { color: var(--paper); }
-.writing-surface .text-link:hover, .writing-surface .article-row h3 a:hover { color: var(--sage); }
-.writing-surface a:focus-visible { outline-color: var(--paper); }
-.writing-surface + .about-note { padding-top: 90px; }
+.blue-surface { background: var(--blue); color: var(--paper); --muted: var(--paper); --line: #8da6ad; }
+.blue-surface h1, .blue-surface h2, .blue-surface h3 { color: var(--paper); }
+.blue-surface .text-link:hover, .blue-surface .article-row h3 a:hover { color: var(--sage); }
+.blue-surface a:focus-visible { outline-color: var(--paper); }
+.blue-surface + .about-note { padding-top: 90px; }
+.writing-intro { margin-bottom: 60px; }
+.experience-surface { margin-top: 100px; }
 .teal-surface { background: var(--teal); color: var(--paper); --line: #507574; --muted: #dbe4d7; }
 .teal-surface h1, .teal-surface h2, .teal-surface .wordmark { color: var(--paper); }
 .teal-surface .wordmark span, .teal-surface .hero h1 span { color: var(--sage); }
@@ -184,7 +186,9 @@ nav a:hover, nav a[aria-current] { color: var(--beet); text-decoration: underlin
   .studio-orbit { right: 15px; bottom: 0; }
   .article-row { grid-template-columns: 1fr; gap: 12px; padding-block: 25px; }
   .about-note { grid-template-columns: 1fr; gap: 24px; padding-block: 10px 60px; }
-  .writing-surface + .about-note { padding-top: 60px; }
+  .blue-surface + .about-note { padding-top: 60px; }
+  .writing-intro { margin-bottom: 45px; }
+  .experience-surface { margin-top: 65px; }
   .footer-bottom { flex-direction: column; gap: 18px; }
   .page-hero { padding-block: 45px; }
   h1 { font-size: clamp(2.6rem, 9vw, 4rem); }
