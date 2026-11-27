@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -35,10 +35,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -47,7 +47,7 @@ jobs:
       - run: npm run build
       # Generate reference screenshots from the PR's base, in the same browser
       # and runner as the candidate. Never accept the candidate as its own baseline.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
         with:
           ref: ${{ github.event.pull_request.base.sha }}
@@ -67,7 +67,7 @@ jobs:
         run: npm run test:e2e
         env:
           VISUAL_CHECK: ${{ github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]' && '1' || '0' }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: browser-results
